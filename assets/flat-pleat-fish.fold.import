@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://duvrk1vypy6xx"
+path="res://.godot/imported/flat-pleat-fish.fold-ebe1dc77eed58c46c3bd791057ab23b3.scn"
+
+[deps]
+
+source_file="res://assets/flat-pleat-fish.fold"
+dest_files=["res://.godot/imported/flat-pleat-fish.fold-ebe1dc77eed58c46c3bd791057ab23b3.scn"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://mpr47hjttf2v"
+path="res://.godot/imported/cube-octagon.fold-c4a290679e7bdef70fb06bed52ee8ae8.scn"
+
+[deps]
+
+source_file="res://assets/cube-octagon.fold"
+dest_files=["res://.godot/imported/cube-octagon.fold-c4a290679e7bdef70fb06bed52ee8ae8.scn"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://ctb0i07glxauw"
+path="res://.godot/imported/nested-frames.fold-e83808e6dc699955e1c446d89538c001.scn"
+
+[deps]
+
+source_file="res://assets/nested-frames.fold"
+dest_files=["res://.godot/imported/nested-frames.fold-e83808e6dc699955e1c446d89538c001.scn"]
+
+[params]
+

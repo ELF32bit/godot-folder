@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://b7eff0uys1w8d"
+path="res://.godot/imported/randlett-flapping-bird.fold-dfa794fa303930fac8064e27a35bcbf3.scn"
+
+[deps]
+
+source_file="res://assets/randlett-flapping-bird.fold"
+dest_files=["res://.godot/imported/randlett-flapping-bird.fold-dfa794fa303930fac8064e27a35bcbf3.scn"]
+
+[params]
+

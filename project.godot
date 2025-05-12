@@ -1,0 +1,28 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Folder Plugin"
+run/main_scene="uid://b0rc51q3xs4m7"
+config/features=PackedStringArray("4.4", "Mobile")
+
+[editor]
+
+naming/node_name_num_separator=3
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/folder/plugin.cfg")
+
+[rendering]
+
+renderer/rendering_method="mobile"
+anti_aliasing/quality/msaa_3d=2

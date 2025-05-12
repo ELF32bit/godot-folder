@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://befgo1s71ewth"
+path="res://.godot/imported/layer-solver-conflict.fold-1c485b3bb3ab58ca914ab7db3e7470ef.scn"
+
+[deps]
+
+source_file="res://assets/layer-solver-conflict.fold"
+dest_files=["res://.godot/imported/layer-solver-conflict.fold-1c485b3bb3ab58ca914ab7db3e7470ef.scn"]
+
+[params]
+

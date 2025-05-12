@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://bidvxcd5ic3wf"
+path="res://.godot/imported/windmill-variations.fold-9a4322e84b376eceb02c1dffd227aa7c.scn"
+
+[deps]
+
+source_file="res://assets/windmill-variations.fold"
+dest_files=["res://.godot/imported/windmill-variations.fold-9a4322e84b376eceb02c1dffd227aa7c.scn"]
+
+[params]
+

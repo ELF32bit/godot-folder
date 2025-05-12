@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://pwcsdqi3ddag"
+path="res://.godot/imported/non-planar-50-chaotic.fold-aa7b5c8b6d7abae33ce3de0064c57a5a.scn"
+
+[deps]
+
+source_file="res://assets/non-planar-50-chaotic.fold"
+dest_files=["res://.godot/imported/non-planar-50-chaotic.fold-aa7b5c8b6d7abae33ce3de0064c57a5a.scn"]
+
+[params]
+

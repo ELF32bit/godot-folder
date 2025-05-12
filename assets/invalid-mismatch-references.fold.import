@@ -1,0 +1,13 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://bhkkuxrsiunmj"
+valid=false
+
+[deps]
+
+source_file="res://assets/invalid-mismatch-references.fold"
+
+[params]
+

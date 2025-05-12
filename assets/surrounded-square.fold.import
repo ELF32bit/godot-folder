@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://c6lowkqixdlnv"
+path="res://.godot/imported/surrounded-square.fold-4857c99c385971b6f297c72d64c513f0.scn"
+
+[deps]
+
+source_file="res://assets/surrounded-square.fold"
+dest_files=["res://.godot/imported/surrounded-square.fold-4857c99c385971b6f297c72d64c513f0.scn"]
+
+[params]
+

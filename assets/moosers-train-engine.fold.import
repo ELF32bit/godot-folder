@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://bm27jaxr0wefo"
+path="res://.godot/imported/moosers-train-engine.fold-0bd1932427902dfc50fd13eceb91b583.scn"
+
+[deps]
+
+source_file="res://assets/moosers-train-engine.fold"
+dest_files=["res://.godot/imported/moosers-train-engine.fold-0bd1932427902dfc50fd13eceb91b583.scn"]
+
+[params]
+
