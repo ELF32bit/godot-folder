@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://p1025w7yt5rd"
+path="res://.godot/imported/castlePopup.svg-e7f1284ec037fb1c830284a566d83802.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Popup/castlePopup.svg"
+dest_files=["res://.godot/imported/castlePopup.svg-e7f1284ec037fb1c830284a566d83802.tres"]
+
+[params]
+

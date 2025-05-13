@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://cus42tk4it411"
+path="res://.godot/imported/BoxPleatTessellation.fold-82141841659a16379728c2eecab7edb7.scn"
+
+[deps]
+
+source_file="res://origami-simulator/Pleating/BoxPleatTessellation.fold"
+dest_files=["res://.godot/imported/BoxPleatTessellation.fold-82141841659a16379728c2eecab7edb7.scn"]
+
+[params]
+

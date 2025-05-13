@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://d1nqth6vgt8ao"
+path="res://.godot/imported/langOvalTessellation.svg-46daaef50eeff19b01d2d8e8e834b88f.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Tessellations/langOvalTessellation.svg"
+dest_files=["res://.godot/imported/langOvalTessellation.svg-46daaef50eeff19b01d2d8e8e834b88f.tres"]
+
+[params]
+

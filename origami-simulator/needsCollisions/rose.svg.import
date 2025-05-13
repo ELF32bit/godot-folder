@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://csva6onbeqrcg"
+path="res://.godot/imported/rose.svg-1fcec6936ad3f0da6960b641c4735731.tres"
+
+[deps]
+
+source_file="res://origami-simulator/needsCollisions/rose.svg"
+dest_files=["res://.godot/imported/rose.svg-1fcec6936ad3f0da6960b641c4735731.tres"]
+
+[params]
+

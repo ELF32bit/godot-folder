@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://dabgh4pkhqsj3"
+path="res://.godot/imported/huffmanRectangularWeave.svg-7518a164ced775acf259f086a71a247b.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Tessellations/huffmanRectangularWeave.svg"
+dest_files=["res://.godot/imported/huffmanRectangularWeave.svg-7518a164ced775acf259f086a71a247b.tres"]
+
+[params]
+

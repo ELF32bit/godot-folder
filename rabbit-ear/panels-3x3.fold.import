@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://dmh1wpvvvpt2u"
+path="res://.godot/imported/panels-3x3.fold-9fbf6dde518b5ff49a388d22babb46f9.scn"
+
+[deps]
+
+source_file="res://rabbit-ear/panels-3x3.fold"
+dest_files=["res://.godot/imported/panels-3x3.fold-9fbf6dde518b5ff49a388d22babb46f9.scn"]
+
+[params]
+

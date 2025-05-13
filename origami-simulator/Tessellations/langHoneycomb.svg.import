@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://durem43736ftw"
+path="res://.godot/imported/langHoneycomb.svg-178ccbba835749e45407ab4e4d6e6511.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Tessellations/langHoneycomb.svg"
+dest_files=["res://.godot/imported/langHoneycomb.svg-178ccbba835749e45407ab4e4d6e6511.tres"]
+
+[params]
+

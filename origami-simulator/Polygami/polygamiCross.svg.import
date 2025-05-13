@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://cfmgp0km3tgi3"
+path="res://.godot/imported/polygamiCross.svg-4a682391f141a4c7532381ee5cf603e9.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Polygami/polygamiCross.svg"
+dest_files=["res://.godot/imported/polygamiCross.svg-4a682391f141a4c7532381ee5cf603e9.tres"]
+
+[params]
+

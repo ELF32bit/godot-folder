@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://degnnc07lmyq7"
+path="res://.godot/imported/miura-ori.svg-250cb7d3098fa91b2621067faeb70172.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Tessellations/miura-ori.svg"
+dest_files=["res://.godot/imported/miura-ori.svg-250cb7d3098fa91b2621067faeb70172.tres"]
+
+[params]
+

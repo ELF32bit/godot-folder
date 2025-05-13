@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://3dfo6k7yivia"
+path="res://.godot/imported/FTpoly7.svg-8b65fe6e62bfae165bb4fe28db002830.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Tessellations/FTpoly7.svg"
+dest_files=["res://.godot/imported/FTpoly7.svg-8b65fe6e62bfae165bb4fe28db002830.tres"]
+
+[params]
+

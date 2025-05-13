@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://cd7l2yf7wthxc"
+path="res://.godot/imported/waterbombBase.svg-4774cae0a72abc549808bdd92de1a3fb.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Bases/waterbombBase.svg"
+dest_files=["res://.godot/imported/waterbombBase.svg-4774cae0a72abc549808bdd92de1a3fb.tres"]
+
+[params]
+

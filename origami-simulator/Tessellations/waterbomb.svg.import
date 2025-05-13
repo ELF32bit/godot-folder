@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://brjr5tge2r48o"
+path="res://.godot/imported/waterbomb.svg-e49204e4a4bcbc7fa9e1c49ea5a9ce77.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Tessellations/waterbomb.svg"
+dest_files=["res://.godot/imported/waterbomb.svg-e49204e4a4bcbc7fa9e1c49ea5a9ce77.tres"]
+
+[params]
+

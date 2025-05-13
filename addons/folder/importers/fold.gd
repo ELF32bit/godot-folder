@@ -9,7 +9,7 @@ func _get_importer_name() -> String:
 
 
 func _get_visible_name() -> String:
-	return "Resource"
+	return "FOLD"
 
 
 func _get_recognized_extensions() -> PackedStringArray:
@@ -58,12 +58,8 @@ func _get_priority() -> float:
 
 
 func _import(source_file: String, save_path: String, options: Dictionary, platform_variants: Array[String], gen_files: Array[String]) -> Error:
-	var fold := FolderFoldResource.from_file(source_file)
+	var fold := FolderFoldResource.from_json_file(source_file)
 	if not fold:
 		return ERR_PARSE_ERROR
 
-	if not fold.validate():
-		return ERR_PARSE_ERROR
-
-	var save_flags: int = ResourceSaver.FLAG_COMPRESS
-	return ResourceSaver.save(fold, "%s.%s" % [save_path, _get_save_extension()], save_flags)
+	return ResourceSaver.save(fold, "%s.%s" % [save_path, _get_save_extension()])

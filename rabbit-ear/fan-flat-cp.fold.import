@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://cb2ojb40osmfm"
+path="res://.godot/imported/fan-flat-cp.fold-529b9473e2f758f1d619f5ec62f03824.scn"
+
+[deps]
+
+source_file="res://rabbit-ear/fan-flat-cp.fold"
+dest_files=["res://.godot/imported/fan-flat-cp.fold-529b9473e2f758f1d619f5ec62f03824.scn"]
+
+[params]
+

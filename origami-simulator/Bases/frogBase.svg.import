@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://b764255pjjljh"
+path="res://.godot/imported/frogBase.svg-389e0120b480698e09319b2cb996889e.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Bases/frogBase.svg"
+dest_files=["res://.godot/imported/frogBase.svg-389e0120b480698e09319b2cb996889e.tres"]
+
+[params]
+

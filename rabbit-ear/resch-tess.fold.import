@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://qpnyvidm74d2"
+path="res://.godot/imported/resch-tess.fold-53c69260485be9bfd370b50e2c384eb0.scn"
+
+[deps]
+
+source_file="res://rabbit-ear/resch-tess.fold"
+dest_files=["res://.godot/imported/resch-tess.fold-53c69260485be9bfd370b50e2c384eb0.scn"]
+
+[params]
+

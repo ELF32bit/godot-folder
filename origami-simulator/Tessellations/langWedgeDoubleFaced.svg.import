@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://bp7ooxbjh2y1o"
+path="res://.godot/imported/langWedgeDoubleFaced.svg-17218ed2132f43b88698f785fd015e07.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Tessellations/langWedgeDoubleFaced.svg"
+dest_files=["res://.godot/imported/langWedgeDoubleFaced.svg-17218ed2132f43b88698f785fd015e07.tres"]
+
+[params]
+

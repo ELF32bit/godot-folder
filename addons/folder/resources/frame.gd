@@ -9,7 +9,7 @@ extends Resource
 @export var attributes: PackedStringArray
 @export var unit: String
 @export var graph: FolderGraphResource
-@export var parent: int
+@export var parent: int = -1
 @export var inherit: bool
 @export var custom_data: Dictionary
 

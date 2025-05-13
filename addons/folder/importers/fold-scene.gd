@@ -9,7 +9,7 @@ func _get_importer_name() -> String:
 
 
 func _get_visible_name() -> String:
-	return "PackedScene"
+	return "FOLD Scene"
 
 
 func _get_recognized_extensions() -> PackedStringArray:
@@ -58,7 +58,7 @@ func _get_priority() -> float:
 
 
 func _import(source_file: String, save_path: String, options: Dictionary, platform_variants: Array[String], gen_files: Array[String]) -> Error:
-	var fold := FolderFoldResource.from_file(source_file)
+	var fold := FolderFoldResource.from_json_file(source_file)
 	if not fold:
 		return ERR_PARSE_ERROR
 

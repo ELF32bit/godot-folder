@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://bt27ce7fd2iaa"
+path="res://.godot/imported/kissing-squares.fold-7ef29e1d5f7e2f4bf6c57a64149d859f.scn"
+
+[deps]
+
+source_file="res://rabbit-ear/kissing-squares.fold"
+dest_files=["res://.godot/imported/kissing-squares.fold-7ef29e1d5f7e2f4bf6c57a64149d859f.scn"]
+
+[params]
+

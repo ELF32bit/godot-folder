@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://iwx2vcdh0hn6"
+path="res://.godot/imported/huffmanTower.svg-e1e57fed98ff8ed0ec008d8b4284c303.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Curved/huffmanTower.svg"
+dest_files=["res://.godot/imported/huffmanTower.svg-e1e57fed98ff8ed0ec008d8b4284c303.tres"]
+
+[params]
+

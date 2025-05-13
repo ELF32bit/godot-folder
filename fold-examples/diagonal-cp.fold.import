@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://cq7qwpvj24xyd"
+path="res://.godot/imported/diagonal-cp.fold-8d51a84afdb4a52b88294073b7990bc0.scn"
+
+[deps]
+
+source_file="res://fold-examples/diagonal-cp.fold"
+dest_files=["res://.godot/imported/diagonal-cp.fold-8d51a84afdb4a52b88294073b7990bc0.scn"]
+
+[params]
+

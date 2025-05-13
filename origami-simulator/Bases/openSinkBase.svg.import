@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://cbr6iowwm35di"
+path="res://.godot/imported/openSinkBase.svg-7dfc3701b357d3beda404ccc2137d26c.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Bases/openSinkBase.svg"
+dest_files=["res://.godot/imported/openSinkBase.svg-7dfc3701b357d3beda404ccc2137d26c.tres"]
+
+[params]
+

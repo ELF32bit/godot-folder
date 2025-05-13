@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://c8orqqg7viqqc"
+path="res://.godot/imported/windmill.fold-a2506fba11ea50089ee87dfdc0391482.scn"
+
+[deps]
+
+source_file="res://rabbit-ear/windmill.fold"
+dest_files=["res://.godot/imported/windmill.fold-a2506fba11ea50089ee87dfdc0391482.scn"]
+
+[params]
+

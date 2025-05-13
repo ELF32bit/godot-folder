@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://cnc2eehh162vg"
+path="res://.godot/imported/langHyperbolicLimit.svg-fb6bc152fddf097f99953dd293d7e323.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Tessellations/langHyperbolicLimit.svg"
+dest_files=["res://.godot/imported/langHyperbolicLimit.svg-fb6bc152fddf097f99953dd293d7e323.tres"]
+
+[params]
+

@@ -143,6 +143,8 @@ static func from_dictionary(dictionary: Dictionary) -> FolderGraphResource:
 		for edge_fold_angle in edges_fold_angle:
 			if typeof(edge_fold_angle) in [TYPE_INT, TYPE_FLOAT]:
 				graph.edges_fold_angle.append(float(edge_fold_angle))
+			elif edge_fold_angle == null: # TODO: not specification-compliant!
+				graph.edges_fold_angle.append(0.0)
 			else:
 				return null
 	else:
@@ -246,6 +248,43 @@ static func from_dictionary(dictionary: Dictionary) -> FolderGraphResource:
 	return graph
 
 
+func insert_svg_element(element: String, attributes: Dictionary) -> void:
+	match element:
+		"line":
+			var x1 = attributes.get("x1", "0.0")
+			var y1 = attributes.get("y1", "0.0")
+			var x2 = attributes.get("x2", "0.0")
+			var y2 = attributes.get("y2", "0.0")
+			for coordinate in [x1, y1, x2, y2]:
+				if coordinate is String:
+					if coordinate.is_valid_float():
+						continue
+				return
+
+			var stroke = attributes.get("stroke", "")
+			if not (stroke is String and Color.html_is_valid(stroke)):
+				return
+			stroke = Color.html(stroke)
+
+			var index := self.vertices_coordinates.size()
+			self.edges_vertices.append(PackedInt64Array([index, index + 1]))
+			self.vertices_coordinates.append(PackedFloat64Array([float(x1), float(y1)]))
+			self.vertices_coordinates.append(PackedFloat64Array([float(x2), float(y2)]))
+			match stroke:
+				Color.BLACK:
+					self.edges_assignment.append("B")
+				Color.RED:
+					self.edges_assignment.append("M")
+				Color.BLUE:
+					self.edges_assignment.append("V")
+				Color.YELLOW:
+					self.edges_assignment.append("U")
+				Color.GREEN:
+					self.edges_assignment.append("C")
+				_:
+					self.edges_assignment.append("U")
+
+
 func inherit_properties(graph: FolderGraphResource) -> void:
 	if self.vertices_coordinates.is_empty():
 		self.vertices_coordinates = graph.vertices_coordinates.duplicate()
@@ -312,12 +351,12 @@ func validate() -> bool:
 	return true
 
 
-func get_packed_vertices_coordinates() -> PackedVector3Array:
+func get_packed_vertices_coordinates(scale: float = 1.0) -> PackedVector3Array:
 	var packed_vertices_coordinates := PackedVector3Array()
 	for vertex_coordinates in self.vertices_coordinates:
 		var coordinates := Vector3.ZERO
 		for index in range(mini(vertex_coordinates.size(), 3)):
-			coordinates[index] = vertex_coordinates[index]
+			coordinates[index] = vertex_coordinates[index] * scale
 		packed_vertices_coordinates.append(coordinates)
 	return packed_vertices_coordinates
 

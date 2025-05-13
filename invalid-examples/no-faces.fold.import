@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold"
+type="Resource"
+uid="uid://lmyiweqbrpmn"
+path="res://.godot/imported/no-faces.fold-c9238c4fd72d7db065be5deedd83fe21.tres"
+
+[deps]
+
+source_file="res://invalid-examples/no-faces.fold"
+dest_files=["res://.godot/imported/no-faces.fold-c9238c4fd72d7db065be5deedd83fe21.tres"]
+
+[params]
+

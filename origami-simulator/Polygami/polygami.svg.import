@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://dihl2ky8wby6i"
+path="res://.godot/imported/polygami.svg-70b10e87305eacd3f1cb045bb446a663.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Polygami/polygami.svg"
+dest_files=["res://.godot/imported/polygami.svg-70b10e87305eacd3f1cb045bb446a663.tres"]
+
+[params]
+

@@ -75,7 +75,7 @@ static func from_dictionary(dictionary: Dictionary) -> FolderFoldResource:
 	return fold
 
 
-static func from_file(path: String) -> FolderFoldResource:
+static func from_json_file(path: String) -> FolderFoldResource:
 	var file := FileAccess.open(path, FileAccess.READ)
 	if not file:
 		return null
@@ -87,6 +87,28 @@ static func from_file(path: String) -> FolderFoldResource:
 		return null
 
 	return from_dictionary(json.data)
+
+
+static func from_xml_file(path: String) -> FolderFoldResource:
+	var xml_parser := XMLParser.new()
+	if xml_parser.open(path) != OK:
+		return null
+
+	var fold := FolderFoldResource.new()
+	fold.key_frame = FolderFrameResource.new()
+	fold.key_frame.graph = FolderGraphResource.new()
+
+	while xml_parser.read() != ERR_FILE_EOF:
+		if xml_parser.get_node_type() == XMLParser.NODE_ELEMENT:
+			var node_name := xml_parser.get_node_name()
+			var attributes := {}
+			for index in range(xml_parser.get_attribute_count()):
+				var attribute_name := xml_parser.get_attribute_name(index)
+				var attribute_value := xml_parser.get_attribute_value(index)
+				attributes[attribute_name] = attribute_value
+			fold.key_frame.graph.insert_svg_element(node_name, attributes)
+
+	return fold
 
 
 func get_frame(frame_index: int) -> FolderFrameResource:

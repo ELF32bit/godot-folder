@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://b71ijnigkq22e"
+path="res://.godot/imported/airplane.svg-a548b866aad5cc974ac8deb145ad2bc2.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Origami/airplane.svg"
+dest_files=["res://.godot/imported/airplane.svg-a548b866aad5cc974ac8deb145ad2bc2.tres"]
+
+[params]
+

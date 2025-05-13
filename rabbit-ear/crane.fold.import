@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://duw1oi3a0g1y5"
+path="res://.godot/imported/crane.fold-b361526d6527a23802a18077f645176d.scn"
+
+[deps]
+
+source_file="res://rabbit-ear/crane.fold"
+dest_files=["res://.godot/imported/crane.fold-b361526d6527a23802a18077f645176d.scn"]
+
+[params]
+

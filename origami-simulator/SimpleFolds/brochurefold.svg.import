@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://c5kpd2cxm81fl"
+path="res://.godot/imported/brochurefold.svg-6e610eb0872426d2e11c4c078c2de113.tres"
+
+[deps]
+
+source_file="res://origami-simulator/SimpleFolds/brochurefold.svg"
+dest_files=["res://.godot/imported/brochurefold.svg-6e610eb0872426d2e11c4c078c2de113.tres"]
+
+[params]
+

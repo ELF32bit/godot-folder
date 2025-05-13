@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://ceh4advw65y7x"
+path="res://.godot/imported/two-bird-cp.fold-6f35f3c074f750e82c245f6d53792de9.scn"
+
+[deps]
+
+source_file="res://rabbit-ear/two-bird-cp.fold"
+dest_files=["res://.godot/imported/two-bird-cp.fold-6f35f3c074f750e82c245f6d53792de9.scn"]
+
+[params]
+

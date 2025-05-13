@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://bfa3d1ele5efv"
+path="res://.godot/imported/triangle-strip.fold-ab52e76f24ac726474900fadd8e688c9.scn"
+
+[deps]
+
+source_file="res://rabbit-ear/triangle-strip.fold"
+dest_files=["res://.godot/imported/triangle-strip.fold-ab52e76f24ac726474900fadd8e688c9.scn"]
+
+[params]
+

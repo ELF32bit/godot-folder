@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://cx1i286yyts4s"
+path="res://.godot/imported/Crossing_curves.svg-f5a0efadd3f63202c86f89ea7d414ae9.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Curved/Crossing_curves.svg"
+dest_files=["res://.godot/imported/Crossing_curves.svg-f5a0efadd3f63202c86f89ea7d414ae9.tres"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://bul5xdytvrc3u"
+path="res://.godot/imported/non-planar-bird-base.fold-b394ed722971b0d9c4fe83f32576ced5.scn"
+
+[deps]
+
+source_file="res://rabbit-ear/non-planar-bird-base.fold"
+dest_files=["res://.godot/imported/non-planar-bird-base.fold-b394ed722971b0d9c4fe83f32576ced5.scn"]
+
+[params]
+

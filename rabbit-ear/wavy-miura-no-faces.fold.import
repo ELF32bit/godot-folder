@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://ftavhwjndol1"
+path="res://.godot/imported/wavy-miura-no-faces.fold-b34d978c1601807d5b21e04f881e4233.scn"
+
+[deps]
+
+source_file="res://rabbit-ear/wavy-miura-no-faces.fold"
+dest_files=["res://.godot/imported/wavy-miura-no-faces.fold-b34d978c1601807d5b21e04f881e4233.scn"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://cpsv77hynefbl"
+path="res://.godot/imported/birdBase.svg-235da362d1cc3da08c5ab789cb05e936.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Bases/birdBase.svg"
+dest_files=["res://.godot/imported/birdBase.svg-235da362d1cc3da08c5ab789cb05e936.tres"]
+
+[params]
+

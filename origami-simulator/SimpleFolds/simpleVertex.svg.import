@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://dk6ps3uksvxr7"
+path="res://.godot/imported/simpleVertex.svg-c4f99f459b754a4c04bee336d3f88600.tres"
+
+[deps]
+
+source_file="res://origami-simulator/SimpleFolds/simpleVertex.svg"
+dest_files=["res://.godot/imported/simpleVertex.svg-c4f99f459b754a4c04bee336d3f88600.tres"]
+
+[params]
+

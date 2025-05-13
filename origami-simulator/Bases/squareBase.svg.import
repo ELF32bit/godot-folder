@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://wngf7tkwc682"
+path="res://.godot/imported/squareBase.svg-a6d5443cfef71ab2bdf1bda4e0fa13fe.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Bases/squareBase.svg"
+dest_files=["res://.godot/imported/squareBase.svg-a6d5443cfef71ab2bdf1bda4e0fa13fe.tres"]
+
+[params]
+

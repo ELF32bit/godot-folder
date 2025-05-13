@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://tf20ecpe7qjy"
+path="res://.godot/imported/whirlpool.svg-22f191d599deabc6437d3264e5905ad4.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Tessellations/whirlpool.svg"
+dest_files=["res://.godot/imported/whirlpool.svg-22f191d599deabc6437d3264e5905ad4.tres"]
+
+[params]
+

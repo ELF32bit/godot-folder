@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://ciiir8tihrswn"
+path="res://.godot/imported/huffmanExdentedBoxes.svg-e429505e72628f8154c98e36db8b11fe.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Tessellations/huffmanExdentedBoxes.svg"
+dest_files=["res://.godot/imported/huffmanExdentedBoxes.svg-e429505e72628f8154c98e36db8b11fe.tres"]
+
+[params]
+

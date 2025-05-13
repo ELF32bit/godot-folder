@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://bpw22t1au5hml"
+path="res://.godot/imported/huffmanWaterbomb.svg-fe3911c553475e832848a97cc332e8d0.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Tessellations/huffmanWaterbomb.svg"
+dest_files=["res://.godot/imported/huffmanWaterbomb.svg-fe3911c553475e832848a97cc332e8d0.tres"]
+
+[params]
+

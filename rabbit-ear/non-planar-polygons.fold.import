@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://bf28yuohg80ke"
+path="res://.godot/imported/non-planar-polygons.fold-9850c1f42e60c3b1a14310550e5695a6.scn"
+
+[deps]
+
+source_file="res://rabbit-ear/non-planar-polygons.fold"
+dest_files=["res://.godot/imported/non-planar-polygons.fold-9850c1f42e60c3b1a14310550e5695a6.scn"]
+
+[params]
+

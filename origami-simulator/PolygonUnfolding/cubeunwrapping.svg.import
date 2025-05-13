@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://ddoy1jpy4fts5"
+path="res://.godot/imported/cubeunwrapping.svg-41b046f820bc561997aaeea3bc2ffd46.tres"
+
+[deps]
+
+source_file="res://origami-simulator/PolygonUnfolding/cubeunwrapping.svg"
+dest_files=["res://.godot/imported/cubeunwrapping.svg-41b046f820bc561997aaeea3bc2ffd46.tres"]
+
+[params]
+

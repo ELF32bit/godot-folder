@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://b25uv4rceevny"
+path="res://.godot/imported/geometricPopup.svg-5173904be4a4dff5b630f249f3b57c41.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Popup/geometricPopup.svg"
+dest_files=["res://.godot/imported/geometricPopup.svg-5173904be4a4dff5b630f249f3b57c41.tres"]
+
+[params]
+

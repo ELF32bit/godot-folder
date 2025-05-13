@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://c2t6aba76w4ac"
+path="res://.godot/imported/strip-with-angle.fold-2c369deb3b6dcbf55e041f6d509cb3e9.scn"
+
+[deps]
+
+source_file="res://rabbit-ear/strip-with-angle.fold"
+dest_files=["res://.godot/imported/strip-with-angle.fold-2c369deb3b6dcbf55e041f6d509cb3e9.scn"]
+
+[params]
+

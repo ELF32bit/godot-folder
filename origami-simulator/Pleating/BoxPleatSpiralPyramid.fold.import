@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://c270jxgr67cvv"
+path="res://.godot/imported/BoxPleatSpiralPyramid.fold-ede0682217621d874195188a5fd0b0a9.scn"
+
+[deps]
+
+source_file="res://origami-simulator/Pleating/BoxPleatSpiralPyramid.fold"
+dest_files=["res://.godot/imported/BoxPleatSpiralPyramid.fold-ede0682217621d874195188a5fd0b0a9.scn"]
+
+[params]
+

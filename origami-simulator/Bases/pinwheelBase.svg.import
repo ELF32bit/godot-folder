@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://dwonl4tkvkjc0"
+path="res://.godot/imported/pinwheelBase.svg-f857c42a71df25e5f30488ff01e8fcbd.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Bases/pinwheelBase.svg"
+dest_files=["res://.godot/imported/pinwheelBase.svg-f857c42a71df25e5f30488ff01e8fcbd.tres"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://css1w4livkfpv"
+path="res://.godot/imported/pleats-angle-3d.fold-9bbf267169e24b0b501b453a18b4f157.scn"
+
+[deps]
+
+source_file="res://rabbit-ear/pleats-angle-3d.fold"
+dest_files=["res://.godot/imported/pleats-angle-3d.fold-9bbf267169e24b0b501b453a18b4f157.scn"]
+
+[params]
+

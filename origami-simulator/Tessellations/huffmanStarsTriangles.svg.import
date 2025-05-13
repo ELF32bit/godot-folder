@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://hdcfkls84by"
+path="res://.godot/imported/huffmanStarsTriangles.svg-9c624e8f299da5f7042b37e36a08b882.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Tessellations/huffmanStarsTriangles.svg"
+dest_files=["res://.godot/imported/huffmanStarsTriangles.svg-9c624e8f299da5f7042b37e36a08b882.tres"]
+
+[params]
+

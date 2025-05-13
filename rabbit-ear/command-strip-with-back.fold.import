@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://dr1wwfpydsma0"
+path="res://.godot/imported/command-strip-with-back.fold-8ca62a14eb181150269211885080e0c6.scn"
+
+[deps]
+
+source_file="res://rabbit-ear/command-strip-with-back.fold"
+dest_files=["res://.godot/imported/command-strip-with-back.fold-8ca62a14eb181150269211885080e0c6.scn"]
+
+[params]
+

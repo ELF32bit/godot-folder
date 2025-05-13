@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://jer5dq14i6dj"
+path="res://.godot/imported/invalid-single-vertex-3d.fold-f72b0e6de4d086721af213faefa52804.scn"
+
+[deps]
+
+source_file="res://rabbit-ear/invalid-single-vertex-3d.fold"
+dest_files=["res://.godot/imported/invalid-single-vertex-3d.fold-f72b0e6de4d086721af213faefa52804.scn"]
+
+[params]
+

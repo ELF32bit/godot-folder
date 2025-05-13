@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://2qfgt4h5yunj"
+path="res://.godot/imported/squaretwistManyAngles.svg-d9cf9b440e06168f1af58a5ac61dd1ec.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Origami/squaretwistManyAngles.svg"
+dest_files=["res://.godot/imported/squaretwistManyAngles.svg-d9cf9b440e06168f1af58a5ac61dd1ec.tres"]
+
+[params]
+

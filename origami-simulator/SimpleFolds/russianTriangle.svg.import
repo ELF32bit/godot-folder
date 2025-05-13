@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://baarumh7nxnu4"
+path="res://.godot/imported/russianTriangle.svg-759e5a659d6cd174f60321b91bd05437.tres"
+
+[deps]
+
+source_file="res://origami-simulator/SimpleFolds/russianTriangle.svg"
+dest_files=["res://.godot/imported/russianTriangle.svg-759e5a659d6cd174f60321b91bd05437.tres"]
+
+[params]
+

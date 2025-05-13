@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://c3v8myg3cu0kl"
+path="res://.godot/imported/traditionalCrane.svg-e72d6b3793e90e862887321a65f35e1d.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Origami/traditionalCrane.svg"
+dest_files=["res://.godot/imported/traditionalCrane.svg-e72d6b3793e90e862887321a65f35e1d.tres"]
+
+[params]
+

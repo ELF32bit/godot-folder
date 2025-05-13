@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold"
+type="Resource"
+uid="uid://dw7rygmg8x5hj"
+path="res://.godot/imported/bad-edges.fold-c4c81881ae6f4c64f81b3800c22aa076.tres"
+
+[deps]
+
+source_file="res://invalid-examples/bad-edges.fold"
+dest_files=["res://.godot/imported/bad-edges.fold-c4c81881ae6f4c64f81b3800c22aa076.tres"]
+
+[params]
+

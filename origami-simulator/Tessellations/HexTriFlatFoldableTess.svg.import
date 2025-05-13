@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://oq7jlv8xb124"
+path="res://.godot/imported/HexTriFlatFoldableTess.svg-51f014dba232f9b53be41c5e140fc9ea.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Tessellations/HexTriFlatFoldableTess.svg"
+dest_files=["res://.godot/imported/HexTriFlatFoldableTess.svg-51f014dba232f9b53be41c5e140fc9ea.tres"]
+
+[params]
+

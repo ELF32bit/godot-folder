@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold"
+type="Resource"
+uid="uid://bhkkuxrsiunmj"
+path="res://.godot/imported/invalid-mismatch-references.fold-f00984cf7c79c8162dd034880b389c2f.tres"
+
+[deps]
+
+source_file="res://invalid-examples/invalid-mismatch-references.fold"
+dest_files=["res://.godot/imported/invalid-mismatch-references.fold-f00984cf7c79c8162dd034880b389c2f.tres"]
+
+[params]
+

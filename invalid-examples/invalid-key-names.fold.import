@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold"
+type="Resource"
+uid="uid://dxukleh5aqhn6"
+path="res://.godot/imported/invalid-key-names.fold-1f8a1ae4c7d17872bfd9f97373e95b9e.tres"
+
+[deps]
+
+source_file="res://invalid-examples/invalid-key-names.fold"
+dest_files=["res://.godot/imported/invalid-key-names.fold-1f8a1ae4c7d17872bfd9f97373e95b9e.tres"]
+
+[params]
+

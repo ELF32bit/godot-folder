@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://csajntfgslvmv"
+path="res://.godot/imported/flat_crane.svg-5c782bf3b27cdea52237a620eefe1f61.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Origami/flat_crane.svg"
+dest_files=["res://.godot/imported/flat_crane.svg-5c782bf3b27cdea52237a620eefe1f61.tres"]
+
+[params]
+

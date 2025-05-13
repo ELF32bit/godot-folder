@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://kt31v7q8nxo5"
+path="res://.godot/imported/Origami_Sphere_16Flaps.svg-7b21177f932ef364bed01ce3a8c3bdc3.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Curved/Origami_Sphere_16Flaps.svg"
+dest_files=["res://.godot/imported/Origami_Sphere_16Flaps.svg-7b21177f932ef364bed01ce3a8c3bdc3.tres"]
+
+[params]
+

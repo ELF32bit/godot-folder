@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://vr1d5sayk1i5"
+path="res://.godot/imported/langCardinal.svg-df3a0adffe5bb2688f67b4de7c55ffc4.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Origami/langCardinal.svg"
+dest_files=["res://.godot/imported/langCardinal.svg-df3a0adffe5bb2688f67b4de7c55ffc4.tres"]
+
+[params]
+

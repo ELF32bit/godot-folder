@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://3elep2if34wf"
+path="res://.godot/imported/test.svg-38e4934665f5876c14c35f7081a267b4.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Tessellations/test.svg"
+dest_files=["res://.godot/imported/test.svg-38e4934665f5876c14c35f7081a267b4.tres"]
+
+[params]
+

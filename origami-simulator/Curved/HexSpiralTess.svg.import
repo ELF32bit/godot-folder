@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://c5ohq3k2x2lur"
+path="res://.godot/imported/HexSpiralTess.svg-e9cb2bd894ebec4a57c74a86d2a9940b.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Curved/HexSpiralTess.svg"
+dest_files=["res://.godot/imported/HexSpiralTess.svg-e9cb2bd894ebec4a57c74a86d2a9940b.tres"]
+
+[params]
+

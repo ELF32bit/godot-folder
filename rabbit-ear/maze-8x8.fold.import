@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://dlha8t8332x0s"
+path="res://.godot/imported/maze-8x8.fold-6ef5e26fbef53b40ac60b4874f77e1ce.scn"
+
+[deps]
+
+source_file="res://rabbit-ear/maze-8x8.fold"
+dest_files=["res://.godot/imported/maze-8x8.fold-6ef5e26fbef53b40ac60b4874f77e1ce.scn"]
+
+[params]
+

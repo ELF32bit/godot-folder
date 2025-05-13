@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://cpxancjq4ileb"
+path="res://.godot/imported/curvedPleatSimple.svg-61a5d52bb0fd3586184569cdd6bc1dbc.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Bistable/curvedPleatSimple.svg"
+dest_files=["res://.godot/imported/curvedPleatSimple.svg-61a5d52bb0fd3586184569cdd6bc1dbc.tres"]
+
+[params]
+

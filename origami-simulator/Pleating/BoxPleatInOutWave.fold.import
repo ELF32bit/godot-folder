@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://so33owrlic4v"
+path="res://.godot/imported/BoxPleatInOutWave.fold-f76f9a856cb9695b61fd7ec5f5b95df2.scn"
+
+[deps]
+
+source_file="res://origami-simulator/Pleating/BoxPleatInOutWave.fold"
+dest_files=["res://.godot/imported/BoxPleatInOutWave.fold-f76f9a856cb9695b61fd7ec5f5b95df2.scn"]
+
+[params]
+

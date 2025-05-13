@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://3013tbl33k35"
+path="res://.godot/imported/comet.svg-0f83eee904c6eea441b56e6f4bd1145a.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Curved/comet.svg"
+dest_files=["res://.godot/imported/comet.svg-0f83eee904c6eea441b56e6f4bd1145a.tres"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://ba2p76nfoafee"
+path="res://.godot/imported/housePopup.svg-0c93bd74aacec379e637f5c53fb0f06a.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Popup/housePopup.svg"
+dest_files=["res://.godot/imported/housePopup.svg-0c93bd74aacec379e637f5c53fb0f06a.tres"]
+
+[params]
+

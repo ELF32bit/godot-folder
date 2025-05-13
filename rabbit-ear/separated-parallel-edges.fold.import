@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://bmquyul7uv0jb"
+path="res://.godot/imported/separated-parallel-edges.fold-e8274e7ca4640613ec35488bd43d4fe7.scn"
+
+[deps]
+
+source_file="res://rabbit-ear/separated-parallel-edges.fold"
+dest_files=["res://.godot/imported/separated-parallel-edges.fold-e8274e7ca4640613ec35488bd43d4fe7.scn"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://dgcxvp2tqydyp"
+path="res://.godot/imported/honeycombKiri.svg-6b0077e5898c86afa5d412ad4b4a92cc.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Kirigami/honeycombKiri.svg"
+dest_files=["res://.godot/imported/honeycombKiri.svg-6b0077e5898c86afa5d412ad4b4a92cc.tres"]
+
+[params]
+

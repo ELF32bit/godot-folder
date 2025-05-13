@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://c1tdp3iur780g"
+path="res://.godot/imported/reschTriTessellation.svg-9709d2728644d890b121acc0fd635edf.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Tessellations/reschTriTessellation.svg"
+dest_files=["res://.godot/imported/reschTriTessellation.svg-9709d2728644d890b121acc0fd635edf.tres"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://dfq7b4ryhjpbq"
+path="res://.godot/imported/non-planar-50-lines.fold-c3e13eed5e7cb1cb2af8f5e10f62aa9f.scn"
+
+[deps]
+
+source_file="res://rabbit-ear/non-planar-50-lines.fold"
+dest_files=["res://.godot/imported/non-planar-50-lines.fold-c3e13eed5e7cb1cb2af8f5e10f62aa9f.scn"]
+
+[params]
+

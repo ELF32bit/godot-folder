@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://qo1ywltejq4k"
+path="res://.godot/imported/overlapping-assignments.fold-8c815b9add9152518fe105847c68a6b7.scn"
+
+[deps]
+
+source_file="res://rabbit-ear/overlapping-assignments.fold"
+dest_files=["res://.godot/imported/overlapping-assignments.fold-8c815b9add9152518fe105847c68a6b7.scn"]
+
+[params]
+

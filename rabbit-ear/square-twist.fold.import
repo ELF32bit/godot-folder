@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://ddjge444t177n"
+path="res://.godot/imported/square-twist.fold-35bae422fe742e0962906136d8eae95c.scn"
+
+[deps]
+
+source_file="res://rabbit-ear/square-twist.fold"
+dest_files=["res://.godot/imported/square-twist.fold-35bae422fe742e0962906136d8eae95c.scn"]
+
+[params]
+

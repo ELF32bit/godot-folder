@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://d4akee8w3kich"
+path="res://.godot/imported/boatBase.svg-15d3b75b2ddf12052e2f6fede7679916.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Bases/boatBase.svg"
+dest_files=["res://.godot/imported/boatBase.svg-15d3b75b2ddf12052e2f6fede7679916.tres"]
+
+[params]
+

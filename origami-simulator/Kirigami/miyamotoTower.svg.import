@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://beess7kscslmr"
+path="res://.godot/imported/miyamotoTower.svg-8dab15b0368d989828072ca848fc2735.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Kirigami/miyamotoTower.svg"
+dest_files=["res://.godot/imported/miyamotoTower.svg-8dab15b0368d989828072ca848fc2735.tres"]
+
+[params]
+

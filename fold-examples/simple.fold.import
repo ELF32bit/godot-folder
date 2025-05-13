@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://5po8gxxjnxu8"
+path="res://.godot/imported/simple.fold-dacdc6766cffd32f3058691d21966546.scn"
+
+[deps]
+
+source_file="res://fold-examples/simple.fold"
+dest_files=["res://.godot/imported/simple.fold-dacdc6766cffd32f3058691d21966546.scn"]
+
+[params]
+

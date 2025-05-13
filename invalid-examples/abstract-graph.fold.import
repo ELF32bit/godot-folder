@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold"
+type="Resource"
+uid="uid://qvrlxmivaxen"
+path="res://.godot/imported/abstract-graph.fold-abed28f7e22c4315d39ea0d37c8e5b20.tres"
+
+[deps]
+
+source_file="res://invalid-examples/abstract-graph.fold"
+dest_files=["res://.godot/imported/abstract-graph.fold-abed28f7e22c4315d39ea0d37c8e5b20.tres"]
+
+[params]
+

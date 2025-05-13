@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://cyvvtrc1kaxvj"
+path="res://.godot/imported/auxetic_triangle.svg-60d6a631c6bff61caedbbe621e41278e.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Kirigami/auxetic_triangle.svg"
+dest_files=["res://.godot/imported/auxetic_triangle.svg-60d6a631c6bff61caedbbe621e41278e.tres"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://ciae13iy1agpq"
+path="res://.godot/imported/mapfold.svg-5ee9aa0b3661330f48d3eed064880e94.tres"
+
+[deps]
+
+source_file="res://origami-simulator/SimpleFolds/mapfold.svg"
+dest_files=["res://.godot/imported/mapfold.svg-5ee9aa0b3661330f48d3eed064880e94.tres"]
+
+[params]
+

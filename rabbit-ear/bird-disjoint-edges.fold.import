@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://cmthulvwp2gta"
+path="res://.godot/imported/bird-disjoint-edges.fold-8c573c7869d85062c82a7b39f2338c37.scn"
+
+[deps]
+
+source_file="res://rabbit-ear/bird-disjoint-edges.fold"
+dest_files=["res://.godot/imported/bird-disjoint-edges.fold-8c573c7869d85062c82a7b39f2338c37.scn"]
+
+[params]
+

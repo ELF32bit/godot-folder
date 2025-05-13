@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://deywgjifeh2qr"
+path="res://.godot/imported/flappingBird.svg-ae94e91c2dc4e1e3c64f7e0df8002fa2.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Origami/flappingBird.svg"
+dest_files=["res://.godot/imported/flappingBird.svg-ae94e91c2dc4e1e3c64f7e0df8002fa2.tres"]
+
+[params]
+

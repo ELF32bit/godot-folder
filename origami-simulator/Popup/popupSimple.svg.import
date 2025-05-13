@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://do8en67l0hiyk"
+path="res://.godot/imported/popupSimple.svg-d5928a12b995b0e7523853b523c0220a.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Popup/popupSimple.svg"
+dest_files=["res://.godot/imported/popupSimple.svg-d5928a12b995b0e7523853b523c0220a.tres"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.svg"
+type="Resource"
+uid="uid://ddpqlcnr0mf1f"
+path="res://.godot/imported/reschBarbell.svg-7f90424f90a3147d728ed045ee0fe3b9.tres"
+
+[deps]
+
+source_file="res://origami-simulator/Tessellations/reschBarbell.svg"
+dest_files=["res://.godot/imported/reschBarbell.svg-7f90424f90a3147d728ed045ee0fe3b9.tres"]
+
+[params]
+

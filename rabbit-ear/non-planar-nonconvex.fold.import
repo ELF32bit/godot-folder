@@ -1,0 +1,14 @@
+[remap]
+
+importer="folder.fold.scene"
+type="PackedScene"
+uid="uid://cc5wk5xw87ujr"
+path="res://.godot/imported/non-planar-nonconvex.fold-4d18a60573471110481240344b2e87cf.scn"
+
+[deps]
+
+source_file="res://rabbit-ear/non-planar-nonconvex.fold"
+dest_files=["res://.godot/imported/non-planar-nonconvex.fold-4d18a60573471110481240344b2e87cf.scn"]
+
+[params]
+
