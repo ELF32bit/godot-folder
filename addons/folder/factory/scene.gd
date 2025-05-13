@@ -1,4 +1,5 @@
-class_name FolderFoldFactory
+class_name FolderFactory
+
 
 static func build_fold(fold: FolderFoldResource, name: String = "") -> PackedScene:
 	var packed_scene := PackedScene.new()

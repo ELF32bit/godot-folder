@@ -66,7 +66,7 @@ func _import(source_file: String, save_path: String, options: Dictionary, platfo
 		return ERR_PARSE_ERROR
 
 	var fold_name := source_file.get_file().get_basename()
-	var fold_scene := FolderFoldFactory.build_fold(fold, fold_name)
+	var fold_scene := FolderFactory.build_fold(fold, fold_name)
 
 	var save_flags: int = ResourceSaver.FLAG_COMPRESS | ResourceSaver.FLAG_BUNDLE_RESOURCES
 	return ResourceSaver.save(fold_scene, "%s.%s" % [save_path, _get_save_extension()], save_flags)
