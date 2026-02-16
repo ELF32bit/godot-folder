@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://bpw22t1au5hml"
+uid="uid://ckov1xrwra1w2"
 path="res://.godot/imported/huffmanWaterbomb.svg-fe3911c553475e832848a97cc332e8d0.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/huffmanWaterbomb.svg-fe3911c553475e832848a97c
 
 [params]
 
+validate=true

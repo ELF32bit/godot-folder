@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://beess7kscslmr"
+uid="uid://6c745rerd0l4"
 path="res://.godot/imported/miyamotoTower.svg-8dab15b0368d989828072ca848fc2735.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/miyamotoTower.svg-8dab15b0368d989828072ca848f
 
 [params]
 
+validate=true

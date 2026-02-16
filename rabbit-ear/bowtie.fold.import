@@ -1,14 +1,15 @@
 [remap]
 
-importer="folder.fold.scene"
-type="PackedScene"
+importer="fold.json"
+type="Resource"
 uid="uid://syej37avf45v"
-path="res://.godot/imported/bowtie.fold-68c5d2b5b408130eb85921c771209e2b.scn"
+path="res://.godot/imported/bowtie.fold-68c5d2b5b408130eb85921c771209e2b.tres"
 
 [deps]
 
 source_file="res://rabbit-ear/bowtie.fold"
-dest_files=["res://.godot/imported/bowtie.fold-68c5d2b5b408130eb85921c771209e2b.scn"]
+dest_files=["res://.godot/imported/bowtie.fold-68c5d2b5b408130eb85921c771209e2b.tres"]
 
 [params]
 
+validate=true

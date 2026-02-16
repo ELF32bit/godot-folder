@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://ciae13iy1agpq"
+uid="uid://c8lxopkgcgq4b"
 path="res://.godot/imported/mapfold.svg-5ee9aa0b3661330f48d3eed064880e94.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/mapfold.svg-5ee9aa0b3661330f48d3eed064880e94.
 
 [params]
 
+validate=true

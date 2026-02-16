@@ -1,14 +1,15 @@
 [remap]
 
-importer="folder.fold.scene"
-type="PackedScene"
+importer="fold.json"
+type="Resource"
 uid="uid://crlt740x1uych"
-path="res://.godot/imported/crane-step.fold-c7c936d63f65f700b82dcbe62272e62e.scn"
+path="res://.godot/imported/crane-step.fold-c7c936d63f65f700b82dcbe62272e62e.tres"
 
 [deps]
 
 source_file="res://rabbit-ear/crane-step.fold"
-dest_files=["res://.godot/imported/crane-step.fold-c7c936d63f65f700b82dcbe62272e62e.scn"]
+dest_files=["res://.godot/imported/crane-step.fold-c7c936d63f65f700b82dcbe62272e62e.tres"]
 
 [params]
 
+validate=true

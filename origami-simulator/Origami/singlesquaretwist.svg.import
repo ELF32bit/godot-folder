@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://cbrmfyt83vuyg"
+uid="uid://bkb05a00tmk8n"
 path="res://.godot/imported/singlesquaretwist.svg-a2b7f9aab7358cddfa7c1cba916bf7e8.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/singlesquaretwist.svg-a2b7f9aab7358cddfa7c1cb
 
 [params]
 
+validate=true

@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://b71ijnigkq22e"
+uid="uid://mfiexqvti41m"
 path="res://.godot/imported/airplane.svg-a548b866aad5cc974ac8deb145ad2bc2.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/airplane.svg-a548b866aad5cc974ac8deb145ad2bc2
 
 [params]
 
+validate=true

@@ -1,14 +1,15 @@
 [remap]
 
-importer="folder.fold.scene"
-type="PackedScene"
+importer="fold.json"
+type="Resource"
 uid="uid://b0k1qd2j47q7e"
-path="res://.godot/imported/crane-cp-bmvfcj-simple.fold-0579851200b1b569a01e8d27d89d8005.scn"
+path="res://.godot/imported/crane-cp-bmvfcj-simple.fold-0579851200b1b569a01e8d27d89d8005.tres"
 
 [deps]
 
 source_file="res://rabbit-ear/crane-cp-bmvfcj-simple.fold"
-dest_files=["res://.godot/imported/crane-cp-bmvfcj-simple.fold-0579851200b1b569a01e8d27d89d8005.scn"]
+dest_files=["res://.godot/imported/crane-cp-bmvfcj-simple.fold-0579851200b1b569a01e8d27d89d8005.tres"]
 
 [params]
 
+validate=true

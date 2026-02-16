@@ -1,14 +1,15 @@
 [remap]
 
-importer="folder.fold.scene"
-type="PackedScene"
+importer="fold.json"
+type="Resource"
 uid="uid://b0oo7sgiogpd"
-path="res://.godot/imported/moosers-train-carriage.fold-44148be0540dc1cb8947e51cff826b1e.scn"
+path="res://.godot/imported/moosers-train-carriage.fold-44148be0540dc1cb8947e51cff826b1e.tres"
 
 [deps]
 
 source_file="res://rabbit-ear/moosers-train-carriage.fold"
-dest_files=["res://.godot/imported/moosers-train-carriage.fold-44148be0540dc1cb8947e51cff826b1e.scn"]
+dest_files=["res://.godot/imported/moosers-train-carriage.fold-44148be0540dc1cb8947e51cff826b1e.tres"]
 
 [params]
 
+validate=true

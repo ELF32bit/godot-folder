@@ -5,7 +5,7 @@ enum { PRESET_DEFAULT }
 
 
 func _get_importer_name() -> String:
-	return "folder.svg"
+	return "fold.obj"
 
 
 func _get_visible_name() -> String:
@@ -13,7 +13,7 @@ func _get_visible_name() -> String:
 
 
 func _get_recognized_extensions() -> PackedStringArray:
-	return PackedStringArray(["svg"])
+	return PackedStringArray(["obj"])
 
 
 func _get_save_extension() -> String:
@@ -40,6 +40,10 @@ func _get_import_options(path: String, preset_index: int) -> Array[Dictionary]:
 	match preset_index:
 		PRESET_DEFAULT:
 			return [
+				{
+					"name": "validate",
+					"default_value": true,
+				},
 			]
 		_:
 			return []
@@ -58,8 +62,11 @@ func _get_priority() -> float:
 
 
 func _import(source_file: String, save_path: String, options: Dictionary, platform_variants: Array[String], gen_files: Array[String]) -> Error:
-	var fold := FolderFoldResource.from_xml_file(source_file)
-	if not fold:
-		return ERR_PARSE_ERROR
+	var fold := FoldObjParser.parse(source_file)
+	if not fold: return ERR_PARSE_ERROR
+
+	if options.get("validate", true):
+		if not preload("fold.gd").validate(fold, source_file):
+			return ERR_PARSE_ERROR
 
 	return ResourceSaver.save(fold, "%s.%s" % [save_path, _get_save_extension()])

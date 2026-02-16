@@ -1,14 +1,15 @@
 [remap]
 
-importer="folder.fold.scene"
-type="PackedScene"
+importer="fold.json"
+type="Resource"
 uid="uid://fu02dasvjj1u"
-path="res://.godot/imported/disjoint-triangles-3d.fold-ce3c54bb10209d4a91d3e29df62c933f.scn"
+path="res://.godot/imported/disjoint-triangles-3d.fold-ce3c54bb10209d4a91d3e29df62c933f.tres"
 
 [deps]
 
 source_file="res://rabbit-ear/disjoint-triangles-3d.fold"
-dest_files=["res://.godot/imported/disjoint-triangles-3d.fold-ce3c54bb10209d4a91d3e29df62c933f.scn"]
+dest_files=["res://.godot/imported/disjoint-triangles-3d.fold-ce3c54bb10209d4a91d3e29df62c933f.tres"]
 
 [params]
 
+validate=true

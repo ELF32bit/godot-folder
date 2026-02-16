@@ -1,0 +1,15 @@
+[remap]
+
+importer="fold.json"
+type="Resource"
+uid="uid://lmyiweqbrpmn"
+path="res://.godot/imported/no-faces.fold-be39ab693b03014ecbddf8b1733c2658.tres"
+
+[deps]
+
+source_file="res://rabbit-ear/no-faces.fold"
+dest_files=["res://.godot/imported/no-faces.fold-be39ab693b03014ecbddf8b1733c2658.tres"]
+
+[params]
+
+validate=true

@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://dihl2ky8wby6i"
+uid="uid://jqnabss25j2t"
 path="res://.godot/imported/polygami.svg-70b10e87305eacd3f1cb045bb446a663.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/polygami.svg-70b10e87305eacd3f1cb045bb446a663
 
 [params]
 
+validate=true

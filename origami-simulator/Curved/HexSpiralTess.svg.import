@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://c5ohq3k2x2lur"
+uid="uid://cwqq8x032lg2k"
 path="res://.godot/imported/HexSpiralTess.svg-e9cb2bd894ebec4a57c74a86d2a9940b.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/HexSpiralTess.svg-e9cb2bd894ebec4a57c74a86d2a
 
 [params]
 
+validate=true

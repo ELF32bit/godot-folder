@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://cj84j1ibop6eb"
+uid="uid://d1ge8rdmljx56"
 path="res://.godot/imported/langKnlDragon.svg-696910d81a9c567738ec9c4f79cc93ca.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/langKnlDragon.svg-696910d81a9c567738ec9c4f79c
 
 [params]
 
+validate=true

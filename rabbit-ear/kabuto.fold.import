@@ -1,14 +1,15 @@
 [remap]
 
-importer="folder.fold.scene"
-type="PackedScene"
+importer="fold.json"
+type="Resource"
 uid="uid://dhoh777rc14ea"
-path="res://.godot/imported/kabuto.fold-dd848a4ffa773cce759712fdf3e8b23c.scn"
+path="res://.godot/imported/kabuto.fold-dd848a4ffa773cce759712fdf3e8b23c.tres"
 
 [deps]
 
 source_file="res://rabbit-ear/kabuto.fold"
-dest_files=["res://.godot/imported/kabuto.fold-dd848a4ffa773cce759712fdf3e8b23c.scn"]
+dest_files=["res://.godot/imported/kabuto.fold-dd848a4ffa773cce759712fdf3e8b23c.tres"]
 
 [params]
 
+validate=true

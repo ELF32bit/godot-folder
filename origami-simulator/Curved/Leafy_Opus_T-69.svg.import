@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://dexpm2arc6epr"
+uid="uid://vcgso8e86v5k"
 path="res://.godot/imported/Leafy_Opus_T-69.svg-c581f4116a9ebd1407140a9f95c105fa.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/Leafy_Opus_T-69.svg-c581f4116a9ebd1407140a9f9
 
 [params]
 
+validate=true

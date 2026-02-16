@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://djjtacbhokqj1"
+uid="uid://ccyw6l46dyrm8"
 path="res://.godot/imported/langOrchid.svg-e73d6add94f84c20243bf73eb14094eb.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/langOrchid.svg-e73d6add94f84c20243bf73eb14094
 
 [params]
 
+validate=true

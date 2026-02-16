@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://p1025w7yt5rd"
+uid="uid://d0tytinv8cw55"
 path="res://.godot/imported/castlePopup.svg-e7f1284ec037fb1c830284a566d83802.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/castlePopup.svg-e7f1284ec037fb1c830284a566d83
 
 [params]
 
+validate=true

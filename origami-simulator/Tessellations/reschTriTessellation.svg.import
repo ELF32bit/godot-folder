@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://c1tdp3iur780g"
+uid="uid://tqk533im1ktw"
 path="res://.godot/imported/reschTriTessellation.svg-9709d2728644d890b121acc0fd635edf.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/reschTriTessellation.svg-9709d2728644d890b121
 
 [params]
 
+validate=true

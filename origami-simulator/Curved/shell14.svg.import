@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://bitd1wipgmfxf"
+uid="uid://d0v55cqm5whag"
 path="res://.godot/imported/shell14.svg-cc22d99456a7723ecc113ca9c63f4bae.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/shell14.svg-cc22d99456a7723ecc113ca9c63f4bae.
 
 [params]
 
+validate=true

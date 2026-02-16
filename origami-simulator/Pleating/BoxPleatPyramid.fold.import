@@ -1,14 +1,15 @@
 [remap]
 
-importer="folder.fold.scene"
-type="PackedScene"
+importer="fold.json"
+type="Resource"
 uid="uid://met1mx6uvn3q"
-path="res://.godot/imported/BoxPleatPyramid.fold-ccc8e821839564974cb6ec2032f54c32.scn"
+path="res://.godot/imported/BoxPleatPyramid.fold-ccc8e821839564974cb6ec2032f54c32.tres"
 
 [deps]
 
 source_file="res://origami-simulator/Pleating/BoxPleatPyramid.fold"
-dest_files=["res://.godot/imported/BoxPleatPyramid.fold-ccc8e821839564974cb6ec2032f54c32.scn"]
+dest_files=["res://.godot/imported/BoxPleatPyramid.fold-ccc8e821839564974cb6ec2032f54c32.tres"]
 
 [params]
 
+validate=true

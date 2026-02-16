@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://d1nqth6vgt8ao"
+uid="uid://rvysg5iw4dqm"
 path="res://.godot/imported/langOvalTessellation.svg-46daaef50eeff19b01d2d8e8e834b88f.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/langOvalTessellation.svg-46daaef50eeff19b01d2
 
 [params]
 
+validate=true

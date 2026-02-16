@@ -1,14 +1,15 @@
 [remap]
 
-importer="folder.fold.scene"
-type="PackedScene"
+importer="fold.json"
+type="Resource"
 uid="uid://cii4wrriat4ot"
-path="res://.godot/imported/non-planar-square-fish.fold-edde1c7c368549f16e4ac8ad8f014ac2.scn"
+path="res://.godot/imported/non-planar-square-fish.fold-edde1c7c368549f16e4ac8ad8f014ac2.tres"
 
 [deps]
 
 source_file="res://rabbit-ear/non-planar-square-fish.fold"
-dest_files=["res://.godot/imported/non-planar-square-fish.fold-edde1c7c368549f16e4ac8ad8f014ac2.scn"]
+dest_files=["res://.godot/imported/non-planar-square-fish.fold-edde1c7c368549f16e4ac8ad8f014ac2.tres"]
 
 [params]
 
+validate=true

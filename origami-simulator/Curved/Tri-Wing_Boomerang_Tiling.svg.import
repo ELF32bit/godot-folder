@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://ciqt1c5kq7ali"
+uid="uid://cynontr0c1rwq"
 path="res://.godot/imported/Tri-Wing_Boomerang_Tiling.svg-7f9aec6e97870f2ea7f7dfbc3d2543e6.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/Tri-Wing_Boomerang_Tiling.svg-7f9aec6e97870f2
 
 [params]
 
+validate=true

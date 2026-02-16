@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://baarumh7nxnu4"
+uid="uid://bjfyhhmy75a8y"
 path="res://.godot/imported/russianTriangle.svg-759e5a659d6cd174f60321b91bd05437.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/russianTriangle.svg-759e5a659d6cd174f60321b91
 
 [params]
 
+validate=true

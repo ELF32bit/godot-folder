@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://bhq8ll04ybf2m"
+uid="uid://cstdiyd56tdgk"
 path="res://.godot/imported/Treble_Clef.svg-133d1e606c3a4151d800645aefb28624.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/Treble_Clef.svg-133d1e606c3a4151d800645aefb28
 
 [params]
 
+validate=true

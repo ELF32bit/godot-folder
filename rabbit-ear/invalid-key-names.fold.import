@@ -1,0 +1,15 @@
+[remap]
+
+importer="fold.json"
+type="Resource"
+uid="uid://dxukleh5aqhn6"
+path="res://.godot/imported/invalid-key-names.fold-5e8866152b92f3bef06d9c333b793889.tres"
+
+[deps]
+
+source_file="res://rabbit-ear/invalid-key-names.fold"
+dest_files=["res://.godot/imported/invalid-key-names.fold-5e8866152b92f3bef06d9c333b793889.tres"]
+
+[params]
+
+validate=true

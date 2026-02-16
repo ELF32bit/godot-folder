@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://c15wcvca23s7n"
+uid="uid://cf2pdd47ube6v"
 path="res://.godot/imported/cross.svg-eb5f5529e3578f2131668be593c5d469.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/cross.svg-eb5f5529e3578f2131668be593c5d469.tr
 
 [params]
 
+validate=true

@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://ddpqlcnr0mf1f"
+uid="uid://cuovrxd6dix05"
 path="res://.godot/imported/reschBarbell.svg-7f90424f90a3147d728ed045ee0fe3b9.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/reschBarbell.svg-7f90424f90a3147d728ed045ee0f
 
 [params]
 
+validate=true

@@ -1,14 +1,15 @@
 [remap]
 
-importer="folder.fold.scene"
-type="PackedScene"
+importer="fold.json"
+type="Resource"
 uid="uid://e40gnpvfdtah"
-path="res://.godot/imported/layers-flat-grid.fold-561fd692f7e15718869b6a9888dc227f.scn"
+path="res://.godot/imported/layers-flat-grid.fold-561fd692f7e15718869b6a9888dc227f.tres"
 
 [deps]
 
 source_file="res://rabbit-ear/layers-flat-grid.fold"
-dest_files=["res://.godot/imported/layers-flat-grid.fold-561fd692f7e15718869b6a9888dc227f.scn"]
+dest_files=["res://.godot/imported/layers-flat-grid.fold-561fd692f7e15718869b6a9888dc227f.tres"]
 
 [params]
 
+validate=true

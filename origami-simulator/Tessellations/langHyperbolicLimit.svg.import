@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://cnc2eehh162vg"
+uid="uid://rjagm7sfad3h"
 path="res://.godot/imported/langHyperbolicLimit.svg-fb6bc152fddf097f99953dd293d7e323.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/langHyperbolicLimit.svg-fb6bc152fddf097f99953
 
 [params]
 
+validate=true

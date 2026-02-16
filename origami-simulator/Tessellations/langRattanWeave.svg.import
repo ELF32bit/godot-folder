@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://dttaa42kkdqpp"
+uid="uid://btwuem44ehpxa"
 path="res://.godot/imported/langRattanWeave.svg-422c7197729234cfb4f36270f44c9585.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/langRattanWeave.svg-422c7197729234cfb4f36270f
 
 [params]
 
+validate=true

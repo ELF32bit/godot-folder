@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://dxp6lql67odj5"
+uid="uid://bamsjulm8xjcu"
 path="res://.godot/imported/6ptHypar-anti.svg-09732be8c49b0b38cef3da6d4563d56c.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/6ptHypar-anti.svg-09732be8c49b0b38cef3da6d456
 
 [params]
 
+validate=true

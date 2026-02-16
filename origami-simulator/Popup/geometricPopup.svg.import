@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://b25uv4rceevny"
+uid="uid://dhqp8sf2k8myf"
 path="res://.godot/imported/geometricPopup.svg-5173904be4a4dff5b630f249f3b57c41.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/geometricPopup.svg-5173904be4a4dff5b630f249f3
 
 [params]
 
+validate=true

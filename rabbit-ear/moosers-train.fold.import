@@ -1,14 +1,15 @@
 [remap]
 
-importer="folder.fold.scene"
-type="PackedScene"
+importer="fold.json"
+type="Resource"
 uid="uid://dfhg1kpkbex24"
-path="res://.godot/imported/moosers-train.fold-598391dc058d78baeaaeb5c57d61bce7.scn"
+path="res://.godot/imported/moosers-train.fold-598391dc058d78baeaaeb5c57d61bce7.tres"
 
 [deps]
 
 source_file="res://rabbit-ear/moosers-train.fold"
-dest_files=["res://.godot/imported/moosers-train.fold-598391dc058d78baeaaeb5c57d61bce7.scn"]
+dest_files=["res://.godot/imported/moosers-train.fold-598391dc058d78baeaaeb5c57d61bce7.tres"]
 
 [params]
 
+validate=true

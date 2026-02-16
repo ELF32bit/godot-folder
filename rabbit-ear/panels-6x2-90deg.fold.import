@@ -1,14 +1,15 @@
 [remap]
 
-importer="folder.fold.scene"
-type="PackedScene"
+importer="fold.json"
+type="Resource"
 uid="uid://cxdedxlv5a3cs"
-path="res://.godot/imported/panels-6x2-90deg.fold-ee3b6a956ea6afe8a54974eb8ce2dcfb.scn"
+path="res://.godot/imported/panels-6x2-90deg.fold-ee3b6a956ea6afe8a54974eb8ce2dcfb.tres"
 
 [deps]
 
 source_file="res://rabbit-ear/panels-6x2-90deg.fold"
-dest_files=["res://.godot/imported/panels-6x2-90deg.fold-ee3b6a956ea6afe8a54974eb8ce2dcfb.scn"]
+dest_files=["res://.godot/imported/panels-6x2-90deg.fold-ee3b6a956ea6afe8a54974eb8ce2dcfb.tres"]
 
 [params]
 
+validate=true

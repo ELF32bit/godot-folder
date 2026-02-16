@@ -1,0 +1,15 @@
+[remap]
+
+importer="fold.json"
+type="Resource"
+uid="uid://qvrlxmivaxen"
+path="res://.godot/imported/abstract-graph.fold-e185bea8eb5e8d13eb4356864f7e7942.tres"
+
+[deps]
+
+source_file="res://rabbit-ear/abstract-graph.fold"
+dest_files=["res://.godot/imported/abstract-graph.fold-e185bea8eb5e8d13eb4356864f7e7942.tres"]
+
+[params]
+
+validate=true

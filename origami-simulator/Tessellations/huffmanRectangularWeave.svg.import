@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://dabgh4pkhqsj3"
+uid="uid://b5h58q1pe4kqk"
 path="res://.godot/imported/huffmanRectangularWeave.svg-7518a164ced775acf259f086a71a247b.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/huffmanRectangularWeave.svg-7518a164ced775acf
 
 [params]
 
+validate=true

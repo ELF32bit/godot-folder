@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://ciiir8tihrswn"
+uid="uid://cwwlfvqcr3ab7"
 path="res://.godot/imported/huffmanExdentedBoxes.svg-e429505e72628f8154c98e36db8b11fe.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/huffmanExdentedBoxes.svg-e429505e72628f8154c9
 
 [params]
 
+validate=true

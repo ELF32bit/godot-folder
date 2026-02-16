@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://dgcxvp2tqydyp"
+uid="uid://dp18mg7uv218x"
 path="res://.godot/imported/honeycombKiri.svg-6b0077e5898c86afa5d412ad4b4a92cc.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/honeycombKiri.svg-6b0077e5898c86afa5d412ad4b4
 
 [params]
 
+validate=true

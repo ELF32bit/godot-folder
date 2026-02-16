@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://deywgjifeh2qr"
+uid="uid://cf4gp6o30o1x6"
 path="res://.godot/imported/flappingBird.svg-ae94e91c2dc4e1e3c64f7e0df8002fa2.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/flappingBird.svg-ae94e91c2dc4e1e3c64f7e0df800
 
 [params]
 
+validate=true

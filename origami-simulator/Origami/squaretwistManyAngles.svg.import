@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://2qfgt4h5yunj"
+uid="uid://4kljlo8p1661"
 path="res://.godot/imported/squaretwistManyAngles.svg-d9cf9b440e06168f1af58a5ac61dd1ec.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/squaretwistManyAngles.svg-d9cf9b440e06168f1af
 
 [params]
 
+validate=true

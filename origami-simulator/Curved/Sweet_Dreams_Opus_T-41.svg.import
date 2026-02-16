@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://q7fm5bak2k25"
+uid="uid://dxyrxfbyihee5"
 path="res://.godot/imported/Sweet_Dreams_Opus_T-41.svg-e5224637333927bd2b1c3cb464efda3c.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/Sweet_Dreams_Opus_T-41.svg-e5224637333927bd2b
 
 [params]
 
+validate=true

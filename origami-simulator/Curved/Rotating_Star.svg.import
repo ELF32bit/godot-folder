@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://57ho6vd05o48"
+uid="uid://djvke5rdrhnb5"
 path="res://.godot/imported/Rotating_Star.svg-d881586f9b3471b4db560a3f7f71aa09.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/Rotating_Star.svg-d881586f9b3471b4db560a3f7f7
 
 [params]
 
+validate=true

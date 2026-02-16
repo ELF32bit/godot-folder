@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://bi18gxk5lpfum"
+uid="uid://b6hd0x3xmvvqh"
 path="res://.godot/imported/curvedcrease2.svg-3e939563a24269ee1135445f8f12e909.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/curvedcrease2.svg-3e939563a24269ee1135445f8f1
 
 [params]
 
+validate=true

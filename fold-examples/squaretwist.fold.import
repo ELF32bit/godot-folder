@@ -1,14 +1,15 @@
 [remap]
 
-importer="folder.fold.scene"
-type="PackedScene"
+importer="fold.json"
+type="Resource"
 uid="uid://kdbw51ojwii7"
-path="res://.godot/imported/squaretwist.fold-aa4621c361589eb71d1a3f4faf04068a.scn"
+path="res://.godot/imported/squaretwist.fold-aa4621c361589eb71d1a3f4faf04068a.tres"
 
 [deps]
 
 source_file="res://fold-examples/squaretwist.fold"
-dest_files=["res://.godot/imported/squaretwist.fold-aa4621c361589eb71d1a3f4faf04068a.scn"]
+dest_files=["res://.godot/imported/squaretwist.fold-aa4621c361589eb71d1a3f4faf04068a.tres"]
 
 [params]
 
+validate=true

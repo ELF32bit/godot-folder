@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://cyvvtrc1kaxvj"
+uid="uid://lpwkmw4b551o"
 path="res://.godot/imported/auxetic_triangle.svg-60d6a631c6bff61caedbbe621e41278e.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/auxetic_triangle.svg-60d6a631c6bff61caedbbe62
 
 [params]
 
+validate=true

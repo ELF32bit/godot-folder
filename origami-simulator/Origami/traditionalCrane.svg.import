@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://c3v8myg3cu0kl"
+uid="uid://dj6xsprpm3ax0"
 path="res://.godot/imported/traditionalCrane.svg-e72d6b3793e90e862887321a65f35e1d.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/traditionalCrane.svg-e72d6b3793e90e862887321a
 
 [params]
 
+validate=true

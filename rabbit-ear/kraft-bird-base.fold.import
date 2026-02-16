@@ -1,14 +1,15 @@
 [remap]
 
-importer="folder.fold.scene"
-type="PackedScene"
+importer="fold.json"
+type="Resource"
 uid="uid://526boifnq8yb"
-path="res://.godot/imported/kraft-bird-base.fold-fbfd92f8c5c3d0a42cf78c5fc57b6742.scn"
+path="res://.godot/imported/kraft-bird-base.fold-fbfd92f8c5c3d0a42cf78c5fc57b6742.tres"
 
 [deps]
 
 source_file="res://rabbit-ear/kraft-bird-base.fold"
-dest_files=["res://.godot/imported/kraft-bird-base.fold-fbfd92f8c5c3d0a42cf78c5fc57b6742.scn"]
+dest_files=["res://.godot/imported/kraft-bird-base.fold-fbfd92f8c5c3d0a42cf78c5fc57b6742.tres"]
 
 [params]
 
+validate=true

@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://bp7ooxbjh2y1o"
+uid="uid://bvr4y1wsmv817"
 path="res://.godot/imported/langWedgeDoubleFaced.svg-17218ed2132f43b88698f785fd015e07.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/langWedgeDoubleFaced.svg-17218ed2132f43b88698
 
 [params]
 
+validate=true

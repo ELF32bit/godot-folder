@@ -1,14 +1,15 @@
 [remap]
 
-importer="folder.fold.scene"
-type="PackedScene"
+importer="fold.json"
+type="Resource"
 uid="uid://cncrohj5g4rt8"
-path="res://.godot/imported/BoxPleatSkipOneWave.fold-2aef2d0f250c63f0ea564ed97cf3cd5b.scn"
+path="res://.godot/imported/BoxPleatSkipOneWave.fold-2aef2d0f250c63f0ea564ed97cf3cd5b.tres"
 
 [deps]
 
 source_file="res://origami-simulator/Pleating/BoxPleatSkipOneWave.fold"
-dest_files=["res://.godot/imported/BoxPleatSkipOneWave.fold-2aef2d0f250c63f0ea564ed97cf3cd5b.scn"]
+dest_files=["res://.godot/imported/BoxPleatSkipOneWave.fold-2aef2d0f250c63f0ea564ed97cf3cd5b.tres"]
 
 [params]
 
+validate=true

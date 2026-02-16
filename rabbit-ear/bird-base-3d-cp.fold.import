@@ -1,14 +1,14 @@
 [remap]
 
-importer="folder.fold.scene"
-type="PackedScene"
+importer="fold.json"
+type="Resource"
 uid="uid://ceg8uiueoldnt"
-path="res://.godot/imported/bird-base-3d-cp.fold-b47e3d7bd4abbb277cf831ec56e6bb6c.scn"
+valid=false
 
 [deps]
 
 source_file="res://rabbit-ear/bird-base-3d-cp.fold"
-dest_files=["res://.godot/imported/bird-base-3d-cp.fold-b47e3d7bd4abbb277cf831ec56e6bb6c.scn"]
 
 [params]
 
+validate=true

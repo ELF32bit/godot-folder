@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://dk6ps3uksvxr7"
+uid="uid://h856tqpq6fl2"
 path="res://.godot/imported/simpleVertex.svg-c4f99f459b754a4c04bee336d3f88600.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/simpleVertex.svg-c4f99f459b754a4c04bee336d3f8
 
 [params]
 
+validate=true

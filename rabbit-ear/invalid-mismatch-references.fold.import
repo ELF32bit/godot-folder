@@ -1,0 +1,14 @@
+[remap]
+
+importer="fold.json"
+type="Resource"
+uid="uid://bhkkuxrsiunmj"
+valid=false
+
+[deps]
+
+source_file="res://rabbit-ear/invalid-mismatch-references.fold"
+
+[params]
+
+validate=true

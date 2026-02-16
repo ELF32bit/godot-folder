@@ -1,14 +1,15 @@
 [remap]
 
-importer="folder.fold.scene"
-type="PackedScene"
+importer="fold.json"
+type="Resource"
 uid="uid://cfr0o3ehp3vh4"
-path="res://.godot/imported/non-flat-paper.fold-fb746331e314463c9d787b39dce0c8a1.scn"
+path="res://.godot/imported/non-flat-paper.fold-fb746331e314463c9d787b39dce0c8a1.tres"
 
 [deps]
 
 source_file="res://rabbit-ear/non-flat-paper.fold"
-dest_files=["res://.godot/imported/non-flat-paper.fold-fb746331e314463c9d787b39dce0c8a1.scn"]
+dest_files=["res://.godot/imported/non-flat-paper.fold-fb746331e314463c9d787b39dce0c8a1.tres"]
 
 [params]
 
+validate=true

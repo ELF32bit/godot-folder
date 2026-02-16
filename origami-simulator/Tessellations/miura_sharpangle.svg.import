@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://dxt6ca0fdsy4a"
+uid="uid://b3nkcql0k2oq5"
 path="res://.godot/imported/miura_sharpangle.svg-d9d6b1e28d8b292aeba285e6db6cd897.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/miura_sharpangle.svg-d9d6b1e28d8b292aeba285e6
 
 [params]
 
+validate=true

@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://bfxwqiupsgy3k"
+uid="uid://bexokl73jqstf"
 path="res://.godot/imported/byu solar driven.svg-881879d9aa1ea24793371b77f4f04ecc.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/byu solar driven.svg-881879d9aa1ea24793371b77
 
 [params]
 
+validate=true

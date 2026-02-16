@@ -1,14 +1,15 @@
 [remap]
 
-importer="folder.fold.scene"
-type="PackedScene"
+importer="fold.json"
+type="Resource"
 uid="uid://cbnv7cuuojos0"
-path="res://.godot/imported/random-triangles-3d.fold-30cf466a3d932a9ae939486bf545b935.scn"
+path="res://.godot/imported/random-triangles-3d.fold-30cf466a3d932a9ae939486bf545b935.tres"
 
 [deps]
 
 source_file="res://rabbit-ear/random-triangles-3d.fold"
-dest_files=["res://.godot/imported/random-triangles-3d.fold-30cf466a3d932a9ae939486bf545b935.scn"]
+dest_files=["res://.godot/imported/random-triangles-3d.fold-30cf466a3d932a9ae939486bf545b935.tres"]
 
 [params]
 
+validate=true

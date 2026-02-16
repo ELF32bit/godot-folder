@@ -1,8 +1,8 @@
 [remap]
 
-importer="folder.svg"
+importer="fold.svg"
 type="Resource"
-uid="uid://tf20ecpe7qjy"
+uid="uid://b4ku2qn78mwwq"
 path="res://.godot/imported/whirlpool.svg-22f191d599deabc6437d3264e5905ad4.tres"
 
 [deps]
@@ -12,3 +12,4 @@ dest_files=["res://.godot/imported/whirlpool.svg-22f191d599deabc6437d3264e5905ad
 
 [params]
 
+validate=true

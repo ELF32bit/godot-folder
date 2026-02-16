@@ -1,14 +1,15 @@
 [remap]
 
-importer="folder.fold.scene"
-type="PackedScene"
+importer="fold.json"
+type="Resource"
 uid="uid://qd5vugw3xvq"
-path="res://.godot/imported/layers-zipper.fold-f3d39012a9e7c961ce13541f962aceee.scn"
+path="res://.godot/imported/layers-zipper.fold-f3d39012a9e7c961ce13541f962aceee.tres"
 
 [deps]
 
 source_file="res://rabbit-ear/layers-zipper.fold"
-dest_files=["res://.godot/imported/layers-zipper.fold-f3d39012a9e7c961ce13541f962aceee.scn"]
+dest_files=["res://.godot/imported/layers-zipper.fold-f3d39012a9e7c961ce13541f962aceee.tres"]
 
 [params]
 
+validate=true
