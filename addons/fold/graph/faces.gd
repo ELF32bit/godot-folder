@@ -66,7 +66,26 @@ static func FV_to_VV(graph: FoldGraph) -> void:
 
 
 static func FV_to_EF(graph: FoldGraph) -> void:
-	pass
+	var EV_map := graph.get_EV_map()
+	var EF_map: Dictionary = {}
+	for fi in range(graph.FV.size()):
+		var fv: Array = graph.FV[fi]
+		var d := fv.size()
+		for i in range(d):
+			var u: int = fv[i]
+			var v: int = fv[(i + 1) % d]
+			if not EV_map.has([u, v]): continue
+			var ei: int = EV_map[[u, v]]
+			EF_map.get_or_add(ei, {})[fi] = true
+
+	var new_EF: Array = []
+	new_EF.resize(graph.EV.size())
+	for ei in range(graph.EV.size()):
+		var ef: Array = []
+		new_EF[ei] = ef
+		ef.append_array(EF_map.get(ei, {}).keys())
+	# TODO: sort edges faces
+	graph.EF = new_EF
 
 
 static func FE_from_FV(graph: FoldGraph) -> bool:
