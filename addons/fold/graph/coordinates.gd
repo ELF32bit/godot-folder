@@ -87,6 +87,18 @@ static func VC3_transform(graph: FoldGraph, transform: Transform3D) -> void:
 		graph.VC[index] = transform * vc3
 
 
+static func VC2_center(graph: FoldGraph) -> void:
+	var center := graph.get_rect2().get_center()
+	var transform := Transform2D.IDENTITY.translated(-center)
+	VC2_transform(graph, transform)
+
+
+static func VC3_center(graph: FoldGraph) -> void:
+	var center := graph.get_aabb().get_center()
+	var transform := Transform3D.IDENTITY.translated(-center)
+	VC3_transform(graph, transform)
+
+
 static func VC_snap(graph: FoldGraph, step: float) -> void:
 	for index in range(graph.VC.size()):
 		var vc: Array = graph.VC[index]

@@ -1,3 +1,60 @@
+static func FV_to_E(graph: FoldGraph) -> void:
+	var EV_map := graph.get_EV_map()
+	var has_EA := bool(graph.EA.size() > 0)
+	var has_EFA := bool(graph.EFA.size() > 0)
+	var has_EL := bool(graph.EL.size() > 0)
+
+	for ev in EV_map:
+		var ei: int = EV_map[ev]
+		var ev_data: Array = [null, null, null]
+		if has_EA: ev_data[0] = graph.EA[ei]
+		if has_EFA: ev_data[1] = graph.EFA[ei]
+		if has_EL: ev_data[2] = graph.EL[ei]
+		EV_map[ev] = ev_data
+
+	var FE_map: Dictionary = {}
+	for fi in range(graph.FV.size()):
+		var fv: Array = graph.FV[fi]
+		var d: int = fv.size()
+		for i in range(d):
+			var u: int = fv[i]
+			var v: int = fv[(i + 1) % d]
+			if FE_map.has([u, v]): continue
+			elif FE_map.has([v, u]): continue
+			else: FE_map[[u, v]] = true
+	var FE_keys := FE_map.keys()
+
+	var new_EV: Array = []
+	var new_EA: Array = []
+	var new_EFA: Array = []
+	var new_EL: Array = []
+	new_EV.resize(FE_keys.size())
+	if has_EA:
+		new_EA.resize(FE_keys.size())
+		new_EA.fill(FoldGraph.EdgeAssignment.JOIN)
+	if has_EFA:
+		new_EFA.resize(FE_keys.size())
+		new_EFA.fill(0.0)
+	if has_EL:
+		new_EL.resize(FE_keys.size())
+		new_EL.fill(0.0)
+
+	for ei in range(FE_keys.size()):
+		var ev: Array = FE_keys[ei]
+		new_EV[ei] = ev
+		if not EV_map.has(ev): continue
+		var ev_data: Array = EV_map[ev]
+		if has_EA: new_EA[ei] = ev_data[0]
+		if has_EFA: new_EFA[ei] = ev_data[1]
+		if has_EL: new_EL[ei] = ev_data[2]
+
+	graph.clear("VE;EO;FE")
+	graph.EV = new_EV
+	graph.EA = new_EA
+	graph.EFA = new_EFA
+	graph.EL = new_EL
+
+
 static func FV_to_VV(graph: FoldGraph) -> void:
 	if not graph.is_VC23(): return
 	var is_VC2 := graph.is_VC2()
@@ -138,3 +195,75 @@ static func FF_from_FV(graph: FoldGraph) -> void:
 			if not has_ffi:
 				ff.append(null)
 	graph.FF = new_FF
+
+
+static func FV_triangulate(graph: FoldGraph) -> void:
+	if not graph.FV.size(): return
+	var is_VC23 := graph.is_VC23()
+	var is_VC2 := graph.is_VC2()
+
+	var new_FV: Array = []
+	var FO_remap: Array = []
+	FO_remap.resize(graph.FV.size())
+	for fi in range(graph.FV.size()):
+		var fv: Array = graph.FV[fi]
+		var d: int = fv.size()
+
+		var fi_remap: Array = []
+		FO_remap[fi] = fi_remap
+		if d < 4:
+			fi_remap.append(new_FV.size())
+			new_FV.append(fv.duplicate())
+			continue
+
+		if d == 4 and is_VC23:
+			fi_remap.append(new_FV.size())
+			fi_remap.append(new_FV.size() + 1)
+			var d1 = graph.VC[fv[2]] - graph.VC[fv[0]]
+			var d2 = graph.VC[fv[3]] - graph.VC[fv[1]]
+			if d1.length_squared() <= d2.length_squared():
+				new_FV.append([fv[0], fv[1], fv[2]])
+				new_FV.append([fv[0], fv[2], fv[3]])
+			else:
+				new_FV.append([fv[0], fv[1], fv[3]])
+				new_FV.append([fv[2], fv[3], fv[1]])
+			continue
+
+		if d == 4 and not is_VC23:
+			fi_remap.append(new_FV.size())
+			fi_remap.append(new_FV.size() + 1)
+			new_FV.append([fv[0], fv[1], fv[2]])
+			new_FV.append([fv[0], fv[2], fv[3]])
+			continue
+
+		if d > 4 and is_VC23:
+			var center = (Vector2.ZERO if is_VC2 else Vector3.ZERO)
+			for i in range(d):
+				center += graph.VC[fv[i]]
+			center /= d
+			var ii := graph.VC.size()
+			graph.VC.append(center)
+			for i in range(d):
+				fi_remap.append(new_FV.size())
+				new_FV.append([ii, fv[i], fv[(i + 1) % d]])
+			continue
+
+		for i in range(1, d - 1):
+			fi_remap.append(new_FV.size())
+			new_FV.append([0, i, i + 1])
+		new_FV.append([0, d - 1, 1])
+
+	var new_FO: Array = []
+	for fo in graph.FO:
+		var f1: int = fo[0]
+		var f2: int = fo[1]
+		var o: int = fo[2]
+		for f1_remap in FO_remap[f1]:
+			for f2_remap in FO_remap[f2]:
+				new_FO.append([f1_remap, f2_remap, o])
+
+	# TODO: triangulate metadata
+	graph.clear("VV;VE;VF;FE")
+	graph.FV = new_FV
+	graph.FO = new_FO
+	FV_to_E(graph)

@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dxd3m7w22y5o5"]
+
+[ext_resource type="Shader" uid="uid://ptvs77wyjdjt" path="res://addons/fold/graph/shaders/wireframe.gdshader" id="1_vlcbn"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_vlcbn")
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/width_min = 10.0
+shader_parameter/width_max = 20.0
+shader_parameter/B_scale = 4.0
+shader_parameter/B_color = Color(0, 0, 0, 1)
+shader_parameter/M_color = Color(1, 0, 0, 1)
+shader_parameter/V_color = Color(0, 0, 1, 1)
+shader_parameter/F_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/U_color = Color(1, 1, 0, 1)
+shader_parameter/C_color = Color(0, 1, 0, 1)
+shader_parameter/J_color = Color(0, 0, 0, 0.25)
+shader_parameter/fade = 0.999999977648
