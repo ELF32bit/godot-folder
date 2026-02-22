@@ -11,35 +11,53 @@ static func to_mesh(graph: FoldGraph, is_triangular: bool = true) -> ArrayMesh:
 	for index in range(FVC_CW.size()):
 		FVC_CW[index].reverse()
 
-	var fc_ccw: Array = []
-	if is_triangular: fc_ccw = _encode_colors(graph, false)
-	var has_colors := bool(fc_ccw.size() > 0)
-
-	var fv_ccw := graph.FV; var fe_ccw := graph.FE; var ea_ccw := graph.EA;
-	var fv_cw: Array = []; var fe_cw: Array = []; var ea_cw: Array = [];
-	var fc_cw: Array = []
+	var FC_CW: Array = []
+	var FC_CCW: Array = []
+	if is_triangular: FC_CCW = _encode_colors3(graph)
+	var has_colors := bool(FC_CCW.size() > 0)
 	if has_colors:
-		fv_cw = graph.FV.duplicate(true)
-		for face_index in range(fv_cw.size()):
-			fv_cw[face_index].reverse()
+		var FV_CCW := graph.FV
+		var FE_CCW := graph.FE
+		var VE_CCW := graph.VE
+		var EA_CCW := graph.EA
 
-		fe_cw = graph.FE.duplicate(true)
-		for face_index in range(fe_ccw.size()):
-			var edges_ccw: Array = fe_ccw[face_index]
-			var edges_cw: Array = fe_cw[face_index]
-			var d := edges_ccw.size()
-			for index in range(d):
-				edges_cw[index] = edges_ccw[d - 2 - index]
+		var FV_CW: Array = []
+		FV_CW = graph.FV.duplicate(true)
+		for index in range(FV_CW.size()):
+			FV_CW[index].reverse()
 
-		ea_cw = graph.EA.duplicate(true)
-		for edge_index in range(ea_cw.size()):
-			match ea_cw[edge_index]:
-				"M": ea_cw[edge_index] = "V"
-				"V": ea_cw[edge_index] = "M"
+		var FE_CW: Array = []
+		FE_CW = graph.FE.duplicate(true)
+		for index in range(FE_CW.size()):
+			var fei_ccw: Array = FE_CCW[index]
+			var fei_cw: Array = FE_CW[index]
+			var d := fei_ccw.size()
+			for i in range(d): # -1 for last element
+				fei_cw[i] = fei_ccw[d - 2 - i]
 
-		graph.FV = fv_cw; graph.FE = fe_cw; graph.EA = ea_cw;
-		fc_cw = _encode_colors(graph, false)
-		graph.FV = fv_ccw; graph.FE = fe_ccw; graph.EA = ea_ccw;
+		var VE_CW: Array = []
+		VE_CW = graph.VE.duplicate(true)
+		for index in range(VE_CW.size()):
+			VE_CW[index].reverse()
+
+		var EA_CW: Array = []
+		EA_CW = graph.EA.duplicate(true)
+		for index in range(EA_CW.size()):
+			match EA_CW[index]:
+				FoldGraph.EdgeAssignment.MOUNTAIN:
+					EA_CW[index] = FoldGraph.EdgeAssignment.VALLEY
+				FoldGraph.EdgeAssignment.VALLEY:
+					EA_CW[index] = FoldGraph.EdgeAssignment.MOUNTAIN
+
+		graph.FV = FV_CW
+		graph.FE = FE_CW
+		graph.VE = VE_CW
+		graph.EA = EA_CW
+		FC_CW = _encode_colors3(graph)
+		graph.FV = FV_CCW
+		graph.FE = FE_CCW
+		graph.VE = VE_CCW
+		graph.EA = EA_CCW
 
 	var front_surface := SurfaceTool.new()
 	front_surface.begin(Mesh.PRIMITIVE_TRIANGLES)
@@ -52,12 +70,12 @@ static func to_mesh(graph: FoldGraph, is_triangular: bool = true) -> ArrayMesh:
 	back_surface.set_smooth_group(-1)
 
 	for index in range(FVC_CCW.size()):
-		var fv: Array = FVC_CW[index]
-		var bv: Array = FVC_CCW[index]
-		var fc = (fc_cw[index] if has_colors else [])
-		var bc = (fc_ccw[index] if has_colors else [])
-		front_surface.add_triangle_fan(fv, [], fc, [])
-		back_surface.add_triangle_fan(bv, [], bc, [])
+		var fvc: Array = FVC_CW[index]
+		var bvc: Array = FVC_CCW[index]
+		var fc: Array = (FC_CW[index] if has_colors else [])
+		var bc: Array = (FC_CCW[index] if has_colors else [])
+		front_surface.add_triangle_fan(fvc, [], fc, [])
+		back_surface.add_triangle_fan(bvc, [], bc, [])
 
 	for surface in [front_surface, back_surface]:
 		surface.generate_normals()
@@ -71,74 +89,71 @@ static func to_mesh(graph: FoldGraph, is_triangular: bool = true) -> ArrayMesh:
 	return mesh
 
 
-static func _encode_colors(graph: FoldGraph, _validate: bool = true) -> Array:
+static func _encode_colors3(graph: FoldGraph) -> Array:
+	if not graph.FV.size() > 0: return []
 	if not graph.FE.size() > 0: return []
-	if not graph.EV.size() > 0: return []
+	if not graph.VE.size() > 0: return []
 	if not graph.EA.size() > 0: return []
 	var has_efa := bool(graph.EFA.size() > 0)
-	if _validate:
-		for face in graph.FV:
-			if face.size() != 3:
-				return []
 
-	var fc: Array = []
-	var ve: Dictionary = {}
-	for edge_index in range(graph.EV.size()):
-		var edge: Array = graph.EV[edge_index]
-		var u: int = edge[0]; var v: int = edge[1]
-		var assignment: String = graph.EA[edge_index]
-		if not ve.has(u): ve[u] = [0, 0, 0]
-		if not ve.has(v): ve[v] = [0, 0, 0]
-		match assignment:
-			"B": ve[u][0] += 1; ve[v][0] += 1;
-			"M": ve[u][1] += 1; ve[v][1] += 1;
-			"V": ve[u][2] += 1; ve[v][2] += 1;
+	const EA_TABLE: Dictionary = {
+		FoldGraph.EdgeAssignment.BOUNDARY: 7,
+		FoldGraph.EdgeAssignment.MOUNTAIN: 6,
+		FoldGraph.EdgeAssignment.VALLEY: 5,
+		FoldGraph.EdgeAssignment.FLAT: 4,
+		FoldGraph.EdgeAssignment.UNKNOWN: 3,
+		FoldGraph.EdgeAssignment.CUT: 2,
+		FoldGraph.EdgeAssignment.JOIN: 1,
+	}
 
-	fc.resize(graph.FE.size())
-	for face_index in range(graph.FE.size()):
-		var vertices: Array = graph.FV[face_index]
-		var edges: Array = graph.FE[face_index]
-		var d: int = edges.size()
-
-		var colors: Array = []
-		fc[face_index] = colors
-		colors.resize(d)
-		colors.fill(Color.BLACK)
+	var FC: Array = []
+	FC.resize(graph.FE.size())
+	for fi in range(graph.FE.size()):
+		var fv: Array = graph.FV[fi]
+		var fe: Array = graph.FE[fi]
+		var d: int = fe.size()
 
 		var rgb: Array = []
+		var colors: Array = []
+		FC[fi] = colors
+		colors.resize(d)
+		colors.fill(Color.BLACK)
 		rgb = colors.duplicate()
-		var ea: Array = []
-		ea.resize(d)
 
-		for index in range(d):
-			var edge: int = edges[index]
-			var fold_angle: float = 180.0
-			if has_efa: fold_angle = graph.EFA[edge]
-			var fade := int((absf(fold_angle) / 180.0) * 31.0)
-			var assignment: String = graph.EA[edge]
-			ea[index] = assignment
-			match assignment:
-				"B": rgb[index] = float((7 << 5) | fade) / 255.0
-				"M": rgb[index] = float((6 << 5) | fade) / 255.0
-				"V": rgb[index] = float((5 << 5) | fade) / 255.0
-				"F": rgb[index] = float((4 << 5) | fade) / 255.0
-				"U": rgb[index] = float((3 << 5) | fade) / 255.0
-				"C": rgb[index] = float((2 << 5) | fade) / 255.0
-				"J": rgb[index] = float((1 << 5) | fade) / 255.0
+		for i in range(d):
+			var ei: int = fe[i]
+			var efa: float = 180.0
+			if has_efa: efa = graph.EFA[ei]
+			var ea: String = graph.EA[ei]
 
-		for index in range(d):
-			var vertex: int = vertices[index]
-			colors[index].r = rgb[index]
-			colors[index].g = rgb[(index + 1) % d]
-			colors[index].b = rgb[(index + 2) % d]
-			var alpha: int = (1 + (index + 1) % d) * 64
-			if ve.has(vertex):
-				var ve_counts: Array = ve[vertex]
-				if ve_counts[0] > 0: alpha |= 32
-				var m: int = ve_counts[1]
-				var v: int = ve_counts[2]
-				if (m + v) == 0: alpha |= 31
-				else: alpha |= int(roundf(30.0 * v / (m + v)))
-			colors[index].a = alpha / 255.0
+			var fvi: int = fv[i]
+			var ve: Array = graph.VE[fvi]
+			var vei: int = ve.find(ei)
+			var vee_code: int = 0
+			if not vei < 0:
+				var vei_ccw := vei; var vei_cw := vei;
+				for index in range(1, ve.size()):
+					var ei_ccw: int = ve[posmod(vei + index, ve.size())]
+					if not graph.EA[ei_ccw] == FoldGraph.EdgeAssignment.JOIN:
+						vei_ccw = ei_ccw; break;
+				for index in range(ve.size()):
+					var ei_cw: int = ve[posmod(vei - index, ve.size())]
+					if not graph.EA[ei_cw] == FoldGraph.EdgeAssignment.JOIN:
+						vei_cw = ei_cw; break;
+				var a: int = EA_TABLE[graph.EA[vei_ccw]] - 1
+				var b: int = EA_TABLE[graph.EA[vei_cw]] - 1
+				var x := mini(a, b); var y := maxi(a, b)
 
-	return fc
+				vee_code = (7 * x + y) - x * (x + 1) / 2
+			var ea_code: int = EA_TABLE[ea] << 5
+			rgb[i] = float(ea_code | vee_code) / 255.0
+
+		for i in range(d):
+			var fvi: int = fv[i]
+			colors[i].r = rgb[i]
+			colors[i].g = rgb[(i + 1) % d]
+			colors[i].b = rgb[(i + 2) % d]
+			var bc_code: int = (1 + (i + 1) % d) * 64
+			colors[i].a = bc_code / 255.0
+
+	return FC
