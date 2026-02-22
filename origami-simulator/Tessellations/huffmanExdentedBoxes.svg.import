@@ -3,17 +3,18 @@
 importer="fold.svg"
 type="Resource"
 uid="uid://cwwlfvqcr3ab7"
-valid=false
+path="res://.godot/imported/huffmanExdentedBoxes.svg-e429505e72628f8154c98e36db8b11fe.tres"
 
 [deps]
 
 source_file="res://origami-simulator/Tessellations/huffmanExdentedBoxes.svg"
+dest_files=["res://.godot/imported/huffmanExdentedBoxes.svg-e429505e72628f8154c98e36db8b11fe.tres"]
 
 [params]
 
 triangulate=true
 max_size=100.0
-quantization=0.001
+quantization=0.01
 merge_distance=0.5
-grid_step=0.5
+grid_step=1.0
 validate=true

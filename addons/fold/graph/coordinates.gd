@@ -22,9 +22,9 @@ static func _mesh_VC3_to_VC(graph: FoldGraph) -> void:
 		var tc2: Vector2 = TC[index]
 		new_TC[index] = [tc2.x, tc2.y]
 
-	metadata["vertices_color"] = new_VP
-	metadata["normals_coords"] = new_NC
-	metadata["uvs_coords"] = new_TC
+	if metadata.has("vertices_color"): metadata["vertices_color"] = new_VP
+	if metadata.has("normals_coords"): metadata["normals_coords"] = new_NC
+	if metadata.has("uvs_coords"): metadata["uvs_coords"] = new_TC
 
 
 static func _mesh_VC_to_VC3(graph: FoldGraph) -> void:
@@ -51,9 +51,9 @@ static func _mesh_VC_to_VC3(graph: FoldGraph) -> void:
 		var tc: Array = TC[index]
 		new_TC[index] = Vector2(tc[0], tc[1])
 
-	metadata["vertices_color"] = new_VP
-	metadata["normals_coords"] = new_NC
-	metadata["uvs_coords"] = new_TC
+	if metadata.has("vertices_color"): metadata["vertices_color"] = new_VP
+	if metadata.has("normals_coords"): metadata["normals_coords"] = new_NC
+	if metadata.has("uvs_coords"): metadata["uvs_coords"] = new_TC
 
 
 static func VC_to_VC2(graph: FoldGraph) -> void:

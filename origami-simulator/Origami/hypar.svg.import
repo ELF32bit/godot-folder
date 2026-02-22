@@ -3,17 +3,18 @@
 importer="fold.svg"
 type="Resource"
 uid="uid://c1ab0e8u3k05b"
-valid=false
+path="res://.godot/imported/hypar.svg-2ce27ecc033b489d348f318c09abf83b.tres"
 
 [deps]
 
 source_file="res://origami-simulator/Origami/hypar.svg"
+dest_files=["res://.godot/imported/hypar.svg-2ce27ecc033b489d348f318c09abf83b.tres"]
 
 [params]
 
 triangulate=true
 max_size=100.0
-quantization=0.001
+quantization=0.01
 merge_distance=0.5
-grid_step=0.5
+grid_step=1.0
 validate=true

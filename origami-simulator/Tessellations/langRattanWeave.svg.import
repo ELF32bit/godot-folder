@@ -3,17 +3,18 @@
 importer="fold.svg"
 type="Resource"
 uid="uid://btwuem44ehpxa"
-valid=false
+path="res://.godot/imported/langRattanWeave.svg-422c7197729234cfb4f36270f44c9585.tres"
 
 [deps]
 
 source_file="res://origami-simulator/Tessellations/langRattanWeave.svg"
+dest_files=["res://.godot/imported/langRattanWeave.svg-422c7197729234cfb4f36270f44c9585.tres"]
 
 [params]
 
 triangulate=true
 max_size=100.0
-quantization=0.001
+quantization=0.01
 merge_distance=0.5
-grid_step=0.5
+grid_step=1.0
 validate=true

@@ -3,17 +3,18 @@
 importer="fold.svg"
 type="Resource"
 uid="uid://lpwkmw4b551o"
-valid=false
+path="res://.godot/imported/auxetic_triangle.svg-60d6a631c6bff61caedbbe621e41278e.tres"
 
 [deps]
 
 source_file="res://origami-simulator/Kirigami/auxetic_triangle.svg"
+dest_files=["res://.godot/imported/auxetic_triangle.svg-60d6a631c6bff61caedbbe621e41278e.tres"]
 
 [params]
 
 triangulate=true
 max_size=100.0
-quantization=0.001
+quantization=0.02
 merge_distance=0.5
-grid_step=0.5
+grid_step=1.0
 validate=true

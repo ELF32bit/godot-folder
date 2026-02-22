@@ -3,17 +3,18 @@
 importer="fold.svg"
 type="Resource"
 uid="uid://dlwdp3xepnsoe"
-valid=false
+path="res://.godot/imported/Crossing_curves.svg-f5a0efadd3f63202c86f89ea7d414ae9.tres"
 
 [deps]
 
 source_file="res://origami-simulator/Curved/Crossing_curves.svg"
+dest_files=["res://.godot/imported/Crossing_curves.svg-f5a0efadd3f63202c86f89ea7d414ae9.tres"]
 
 [params]
 
 triangulate=true
 max_size=100.0
-quantization=0.001
+quantization=0.01
 merge_distance=0.5
-grid_step=0.5
+grid_step=1.0
 validate=true

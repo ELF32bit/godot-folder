@@ -61,14 +61,12 @@ static func VC_merge(graph: FoldGraph, distance: float) -> void:
 static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 	const Utilities := preload("utilities.gd")
 	if not graph.is_VC2(): return false
-	if not graph.EA.size(): return false
 
 	# delaunay triangulating vertices coordinates
 	var triangles := Geometry2D.triangulate_delaunay(graph.VC)
 	if not triangles.size(): return false
-	var old_FV := graph.FV.duplicate(true)
-	var is_valid := true
 
+	# creating graph faces from triangles
 	graph.FV.resize(triangles.size() / 3)
 	for index in range(0, triangles.size(), 3):
 		graph.FV[index / 3] = [
@@ -76,7 +74,17 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 			triangles[index + 1],
 			triangles[index + 2]]
 
-	# finding edges faces and cells
+	# returning oriented faces if graph edges are missing
+	if not graph.EA.size():
+		var FVC := graph.get_FVC()
+		for index in range(graph.FV.size()):
+			var fvc: Array = FVC[index]
+			if Geometry2D.is_polygon_clockwise(fvc):
+				graph.FV[index].reverse()
+		graph.clear("VV;VE;VF;EF;FE;FF;FO")
+		return true
+
+	# finding edges faces and cells in triangulation
 	var grid: Dictionary = {}
 	var EF_map: Dictionary = {}
 	for fi in range(graph.FV.size()):
@@ -86,14 +94,16 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 			var u: int = fv[i]
 			var v: int = fv[(i + 1) % d]
 			var w: int = fv[(i + 2) % d]
-			EF_map.get_or_add([u, v], []).append([fi, w])
-			EF_map.get_or_add([v, u], []).append([fi, w])
+			EF_map.get_or_add([u, v], {})[[fi, w]] = true
+			EF_map.get_or_add([v, u], {})[[fi, w]] = true
 			var uu: Vector2 = graph.VC[u]; var vv: Vector2 = graph.VC[v];
 			for cell in Utilities.segment2_to_grid(uu, vv, grid_step):
 				grid.get_or_add(cell, {})[[u, v]] = true
 				grid.get_or_add(cell, {})[[v, u]] = true
 
 	# constraining delaunay triangulation to graph edges
+	var is_valid := true
+	var old_FV := graph.FV.duplicate(true)
 	for constrained_edge in graph.EV:
 		if constrained_edge in EF_map: continue
 		var from_u: int = constrained_edge[0]
@@ -101,6 +111,7 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 		var from: Vector2 = graph.VC[from_u]
 		var to: Vector2 = graph.VC[to_v]
 
+		# finding nearby edges for the constrained edge
 		var grid_edges: Dictionary = {}
 		for cell in Utilities.segment2_to_grid(from, to, grid_step):
 			for edge in grid.get(cell, []):
@@ -108,10 +119,11 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 				grid_edges[[u, v]] = true
 				grid_edges[[v, u]] = true
 
+		# finding nearby edges crossing the constrained edge
 		var _i: int = -1
 		var crossing_edges: Array = []
 		for edge in grid_edges:
-			_i += 1; if _i % 2 == 1: continue
+			_i += 1; if _i % 2 == 1: continue;
 			var u: int = edge[0]; var v: int = edge[1];
 			if from_u == u or to_v == v: continue
 			if from_u == v or to_v == u: continue
@@ -119,18 +131,20 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 			if Geometry2D.segment_intersects_segment(from, to, uu, vv):
 				crossing_edges.append([u, v])
 
+		# swapping crossing faces diagonals until the edge is constrained
 		var new_edges: Array = []
 		var max_attempts: int = 250
 		while crossing_edges.size() and max_attempts > 0:
 			var edge: Array = crossing_edges.pop_back()
 			var u: int = edge[0]; var v: int = edge[1];
 
-			var faces: Array = EF_map[[u, v]]
+			var faces: Array = EF_map.get([u, v], {}).keys()
 			if not faces.size() >= 2: is_valid = false
 			if max_attempts == 1: is_valid = false
 			if not is_valid: break
 			max_attempts -= 1
 
+			# checking if faces form a convex quadrilateral
 			var f1: int = faces[0][0]; var f2: int = faces[1][0];
 			var w1: int = faces[0][1]; var w2: int = faces[1][1];
 			var ww1: Vector2 = graph.VC[w1]; var ww2: Vector2 = graph.VC[w2];
@@ -140,17 +154,26 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 				crossing_edges.push_front(edge)
 				continue
 
+			# swapping quadrilateral diagonals and updating grid cells
 			EF_map.erase([u, v]); EF_map.erase([v, u]);
-			EF_map[[w1, w2]] = [[f1, u], [f2, v]]
-			EF_map[[w2, w1]] = [[f1, u], [f2, v]]
-			EF_map[[u, w1]].erase([f1, v]); EF_map[[u, w1]].append([f1, w2]);
-			EF_map[[v, w1]].erase([f1, u]); EF_map[[v, w1]].append([f2, w2]);
-			EF_map[[u, w2]].erase([f2, v]); EF_map[[u, w2]].append([f1, w1]);
-			EF_map[[v, w2]].erase([f2, u]); EF_map[[v, w2]].append([f2, w1]);
-			EF_map[[w1, u]].erase([f1, v]); EF_map[[w1, u]].append([f1, w2]);
-			EF_map[[w1, v]].erase([f1, u]); EF_map[[w1, v]].append([f2, w2]);
-			EF_map[[w2, u]].erase([f2, v]); EF_map[[w2, u]].append([f1, w1]);
-			EF_map[[w2, v]].erase([f2, u]); EF_map[[w2, v]].append([f2, w1]);
+			EF_map[[w1, w2]] = {[f1, u]: true, [f2, v]: true}
+			EF_map[[w2, w1]] = {[f1, u]: true, [f2, v]: true}
+			EF_map.get([u, w1], {}).erase([f1, v])
+			EF_map.get([w1, u], {}).erase([f1, v])
+			EF_map.get([v, w1], {}).erase([f1, u])
+			EF_map.get([w1, v], {}).erase([f1, u])
+			EF_map.get([u, w2], {}).erase([f2, v])
+			EF_map.get([w2, u], {}).erase([f2, v])
+			EF_map.get([v, w2], {}).erase([f2, u])
+			EF_map.get([w2, v], {}).erase([f2, u])
+			EF_map.get_or_add([u, w1], {})[[f1, w2]] = true
+			EF_map.get_or_add([v, w1], {})[[f2, w2]] = true
+			EF_map.get_or_add([u, w2], {})[[f1, w1]] = true
+			EF_map.get_or_add([v, w2], {})[[f2, w1]] = true
+			EF_map.get_or_add([w1, u], {})[[f1, w2]] = true
+			EF_map.get_or_add([w1, v], {})[[f2, w2]] = true
+			EF_map.get_or_add([w2, u], {})[[f1, w1]] = true
+			EF_map.get_or_add([w2, v], {})[[f2, w1]] = true
 			for cell in Utilities.segment2_to_grid(uu, vv, grid_step):
 				grid.get_or_add(cell, {}).erase([u, v])
 				grid.get_or_add(cell, {}).erase([v, u])
@@ -160,6 +183,7 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 			graph.FV[f1] = [w1, u, w2]
 			graph.FV[f2] = [w1, v, w2]
 
+			# checking if the new diagonal is still crossing the edge
 			var is_crossing := false
 			if from_u == w1 or from_u == w2: is_crossing = false
 			elif to_v == w1 or to_v == w2: is_crossing = false
@@ -169,16 +193,18 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 			else: new_edges.append([w1, w2])
 		if not is_valid: break
 
+		# balancing new edges to satisfy the delaunay condition
 		for edge in new_edges:
 			var u: int = edge[0]; var v: int = edge[1];
 			if from_u == u and to_v == v: continue
 			if from_u == v and to_v == u: continue
 
-			var faces: Array = EF_map[[u, v]]
+			var faces: Array = EF_map.get([u, v], {}).keys()
 			if not faces.size() >= 2:
 				is_valid = false
 				break
 
+			# checking if faces form a convex quadrilateral
 			var f1: int = faces[0][0]; var f2: int = faces[1][0];
 			var w1: int = faces[0][1]; var w2: int = faces[1][1];
 			var ww1: Vector2 = graph.VC[w1]; var ww2: Vector2 = graph.VC[w2];
@@ -186,21 +212,31 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 			if not Geometry2D.segment_intersects_segment(ww1, ww2, uu, vv):
 				continue
 
+			# checking if quadrilateral satisfies the delaunay condition
 			var angle1: float = absf((uu - ww1).angle_to(vv - ww1))
 			var angle2: float = absf((uu - ww2).angle_to(vv - ww2))
 			if angle1 + angle2 <= PI: continue
 
+			# swapping quadrilateral diagonals exactly like before
 			EF_map.erase([u, v]); EF_map.erase([v, u]);
-			EF_map[[w1, w2]] = [[f1, u], [f2, v]]
-			EF_map[[w2, w1]] = [[f1, u], [f2, v]]
-			EF_map[[u, w1]].erase([f1, v]); EF_map[[u, w1]].append([f1, w2]);
-			EF_map[[v, w1]].erase([f1, u]); EF_map[[v, w1]].append([f2, w2]);
-			EF_map[[u, w2]].erase([f2, v]); EF_map[[u, w2]].append([f1, w1]);
-			EF_map[[v, w2]].erase([f2, u]); EF_map[[v, w2]].append([f2, w1]);
-			EF_map[[w1, u]].erase([f1, v]); EF_map[[w1, u]].append([f1, w2]);
-			EF_map[[w1, v]].erase([f1, u]); EF_map[[w1, v]].append([f2, w2]);
-			EF_map[[w2, u]].erase([f2, v]); EF_map[[w2, u]].append([f1, w1]);
-			EF_map[[w2, v]].erase([f2, u]); EF_map[[w2, v]].append([f2, w1]);
+			EF_map[[w1, w2]] = {[f1, u]: true, [f2, v]: true}
+			EF_map[[w2, w1]] = {[f1, u]: true, [f2, v]: true}
+			EF_map.get([u, w1], {}).erase([f1, v])
+			EF_map.get([w1, u], {}).erase([f1, v])
+			EF_map.get([v, w1], {}).erase([f1, u])
+			EF_map.get([w1, v], {}).erase([f1, u])
+			EF_map.get([u, w2], {}).erase([f2, v])
+			EF_map.get([w2, u], {}).erase([f2, v])
+			EF_map.get([v, w2], {}).erase([f2, u])
+			EF_map.get([w2, v], {}).erase([f2, u])
+			EF_map.get_or_add([u, w1], {})[[f1, w2]] = true
+			EF_map.get_or_add([v, w1], {})[[f2, w2]] = true
+			EF_map.get_or_add([u, w2], {})[[f1, w1]] = true
+			EF_map.get_or_add([v, w2], {})[[f2, w1]] = true
+			EF_map.get_or_add([w1, u], {})[[f1, w2]] = true
+			EF_map.get_or_add([w1, v], {})[[f2, w2]] = true
+			EF_map.get_or_add([w2, u], {})[[f1, w1]] = true
+			EF_map.get_or_add([w2, v], {})[[f2, w1]] = true
 			for cell in Utilities.segment2_to_grid(uu, vv, grid_step):
 				grid.get_or_add(cell, {}).erase([u, v])
 				grid.get_or_add(cell, {}).erase([v, u])
@@ -209,13 +245,12 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 				grid.get_or_add(cell, {})[[w2, w1]] = true
 			graph.FV[f1] = [w1, u, w2]
 			graph.FV[f2] = [w1, v, w2]
-
 		if not is_valid: break
 	if not is_valid:
 		graph.FV = old_FV
 		return false
 
-	# removing extra faces and creating holes
+	# preparing to remove additional faces and create holes
 	var EV_map := graph.get_EV_map()
 	var J := FoldGraph.EdgeAssignment.JOIN
 	var B := FoldGraph.EdgeAssignment.BOUNDARY
@@ -244,18 +279,21 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 			var u: int = fv[i]
 			var v: int = fv[(i + 1) % d]
 			var ei = EV_map.get([u, v], null)
-			var uv: String = (graph.EA[ei] if ei != null else J)
+			var ea: String = (graph.EA[ei] if ei != null else J)
 
+			# trying to grow faces area and signing nearby faces
 			var f: int = -1
 			for ff in EF_map[[u, v]]: if ff[0] != fi: f = ff[0];
-			if not uv in BC and (f >= 0 and faces_signs[f] < 0):
+			if not ea in BC and (f >= 0 and faces_signs[f] < 0):
 				faces_signs[f] = g_sign; faces_queue.append(f);
 
-			if not uv in BCJ: sign_has_crease[g_sign] = true
-			if f < 0 and uv in J: sign_has_open_boundary[g_sign] = true
-			if f < 0 and uv in BC: sign_has_boundary[g_sign] = true
-			elif uv in BC: sign_neighbours.get_or_add(g_sign, {})[f] = true
+			# determining useful properties of the signed area
+			if not ea in BCJ: sign_has_crease[g_sign] = true
+			if f < 0 and ea in J: sign_has_open_boundary[g_sign] = true
+			if f < 0 and ea in BC: sign_has_boundary[g_sign] = true
+			elif ea in BC: sign_neighbours.get_or_add(g_sign, {})[f] = true
 
+		# incrementing the sign when exhausted faces area
 		if not faces_queue.size():
 			var index := faces_signs.find(-1)
 			if index < 0: break
@@ -263,6 +301,7 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 			faces_signs[index] = g_sign
 			faces_queue.append(index)
 
+	# trying to remove faces areas that have open boundary
 	for sign in sign_neighbours:
 		for neighbour in sign_neighbours[sign]:
 			var neighbour_sign: int = faces_signs[neighbour]
@@ -270,6 +309,7 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 				sign_neighbours[sign] = null
 				break
 
+	# removing additional faces and creating holes
 	var new_FV: Array = []
 	for index in range(graph.FV.size()):
 		var sign: int = faces_signs[index]
@@ -293,6 +333,7 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 		var fvc: Array = FVC[index]
 		if Geometry2D.is_polygon_clockwise(fvc):
 			graph.FV[index].reverse()
+	graph.clear("VV;VE;VF;EF;FE;FF;FO")
 
 	return is_valid
 

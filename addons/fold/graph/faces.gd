@@ -83,7 +83,7 @@ static func FV_to_VV(graph: FoldGraph) -> void:
 	for vertex in VV_p:
 		VV_p[vertex] = Plane(VV_p[vertex].normalized())
 
-	var new_VV: Array = []
+	var new_VV: Array[Array] = []
 	new_VV.resize(graph.VC.size())
 	for vertex in VV_map:
 		new_VV[vertex] = VV_map[vertex].keys()
@@ -263,7 +263,6 @@ static func FV_triangulate(graph: FoldGraph) -> void:
 				new_FO.append([f1_remap, f2_remap, o])
 
 	# TODO: triangulate metadata
-	graph.clear("VV;VE;VF;FE")
+	graph.clear("VV;VE;VF;EF;FE;FF")
 	graph.FV = new_FV
 	graph.FO = new_FO
-	FV_to_E(graph)

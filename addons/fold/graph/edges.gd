@@ -85,19 +85,19 @@ static func EVC2_intersect(graph: FoldGraph, grid_step: float, quantization: flo
 		EVC2_expanded = EVC2.duplicate(true)
 		for evc in EVC2_expanded:
 			var direction: Vector2 = (evc[1] - evc[0]).normalized()
-			var expansion := _q * direction * quantization
+			var expansion := direction * quantization * _q
 			evc[0] -= expansion; evc[1] += expansion;
 
 	var grid_intersection := EV_grid_intersect(graph, grid_step)
 	for ei in range(EVC2.size()):
-		var evc: Array = EVC2[ei]
-		var from: Vector2 = evc[0]
-		var to: Vector2 = evc[1]
+		var e: Array = EVC2[ei]
+		var from: Vector2 = e[0]
+		var to: Vector2 = e[1]
 
 		var segments: Array = [[from, 0.0]]
 		for index in grid_intersection[ei]:
-			var eevc: Array = EVC2[index]
-			var u: Vector2 = eevc[0]; var v: Vector2 = eevc[1];
+			var ee: Array = EVC2[index]
+			var u: Vector2 = ee[0]; var v: Vector2 = ee[1];
 			var p = Geometry2D.segment_intersects_segment(from, to, u, v)
 			if p != null:
 				if not from.is_equal_approx(p):
@@ -105,8 +105,8 @@ static func EVC2_intersect(graph: FoldGraph, grid_step: float, quantization: flo
 						segments.append([p, from.distance_squared_to(p)])
 						continue
 			if not is_quantized: continue
-			var eevc_expanded: Array = EVC2_expanded[index]
-			u = eevc_expanded[0]; v = eevc_expanded[1];
+			var ee_expanded: Array = EVC2_expanded[index]
+			u = ee_expanded[0]; v = ee_expanded[1];
 			p = Geometry2D.segment_intersects_segment(from, to, u, v)
 			if p != null:
 				if not from.is_equal_approx(p):
@@ -126,6 +126,7 @@ static func EVC2_intersect(graph: FoldGraph, grid_step: float, quantization: flo
 			if has_EA: new_EA.append(graph.EA[ei])
 			if has_EFA: new_EFA.append(graph.EFA[ei])
 
+	graph.clear("VV;VE;VF;EL;EO;FV;FE;FF;FO")
 	graph.VC = new_VC
 	graph.EV = new_EV
 	graph.EA = new_EA

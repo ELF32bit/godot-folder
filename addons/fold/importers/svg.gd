@@ -58,7 +58,7 @@ func _get_import_options(path: String, preset_index: int) -> Array[Dictionary]:
 				},
 				{
 					"name": "grid_step",
-					"default_value": 0.5,
+					"default_value": 1.0,
 				},
 				{
 					"name": "validate",
