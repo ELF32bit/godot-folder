@@ -34,7 +34,7 @@ func _activate() -> void:
 	$MeshInstance3D.mesh = mesh
 "
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_h2yge"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_0xm2m"]
 _surfaces = [{
 "aabb": AABB(-25, -25, 0, 50, 50, 1e-05),
 "attribute_data": PackedByteArray("r+C/k+C/r/6/r+B+z7/goL/gz9Pgz79+3+Cvk+Cv3+Cv3+B+gOAgiOAggOAggOBgzyCAgCCAz8iAzyBgz4Dfk4Dfz8Dfz4Bg3+DfiODf3+Df3+Bg39+AiN+A38iA399gv+DPk+DPv/7Pv+Bgv8/fiM/fv9Pfv89gr+C/k+C/r/6/r+B+r+C/k+C/r/6/r+B+z7/goL/gz9Pgz79+3+Cvk+Cv3+Cv3+B+z4Dfk4Dfz8Dfz4BggOAgiOAggOAggOBgzyCAgCCAz8iAzyBg3+DfiODf3+Df3+Bg39+AiN+A38iA399gv8/fiM/fv9Pfv89gr+C/k+C/r/6/r+B+z7/goL/gz9Pgz79+4K/foK/f4P7f4K9TgN/PgN/PgODPgN9TgM+/l8+/gMC/gM9Tz7+viL+vz9evz79T36+/iK+/38i/369T37/PoL/P38jP379Tz4AgiIAgz8Agz4BXzyCvlyCvz8ivzyBXr68gl68gr9cgr69XryCvlyCvr9evryBXgK8ggK8ggNcggK9XzyDPiCDPz8DPzyBXgK8ggK8ggNcggK9XzyDPiCDPz8DPzyBXr8+/k8+/r8i/r89Xz7+AgL+Az9OAz79Xz4AgiIAgz8Agz4BXzyCvlyCvz8ivzyBX36+/iK+/38i/369T34DfiIDf3+Df34BIgM8goM8ggMAggM9I4CCAoCCA4OCA4CBI4N/foN/f4ODf4N9Iv8/fiM/fv9Pfv89g39/goN/g38jg399g36+/iK+/38i/369TgM+/l8+/gMC/gM9Tz7+viL+vz9evz79Tv6/Pl6/Pv9PPv69Iv9+vk9+vv8ivv99I4K/foK/f4P7f4K9TgN/PgN/PgODPgN9TgM+/l8+/gMC/gM9TgM8goM8ggMAggM9I4CCAoCCA4OCA4CBI34DfiIDf3+Df34BI"),
@@ -67,4 +67,4 @@ fold = ExtResource("1_0xm2m")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1639507517]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("ArrayMesh_h2yge")
+mesh = SubResource("ArrayMesh_0xm2m")

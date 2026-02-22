@@ -1,90 +1,140 @@
 static func _mesh_VC3_to_VC(graph: FoldGraph) -> void:
 	var metadata := graph.frame_metadata
 	var VP: Array = metadata.get("vertices_color", [])
+	var NC: Array = metadata.get("normals_coords", [])
+	var TC: Array = metadata.get("uvs_coords", [])
+
+	var new_VP: Array = []
+	new_VP.resize(VP.size())
 	for index in range(VP.size()):
 		var vp4: Color = VP[index]
-		VP[index] = "#" + vp4.to_html(true).to_upper()
-	var NC: Array = metadata.get("normals_coords", [])
+		new_VP[index] = "#" + vp4.to_html(true).to_upper()
+
+	var new_NC: Array = []
+	new_NC.resize(NC.size())
 	for index in range(NC.size()):
 		var nc3: Vector3 = NC[index]
-		NC[index] = [nc3.x, nc3.y, nc3.z]
-	var TC: Array = metadata.get("uvs_coords", [])
+		new_NC[index] = [nc3.x, nc3.y, nc3.z]
+
+	var new_TC: Array = []
+	new_TC.resize(TC.size())
 	for index in range(TC.size()):
 		var tc2: Vector2 = TC[index]
-		TC[index] = [tc2.x, tc2.y]
+		new_TC[index] = [tc2.x, tc2.y]
+
+	metadata["vertices_color"] = new_VP
+	metadata["normals_coords"] = new_NC
+	metadata["uvs_coords"] = new_TC
 
 
 static func _mesh_VC_to_VC3(graph: FoldGraph) -> void:
 	var metadata := graph.frame_metadata
 	var VP: Array = metadata.get("vertices_color", [])
+	var NC: Array = metadata.get("normals_coords", [])
+	var TC: Array = metadata.get("uvs_coords", [])
+
+	var new_VP: Array = []
+	new_VP.resize(VP.size())
 	for index in range(VP.size()):
 		var vp: String = VP[index]
-		VP[index] = Color.html(vp)
-	var NC: Array = metadata.get("normals_coords", [])
+		new_VP[index] = Color.html(vp)
+
+	var new_NC: Array = []
+	new_NC.resize(NC.size())
 	for index in range(NC.size()):
 		var nc: Array = NC[index]
-		NC[index] = Vector3(nc[0], nc[1], nc[2])
-	var TC: Array = metadata.get("uvs_coords", [])
+		new_NC[index] = Vector3(nc[0], nc[1], nc[2])
+
+	var new_TC: Array = []
+	new_TC.resize(TC.size())
 	for index in range(TC.size()):
 		var tc: Array = TC[index]
-		TC[index] = Vector2(tc[0], tc[1])
+		new_TC[index] = Vector2(tc[0], tc[1])
+
+	metadata["vertices_color"] = new_VP
+	metadata["normals_coords"] = new_NC
+	metadata["uvs_coords"] = new_TC
 
 
 static func VC_to_VC2(graph: FoldGraph) -> void:
+	var new_VC: Array = []
+	new_VC.resize(graph.VC.size())
 	for index in range(graph.VC.size()):
 		var vc: Array = graph.VC[index]
-		graph.VC[index] = Vector2(vc[0], vc[1])
+		new_VC[index] = Vector2(vc[0], vc[1])
+	graph.VC = new_VC
 	_mesh_VC_to_VC3(graph)
 
 
 static func VC2_to_VC(graph: FoldGraph) -> void:
+	var new_VC: Array = []
+	new_VC.resize(graph.VC.size())
 	for index in range(graph.VC.size()):
 		var vc2: Vector2 = graph.VC[index]
-		graph.VC[index] = [vc2.x, vc2.y]
+		new_VC[index] = [vc2.x, vc2.y]
+	graph.VC = new_VC
 	_mesh_VC3_to_VC(graph)
 
 
 static func VC_to_VC3(graph: FoldGraph) -> void:
+	var new_VC: Array = []
+	new_VC.resize(graph.VC.size())
 	if graph.is_VC() >= 3:
 		for index in range(graph.VC.size()):
 			var vc: Array = graph.VC[index]
-			graph.VC[index] = Vector3(vc[0], vc[1], vc[2])
+			new_VC[index] = Vector3(vc[0], vc[1], vc[2])
 	else:
 		for index in range(graph.VC.size()):
 			var vc: Array = graph.VC[index]
-			graph.VC[index] = Vector3(vc[0], vc[1], 0.0)
+			new_VC[index] = Vector3(vc[0], vc[1], 0.0)
+	graph.VC = new_VC
 	_mesh_VC_to_VC3(graph)
 
 
 static func VC3_to_VC(graph: FoldGraph) -> void:
+	var new_VC: Array = []
+	new_VC.resize(graph.VC.size())
 	for index in range(graph.VC.size()):
 		var vc3: Vector3 = graph.VC[index]
-		graph.VC[index] = [vc3.x, vc3.y, vc3.z]
+		new_VC[index] = [vc3.x, vc3.y, vc3.z]
+	graph.VC = new_VC
 	_mesh_VC3_to_VC(graph)
 
 
 static func VC2_to_VC3(graph: FoldGraph) -> void:
+	var new_VC: Array = []
+	new_VC.resize(graph.VC.size())
 	for index in range(graph.VC.size()):
 		var vc2: Vector2 = graph.VC[index]
-		graph.VC[index] = Vector3(vc2.x, vc2.y, 0.0)
+		new_VC[index] = Vector3(vc2.x, vc2.y, 0.0)
+	graph.VC = new_VC
 
 
 static func VC3_to_VC2(graph: FoldGraph) -> void:
+	var new_VC: Array = []
+	new_VC.resize(graph.VC.size())
 	for index in range(graph.VC.size()):
 		var vc3: Vector3 = graph.VC[index]
-		graph.VC[index] = Vector2(vc3.x, vc3.y)
+		new_VC[index] = Vector2(vc3.x, vc3.y)
+	graph.VC = new_VC
 
 
 static func VC2_transform(graph: FoldGraph, transform: Transform2D) -> void:
+	var new_VC: Array = []
+	new_VC.resize(graph.VC.size())
 	for index in range(graph.VC.size()):
 		var vc2: Vector2 = graph.VC[index]
-		graph.VC[index] = transform * vc2
+		new_VC[index] = transform * vc2
+	graph.VC = new_VC
 
 
 static func VC3_transform(graph: FoldGraph, transform: Transform3D) -> void:
+	var new_VC: Array = []
+	new_VC.resize(graph.VC.size())
 	for index in range(graph.VC.size()):
 		var vc3: Vector3 = graph.VC[index]
-		graph.VC[index] = transform * vc3
+		new_VC[index] = transform * vc3
+	graph.VC = new_VC
 
 
 static func VC2_center(graph: FoldGraph) -> void:
@@ -100,19 +150,27 @@ static func VC3_center(graph: FoldGraph) -> void:
 
 
 static func VC_snap(graph: FoldGraph, step: float) -> void:
+	var new_VC: Array = graph.VC.duplicate(true)
 	for index in range(graph.VC.size()):
-		var vc: Array = graph.VC[index]
+		var vc: Array = new_VC[index]
 		for i in range(vc.size()):
 			vc[i] = snappedf(vc[i], step)
+	graph.VC = new_VC
 
 
 static func VC2_snap(graph: FoldGraph, step: float) -> void:
+	var new_VC: Array = []
+	new_VC.resize(graph.VC.size())
 	for index in range(graph.VC.size()):
 		var vc2: Vector2 = graph.VC[index]
-		graph.VC[index] = vc2.snappedf(step)
+		new_VC[index] = vc2.snappedf(step)
+	graph.VC = new_VC
 
 
 static func VC3_snap(graph: FoldGraph, step: float) -> void:
+	var new_VC: Array = []
+	new_VC.resize(graph.VC.size())
 	for index in range(graph.VC.size()):
 		var vc3: Vector3 = graph.VC[index]
-		graph.VC[index] = vc3.snappedf(step)
+		new_VC[index] = vc3.snappedf(step)
+	graph.VC = new_VC
