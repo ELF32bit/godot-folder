@@ -12,4 +12,9 @@ dest_files=["res://.godot/imported/squareBase.svg-a6d5443cfef71ab2bdf1bda4e0fa13
 
 [params]
 
+triangulate=true
+max_size=100.0
+quantization=0.001
+merge_distance=0.5
+grid_step=0.5
 validate=true

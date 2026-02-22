@@ -12,4 +12,9 @@ dest_files=["res://.godot/imported/polygami.svg-70b10e87305eacd3f1cb045bb446a663
 
 [params]
 
+triangulate=true
+max_size=100.0
+quantization=0.001
+merge_distance=0.5
+grid_step=0.5
 validate=true

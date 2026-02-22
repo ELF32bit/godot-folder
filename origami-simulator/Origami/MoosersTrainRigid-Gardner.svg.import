@@ -3,13 +3,17 @@
 importer="fold.svg"
 type="Resource"
 uid="uid://b40vw3dk4b2kl"
-path="res://.godot/imported/MoosersTrainRigid-Gardner.svg-e14ebdc4ef9577af0ecf5a9e0620f12b.tres"
+valid=false
 
 [deps]
 
 source_file="res://origami-simulator/Origami/MoosersTrainRigid-Gardner.svg"
-dest_files=["res://.godot/imported/MoosersTrainRigid-Gardner.svg-e14ebdc4ef9577af0ecf5a9e0620f12b.tres"]
 
 [params]
 
+triangulate=true
+max_size=100.0
+quantization=0.001
+merge_distance=0.5
+grid_step=0.5
 validate=true

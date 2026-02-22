@@ -12,4 +12,9 @@ dest_files=["res://.godot/imported/flappingBird.svg-ae94e91c2dc4e1e3c64f7e0df800
 
 [params]
 
+triangulate=true
+max_size=100.0
+quantization=0.001
+merge_distance=0.5
+grid_step=0.5
 validate=true

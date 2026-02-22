@@ -12,4 +12,9 @@ dest_files=["res://.godot/imported/6ptHypar-anti.svg-09732be8c49b0b38cef3da6d456
 
 [params]
 
+triangulate=true
+max_size=100.0
+quantization=0.001
+merge_distance=0.5
+grid_step=0.5
 validate=true

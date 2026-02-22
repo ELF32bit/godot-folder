@@ -137,7 +137,7 @@ static func VC3_transform(graph: FoldGraph, transform: Transform3D) -> void:
 	graph.VC = new_VC
 
 
-static func VC2_center(graph: FoldGraph) -> void:
+static func VC2_center(graph: FoldGraph, max_size: float = 0.0) -> void:
 	var center := graph.get_rect2().get_center()
 	var transform := Transform2D.IDENTITY.translated(-center)
 	VC2_transform(graph, transform)
@@ -146,6 +146,24 @@ static func VC2_center(graph: FoldGraph) -> void:
 static func VC3_center(graph: FoldGraph) -> void:
 	var center := graph.get_aabb().get_center()
 	var transform := Transform3D.IDENTITY.translated(-center)
+	VC3_transform(graph, transform)
+
+
+static func VC2_to_size(graph: FoldGraph, max_size: float) -> void:
+	var rect := graph.get_rect2()
+	var size := maxf(rect.size.x, rect.size.y)
+	if is_zero_approx(size): return
+	var scale := Vector2.ONE * max_size / size
+	var transform := Transform2D.IDENTITY.scaled(scale)
+	VC2_transform(graph, transform)
+
+
+static func VC3_to_size(graph: FoldGraph, max_size: float) -> void:
+	var aabb := graph.get_aabb()
+	var size := aabb.get_longest_axis_size()
+	if is_zero_approx(size): return
+	var scale := Vector3.ONE * max_size / size
+	var transform := Transform3D.IDENTITY.scaled(scale)
 	VC3_transform(graph, transform)
 
 

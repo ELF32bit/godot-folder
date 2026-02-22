@@ -3,13 +3,17 @@
 importer="fold.svg"
 type="Resource"
 uid="uid://3t4phf5mb5p2"
-path="res://.godot/imported/scale.svg-0e0a03e414f878cd5fb7361c4db51e23.tres"
+valid=false
 
 [deps]
 
 source_file="res://origami-simulator/Curved/scale.svg"
-dest_files=["res://.godot/imported/scale.svg-0e0a03e414f878cd5fb7361c4db51e23.tres"]
 
 [params]
 
+triangulate=true
+max_size=100.0
+quantization=0.001
+merge_distance=0.5
+grid_step=0.5
 validate=true

@@ -12,4 +12,9 @@ dest_files=["res://.godot/imported/byu solar driven.svg-881879d9aa1ea24793371b77
 
 [params]
 
+triangulate=true
+max_size=100.0
+quantization=0.001
+merge_distance=0.5
+grid_step=0.5
 validate=true

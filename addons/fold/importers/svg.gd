@@ -41,6 +41,26 @@ func _get_import_options(path: String, preset_index: int) -> Array[Dictionary]:
 		PRESET_DEFAULT:
 			return [
 				{
+					"name": "triangulate",
+					"default_value": true,
+				},
+				{
+					"name": "max_size",
+					"default_value": 100.0,
+				},
+				{
+					"name": "quantization",
+					"default_value": 0.001,
+				},
+				{
+					"name": "merge_distance",
+					"default_value": 0.5,
+				},
+				{
+					"name": "grid_step",
+					"default_value": 0.5,
+				},
+				{
 					"name": "validate",
 					"default_value": true,
 				},
@@ -64,6 +84,24 @@ func _get_priority() -> float:
 func _import(source_file: String, save_path: String, options: Dictionary, platform_variants: Array[String], gen_files: Array[String]) -> Error:
 	var fold := FoldSvgParser.parse(source_file)
 	if not fold: return ERR_PARSE_ERROR
+	var graph := fold.key_frame.graph
+
+	if options["triangulate"]:
+		FoldGraphBuilder.Coordinates.VC_to_VC2(graph)
+		FoldGraphBuilder.Coordinates.VC2_center(graph)
+		FoldGraphBuilder.Coordinates.VC2_to_size(graph, options["max_size"])
+		FoldGraphBuilder.Coordinates.VC2_snap(graph, options["quantization"])
+		FoldGraphBuilder.Edges.EVC2_intersect(graph, options["grid_step"], options["quantization"])
+		FoldGraphBuilder.Vertices.VC_merge(graph, options["merge_distance"])
+		FoldGraphBuilder.Coordinates.VC2_snap(graph, options["quantization"])
+		var result = FoldGraphBuilder.Vertices.VC2_triangulate(graph, options["grid_step"])
+		if result == false: return ERR_PARSE_ERROR
+		FoldGraphBuilder.Faces.FV_to_E(graph)
+		FoldGraphBuilder.Faces.FV_to_EF(graph)
+		FoldGraphBuilder.Faces.FV_to_VV(graph)
+		FoldGraphBuilder.Vertices.VE_from_VV(graph)
+		FoldGraphBuilder.Vertices.VF_from_VV(graph)
+		FoldGraphBuilder.Coordinates.VC2_to_VC(graph)
 
 	if options.get("validate", true):
 		if not preload("fold.gd").validate(fold, source_file):

@@ -12,4 +12,9 @@ dest_files=["res://.godot/imported/pinwheelBase.svg-f857c42a71df25e5f30488ff01e8
 
 [params]
 
+triangulate=true
+max_size=100.0
+quantization=0.001
+merge_distance=0.5
+grid_step=0.5
 validate=true

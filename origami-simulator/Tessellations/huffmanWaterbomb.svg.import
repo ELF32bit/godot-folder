@@ -12,4 +12,9 @@ dest_files=["res://.godot/imported/huffmanWaterbomb.svg-fe3911c553475e832848a97c
 
 [params]
 
+triangulate=true
+max_size=100.0
+quantization=0.001
+merge_distance=0.5
+grid_step=0.5
 validate=true

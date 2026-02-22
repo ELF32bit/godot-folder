@@ -3,13 +3,17 @@
 importer="fold.svg"
 type="Resource"
 uid="uid://dln8u6tqx4y2q"
-path="res://.godot/imported/rose.svg-1fcec6936ad3f0da6960b641c4735731.tres"
+valid=false
 
 [deps]
 
 source_file="res://origami-simulator/needsCollisions/rose.svg"
-dest_files=["res://.godot/imported/rose.svg-1fcec6936ad3f0da6960b641c4735731.tres"]
 
 [params]
 
+triangulate=true
+max_size=100.0
+quantization=0.001
+merge_distance=0.5
+grid_step=0.5
 validate=true

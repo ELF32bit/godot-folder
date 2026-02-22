@@ -12,4 +12,9 @@ dest_files=["res://.godot/imported/birdBase.svg-235da362d1cc3da08c5ab789cb05e936
 
 [params]
 
+triangulate=true
+max_size=100.0
+quantization=0.001
+merge_distance=0.5
+grid_step=0.5
 validate=true

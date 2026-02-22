@@ -12,4 +12,9 @@ dest_files=["res://.godot/imported/langWedgeDoubleFaced.svg-17218ed2132f43b88698
 
 [params]
 
+triangulate=true
+max_size=100.0
+quantization=0.001
+merge_distance=0.5
+grid_step=0.5
 validate=true

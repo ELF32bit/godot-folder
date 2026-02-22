@@ -12,4 +12,9 @@ dest_files=["res://.godot/imported/boatBase.svg-15d3b75b2ddf12052e2f6fede7679916
 
 [params]
 
+triangulate=true
+max_size=100.0
+quantization=0.001
+merge_distance=0.5
+grid_step=0.5
 validate=true

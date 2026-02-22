@@ -12,4 +12,9 @@ dest_files=["res://.godot/imported/airplane.svg-a548b866aad5cc974ac8deb145ad2bc2
 
 [params]
 
+triangulate=true
+max_size=100.0
+quantization=0.001
+merge_distance=0.5
+grid_step=0.5
 validate=true

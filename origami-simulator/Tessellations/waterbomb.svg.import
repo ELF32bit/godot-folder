@@ -12,4 +12,9 @@ dest_files=["res://.godot/imported/waterbomb.svg-e49204e4a4bcbc7fa9e1c49ea5a9ce7
 
 [params]
 
+triangulate=true
+max_size=100.0
+quantization=0.001
+merge_distance=0.5
+grid_step=0.5
 validate=true

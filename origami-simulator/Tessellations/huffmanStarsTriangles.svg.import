@@ -12,4 +12,9 @@ dest_files=["res://.godot/imported/huffmanStarsTriangles.svg-9c624e8f299da5f7042
 
 [params]
 
+triangulate=true
+max_size=100.0
+quantization=0.001
+merge_distance=0.5
+grid_step=0.5
 validate=true

@@ -12,4 +12,9 @@ dest_files=["res://.godot/imported/comet.svg-0f83eee904c6eea441b56e6f4bd1145a.tr
 
 [params]
 
+triangulate=true
+max_size=100.0
+quantization=0.001
+merge_distance=0.5
+grid_step=0.5
 validate=true

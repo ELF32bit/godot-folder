@@ -12,4 +12,9 @@ dest_files=["res://.godot/imported/curvedPleatSimple.svg-61a5d52bb0fd3586184569c
 
 [params]
 
+triangulate=true
+max_size=100.0
+quantization=0.001
+merge_distance=0.5
+grid_step=0.5
 validate=true

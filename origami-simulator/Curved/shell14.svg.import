@@ -12,4 +12,9 @@ dest_files=["res://.godot/imported/shell14.svg-cc22d99456a7723ecc113ca9c63f4bae.
 
 [params]
 
+triangulate=true
+max_size=100.0
+quantization=0.001
+merge_distance=0.5
+grid_step=0.5
 validate=true

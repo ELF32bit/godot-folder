@@ -12,4 +12,9 @@ dest_files=["res://.godot/imported/reschBarbell.svg-7f90424f90a3147d728ed045ee0f
 
 [params]
 
+triangulate=true
+max_size=100.0
+quantization=0.001
+merge_distance=0.5
+grid_step=0.5
 validate=true

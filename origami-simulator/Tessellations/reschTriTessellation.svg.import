@@ -12,4 +12,9 @@ dest_files=["res://.godot/imported/reschTriTessellation.svg-9709d2728644d890b121
 
 [params]
 
+triangulate=true
+max_size=100.0
+quantization=0.001
+merge_distance=0.5
+grid_step=0.5
 validate=true

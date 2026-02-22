@@ -12,4 +12,9 @@ dest_files=["res://.godot/imported/mapfold.svg-5ee9aa0b3661330f48d3eed064880e94.
 
 [params]
 
+triangulate=true
+max_size=100.0
+quantization=0.001
+merge_distance=0.5
+grid_step=0.5
 validate=true
