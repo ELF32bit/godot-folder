@@ -72,7 +72,7 @@ static func EVC2_intersect(graph: FoldGraph, grid_step: float, quantization: flo
 	var has_EA := bool(graph.EA.size() > 0)
 	var has_EFA := bool(graph.EFA.size() > 0)
 	var is_quantized := bool(quantization != 0.0)
-	const Q := sqrt(2.0) / 2.0 + 0.000001
+	const _Q := sqrt(2.0) / 2.0 + 0.000001
 	var EVC2 := graph.get_EVC()
 
 	var new_VC: Array = []
@@ -85,7 +85,7 @@ static func EVC2_intersect(graph: FoldGraph, grid_step: float, quantization: flo
 		EVC2_expanded = EVC2.duplicate(true)
 		for evc in EVC2_expanded:
 			var direction: Vector2 = (evc[1] - evc[0]).normalized()
-			var expansion := direction * quantization * Q
+			var expansion := direction * quantization * _Q
 			evc[0] -= expansion; evc[1] += expansion;
 
 	var grid_intersection := EV_grid_intersect(graph, grid_step)
