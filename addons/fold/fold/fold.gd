@@ -84,16 +84,16 @@ func get_frame_parent(frame_index: int) -> FoldFrame:
 	return get_frame(frame.parent)
 
 
-func get_inherited_frame(frame_index: int, force_new: bool = false) -> FoldFrame:
+func get_inherited_frame(frame_index: int, always_new: bool = false) -> FoldFrame:
 	var frame := get_frame(frame_index)
 	if not frame: return null
 
 	if not frame.inherit:
-		return (frame.duplicate(true) if force_new else frame)
+		return (frame.duplicate(true) if always_new else frame)
 
 	var frame_parent := get_frame(frame.parent)
 	if not frame_parent:
-		return (frame.duplicate(true) if force_new else frame)
+		return (frame.duplicate(true) if always_new else frame)
 
 	var inherited_frame := frame.duplicate(true)
 	while frame_parent:
@@ -106,13 +106,13 @@ func get_inherited_frame(frame_index: int, force_new: bool = false) -> FoldFrame
 	return inherited_frame
 
 
-func get_inherited_frames(force_new: bool = false) -> Array[FoldFrame]:
+func get_inherited_frames(always_new: bool = false) -> Array[FoldFrame]:
 	var inherited_frames: Array[FoldFrame] = []
 	inherited_frames.resize(frames.size() + 1)
 
-	inherited_frames[0] = get_inherited_frame(0, force_new)
+	inherited_frames[0] = get_inherited_frame(0, always_new)
 	for frame_index in range(1, frames.size() + 1):
-		inherited_frames[frame_index] = get_inherited_frame(frame_index, force_new)
+		inherited_frames[frame_index] = get_inherited_frame(frame_index, always_new)
 
 	return inherited_frames
 

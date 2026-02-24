@@ -271,14 +271,12 @@ func get_EV_map() -> Dictionary:
 
 func get_FVC() -> Array:
 	if not VC.size(): return []
-	var FVC: Array = []
+	var FVC: Array[Array] = []
 	FVC.resize(FV.size())
 	for fi in range(FV.size()):
 		var fv: Array = FV[fi]
+		var fvc: Array = FVC[fi]
 		var d := fv.size()
-
-		var fvc: Array = []
-		FVC[fi] = fvc
 		fvc.resize(d)
 		for i in range(d):
 			fvc[i] = VC[fv[i]]
