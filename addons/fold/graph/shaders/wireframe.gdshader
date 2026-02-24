@@ -136,7 +136,7 @@ void vertex() {
 
 	/* unpacking vertices 4 nearby edges assignments counts */
 	int v4eac3 = ((c32 >> 4) & 524287);
-	v4eac.r = clamp(v4eac3 / 4900, 0, 69);
+	v4eac.r = clamp((v4eac3 / 70) / 70, 0, 69);
 	v4eac.g = clamp((v4eac3 / 70) % 70, 0, 69);
 	v4eac.b = clamp(v4eac3 % 70, 0, 69);
 
@@ -162,16 +162,16 @@ void fragment() {
 	float blend = pow(2.0 * clamp(c - 0.5, 0.0, 0.5), wireframe_pow);
 	scale = mix(scale, vec3(wireframe_scale), blend);
 
-	/* preparing wireframe edges lookup tables */
-	vec4 EA_TABLE[8] = {vec4(1.0, 0.0, 1.0, 1.0),
+	/* preparing wireframe edges assignments color and scale tables */
+	vec4 EA_COLOR_TABLE[8] = {vec4(1.0, 0.0, 1.0, 1.0),
 		J_color, U_color, F_color, V_color, M_color, B_color, C_color};
 	float EA_SCALE_TABLE[8] = {1.0,
 		J_scale, U_scale, F_scale, V_scale, M_scale, B_scale, C_scale};
 
 	/* obtaining wireframe edges colors */
-	vec4 r = EA_TABLE[ea.r];
-	vec4 g = EA_TABLE[ea.g];
-	vec4 b = EA_TABLE[ea.b];
+	vec4 r = EA_COLOR_TABLE[ea.r];
+	vec4 g = EA_COLOR_TABLE[ea.g];
+	vec4 b = EA_COLOR_TABLE[ea.b];
 
 	/* obtaining wireframe vertices average colors and scales */
 	mat3 irgb = get_V4EAC_colors_sum();
@@ -188,14 +188,14 @@ void fragment() {
 	float ibs = (irgbc.b < EPSILON) ? (J_scale) : (irgbs.b / irgbc.b);
 
 	/* coloring intersections with B or C edges without averaging */
-	if (vBC.r > EPSILON) { ir = EA_TABLE[6]; }
-	else if (vBC.r < -EPSILON) { ir = EA_TABLE[7]; }
+	if (vBC.r > EPSILON) { ir = EA_COLOR_TABLE[6]; }
+	else if (vBC.r < -EPSILON) { ir = EA_COLOR_TABLE[7]; }
 
-	if (vBC.g > EPSILON) { ig = EA_TABLE[6]; }
-	else if (vBC.g < -EPSILON) { ig = EA_TABLE[7]; }
+	if (vBC.g > EPSILON) { ig = EA_COLOR_TABLE[6]; }
+	else if (vBC.g < -EPSILON) { ig = EA_COLOR_TABLE[7]; }
 
-	if (vBC.b > EPSILON) { ib = EA_TABLE[6]; }
-	else if (vBC.b < -EPSILON) { ib = EA_TABLE[7]; }
+	if (vBC.b > EPSILON) { ib = EA_COLOR_TABLE[6]; }
+	else if (vBC.b < -EPSILON) { ib = EA_COLOR_TABLE[7]; }
 
 	/* wireframe width based on edge assignment */
 	vec3 width_min = vec3(wireframe_width_min);

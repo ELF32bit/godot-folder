@@ -31,7 +31,7 @@ static func EA_from_EFA(graph: FoldGraph) -> void:
 
 
 static func EV_grid_intersect(graph: FoldGraph, grid_step: float) -> Array:
-	const Utilities := preload("utilities.gd")
+	const _Utilities := preload("utilities.gd")
 	if not graph.is_VC23(): return []
 	if not grid_step > 0.0: return []
 	var is_VC2 := graph.is_VC2()
@@ -40,8 +40,8 @@ static func EV_grid_intersect(graph: FoldGraph, grid_step: float) -> Array:
 	var grid: Dictionary = {}
 	for ei in range(EVC.size()):
 		var evc: Array = EVC[ei]; var cells: Array = [];
-		if is_VC2: cells = Utilities.segment2_to_grid(evc[0], evc[1], grid_step)
-		else: cells = Utilities.segment3_to_grid(evc[0], evc[1], grid_step)
+		if is_VC2: cells = _Utilities.segment2_to_grid(evc[0], evc[1], grid_step)
+		else: cells = _Utilities.segment3_to_grid(evc[0], evc[1], grid_step)
 		for cell in cells:
 			grid.get_or_add(cell, []).append(ei)
 
@@ -113,7 +113,7 @@ static func EVC2_intersect(graph: FoldGraph, grid_step: float, quantization: flo
 					if not to.is_equal_approx(p):
 						segments.append([p, from.distance_squared_to(p)])
 						continue
-		segments.sort_custom(func(a, uu): return a[1] < uu[1])
+		segments.sort_custom(func(uv, d): return d[1] < d[1])
 		for index in range(segments.size()):
 			segments[index] = segments[index][0]
 		segments.append(to)

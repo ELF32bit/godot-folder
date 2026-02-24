@@ -135,12 +135,12 @@ static func FV_to_EF(graph: FoldGraph) -> void:
 			var ei: int = EV_map[[u, v]]
 			EF_map.get_or_add(ei, {})[fi] = true
 
-	var new_EF: Array = []
+	var new_EF: Array[Array] = []
 	new_EF.resize(graph.EV.size())
 	for ei in range(graph.EV.size()):
-		var ef: Array = []
-		new_EF[ei] = ef
+		var ef: Array = new_EF[ei]
 		ef.append_array(EF_map.get(ei, {}).keys())
+
 	# TODO: sort edges faces
 	graph.EF = new_EF
 
@@ -151,16 +151,15 @@ static func FE_from_FV(graph: FoldGraph) -> bool:
 	new_FE.resize(graph.FV.size())
 	for fi in range(graph.FV.size()):
 		var fv: Array = graph.FV[fi]
+		var fe: Array = new_FE[fi]
 		var d := fv.size()
-
-		var fe: Array = []
-		new_FE[fi] = fe
 		fe.resize(d)
 		for i in range(d):
 			var u: int = fv[i]
 			var v: int = fv[(i + 1) % d]
 			if not EV_map.has([u, v]): return false
 			fe[i] = EV_map[[u, v]]
+
 	graph.FE = new_FE
 	return true
 
@@ -176,14 +175,12 @@ static func FF_from_FV(graph: FoldGraph) -> void:
 			FV_map.get_or_add([u, v], {})[fi] = true
 			FV_map.get_or_add([v, u], {})[fi] = true
 
-	var new_FF: Array = []
+	var new_FF: Array[Array] = []
 	new_FF.resize(graph.FV.size())
 	for fi in range(graph.FE.size()):
 		var fv: Array = graph.FV[fi]
+		var ff: Array = new_FF[fi]
 		var d := fv.size()
-
-		var ff: Array = []
-		new_FF[fi] = ff
 		for i in range(d):
 			var u: int = fv[i]
 			var v: int = fv[(i + 1) % d]
@@ -194,6 +191,7 @@ static func FF_from_FV(graph: FoldGraph) -> void:
 				ff.append(ffi)
 			if not has_ffi:
 				ff.append(null)
+
 	graph.FF = new_FF
 
 
@@ -266,3 +264,58 @@ static func FV_triangulate(graph: FoldGraph) -> void:
 	graph.clear("VV;VE;VF;EF;FE;FF")
 	graph.FV = new_FV
 	graph.FO = new_FO
+
+
+static func FV_flip(graph: FoldGraph) -> void:
+	for index in range(graph.VV.size()):
+		graph.VV[index].reverse()
+	for index in range(graph.VE.size()):
+		graph.VE[index].reverse()
+
+	var new_VF: Array = []
+	new_VF = graph.VF.duplicate(true)
+	for index in range(new_VF.size()):
+		var vfi_ccw: Array = graph.VF[index]
+		var vfi_cw: Array = new_VF[index]
+		var d := vfi_ccw.size()
+		for i in range(d):
+			vfi_cw[i] = vfi_ccw[posmod(d - 2 - i, d)]
+
+	for index in range(graph.EV.size()):
+		graph.EV[index].reverse()
+	for index in range(graph.EA.size()):
+		match graph.EA[index]:
+			FoldGraph.EdgeAssignment.MOUNTAIN:
+				graph.EA[index] = FoldGraph.EdgeAssignment.VALLEY
+			FoldGraph.EdgeAssignment.VALLEY:
+				graph.EA[index] = FoldGraph.EdgeAssignment.MOUNTAIN
+	for index in range(graph.EFA.size()):
+		graph.EFA[index] *= -1
+	for index in range(graph.FV.size()):
+		graph.FV[index].reverse()
+
+	var new_FE: Array = []
+	new_FE = graph.FE.duplicate(true)
+	for index in range(graph.FE.size()):
+		var fei_ccw: Array = graph.FE[index]
+		var fei_cw: Array = new_FE[index]
+		var d := fei_ccw.size()
+		for i in range(d):
+			fei_cw[i] = fei_ccw[posmod(d - 2 - i, d)]
+
+	var new_FF: Array = []
+	new_FF = graph.FF.duplicate(true)
+	for index in range(graph.FF.size()):
+		var ffi_ccw: Array = graph.FF[index]
+		var ffi_cw: Array = new_FF[index]
+		var d := ffi_ccw.size()
+		for i in range(d):
+			ffi_cw[i] = ffi_ccw[posmod(d - 2 - i, d)]
+
+	for index in range(graph.FO.size()):
+		graph.FO[index][2] *= -1
+
+	#TODO: flip metadata
+	graph.VF = new_VF
+	graph.FE = new_FE
+	graph.FF = new_FF

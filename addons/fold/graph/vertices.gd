@@ -59,7 +59,7 @@ static func VC_merge(graph: FoldGraph, distance: float) -> void:
 
 
 static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
-	const Utilities := preload("utilities.gd")
+	const _Utilities := preload("utilities.gd")
 	if not graph.is_VC2(): return false
 
 	# delaunay triangulating vertices coordinates
@@ -97,7 +97,7 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 			EF_map.get_or_add([u, v], {})[[fi, w]] = true
 			EF_map.get_or_add([v, u], {})[[fi, w]] = true
 			var uu: Vector2 = graph.VC[u]; var vv: Vector2 = graph.VC[v];
-			for cell in Utilities.segment2_to_grid(uu, vv, grid_step):
+			for cell in _Utilities.segment2_to_grid(uu, vv, grid_step):
 				grid.get_or_add(cell, {})[[u, v]] = true
 				grid.get_or_add(cell, {})[[v, u]] = true
 
@@ -113,7 +113,7 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 
 		# finding nearby edges for the constrained edge
 		var grid_edges: Dictionary = {}
-		for cell in Utilities.segment2_to_grid(from, to, grid_step):
+		for cell in _Utilities.segment2_to_grid(from, to, grid_step):
 			for edge in grid.get(cell, []):
 				var u: int = edge[0]; var v: int = edge[1];
 				grid_edges[[u, v]] = true
@@ -174,10 +174,10 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 			EF_map.get_or_add([w1, v], {})[[f2, w2]] = true
 			EF_map.get_or_add([w2, u], {})[[f1, w1]] = true
 			EF_map.get_or_add([w2, v], {})[[f2, w1]] = true
-			for cell in Utilities.segment2_to_grid(uu, vv, grid_step):
+			for cell in _Utilities.segment2_to_grid(uu, vv, grid_step):
 				grid.get_or_add(cell, {}).erase([u, v])
 				grid.get_or_add(cell, {}).erase([v, u])
-			for cell in Utilities.segment2_to_grid(ww1, ww2, grid_step):
+			for cell in _Utilities.segment2_to_grid(ww1, ww2, grid_step):
 				grid.get_or_add(cell, {})[[w1, w2]] = true
 				grid.get_or_add(cell, {})[[w2, w1]] = true
 			graph.FV[f1] = [w1, u, w2]
@@ -237,10 +237,10 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 			EF_map.get_or_add([w1, v], {})[[f2, w2]] = true
 			EF_map.get_or_add([w2, u], {})[[f1, w1]] = true
 			EF_map.get_or_add([w2, v], {})[[f2, w1]] = true
-			for cell in Utilities.segment2_to_grid(uu, vv, grid_step):
+			for cell in _Utilities.segment2_to_grid(uu, vv, grid_step):
 				grid.get_or_add(cell, {}).erase([u, v])
 				grid.get_or_add(cell, {}).erase([v, u])
-			for cell in Utilities.segment2_to_grid(ww1, ww2, grid_step):
+			for cell in _Utilities.segment2_to_grid(ww1, ww2, grid_step):
 				grid.get_or_add(cell, {})[[w1, w2]] = true
 				grid.get_or_add(cell, {})[[w2, w1]] = true
 			graph.FV[f1] = [w1, u, w2]
@@ -340,14 +340,12 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 
 static func VE_from_VV(graph: FoldGraph) -> bool:
 	var EV_map := graph.get_EV_map()
-	var new_VE: Array = []
+	var new_VE: Array[Array] = []
 	new_VE.resize(graph.VV.size())
 	for vi in range(graph.VV.size()):
 		var vv: Array = graph.VV[vi]
+		var ve: Array = new_VE[vi]
 		var d := vv.size()
-
-		var ve: Array = []
-		new_VE[vi] = ve
 		ve.resize(d)
 		for i in range(d):
 			var vvi: int = vv[i]
@@ -369,14 +367,12 @@ static func VF_from_VV(graph: FoldGraph) -> void:
 			FV_map.get_or_add([u, v, w], {})[fi] = true
 			FV_map.get_or_add([w, v, u], {})[fi] = true
 
-	var new_VF: Array = []
+	var new_VF: Array[Array] = []
 	new_VF.resize(graph.VV.size())
 	for vi in range(graph.VV.size()):
 		var vv: Array = graph.VV[vi]
+		var vf: Array = new_VF[vi]
 		var d := vv.size()
-
-		var vf: Array = []
-		new_VF[vi] = vf
 		vf.resize(d)
 		for i in range(d):
 			var vvi: int = vv[i]
@@ -386,4 +382,5 @@ static func VF_from_VV(graph: FoldGraph) -> void:
 			elif FV_map.has([vnvi, vi, vvi]):
 				vf.append_array(FV_map[[vnvi, vi, vvi]].keys())
 			else: vf.append(null)
+
 	graph.VF = new_VF
