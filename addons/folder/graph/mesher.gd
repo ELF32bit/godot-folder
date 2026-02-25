@@ -2,24 +2,17 @@ const FRONT_MATERIAL := preload("materials/paper.tres")
 const BACK_MATERIAL := preload("materials/paper.tres")
 
 
-static func to_mesh(graph: FoldGraph, is_triangular: bool = true) -> ArrayMesh:
-	const _Faces := preload("faces.gd")
-	if not graph.is_VC23(): return null
+static func FV3_to_mesh(front_graph: FoldGraph, back_graph: FoldGraph) -> ArrayMesh:
+	if not front_graph.is_VC23(): return null
+	if not back_graph.is_VC23(): return null
 	var mesh := ArrayMesh.new()
 
-	var FVC_CCW := graph.get_FVC()
-	var FVC_CW := FVC_CCW.duplicate(true)
-	for index in range(FVC_CW.size()):
-		FVC_CW[index].reverse()
-
-	var FVP_CW: Array = []
-	var FVP_CCW: Array = []
-	if is_triangular: FVP_CCW = _encode_colors3(graph)
+	var FVC_CW := back_graph.get_FVC()
+	var FVC_CCW := front_graph.get_FVC()
+	var FVP_CW := _encode_colors3(back_graph)
+	var FVP_CCW := _encode_colors3(front_graph)
 	var has_colors := bool(FVP_CCW.size() > 0)
-	if has_colors:
-		var back_graph = graph.duplicate(true)
-		_Faces.FV_flip(back_graph)
-		FVP_CW = _encode_colors3(back_graph)
+	# TODO: add support for metadata normals and UVs
 
 	var front_surface := SurfaceTool.new()
 	front_surface.begin(Mesh.PRIMITIVE_TRIANGLES)
@@ -82,13 +75,13 @@ static func _encode_colors3(graph: FoldGraph) -> Array:
 			var ve: Array = graph.VE[fvi]
 			var vei: int = ve.find(ei)
 			if not vei < 0:
-				var _i: int = 0  # walking vertices edges counterclockwise
+				var _i: int = 0 # walking vertices edges counterclockwise
 				for index in range(1, ve.size()):
 					var ei_ccw: int = ve[posmod(vei + index, ve.size())]
 					var vea: String = graph.EA[ei_ccw]
 					if vea == FoldGraph.EdgeAssignment.JOIN: continue
 					elif _i < 2:
-						_i += 1; v4ea[ei_ccw] = vea;
+						v4ea[ei_ccw] = vea; _i += 1;
 					else: break
 				_i = 0 # walking vertices edges clockwise
 				for index in range(ve.size()):
@@ -96,7 +89,7 @@ static func _encode_colors3(graph: FoldGraph) -> Array:
 					var vea: String = graph.EA[ei_cw]
 					if vea == FoldGraph.EdgeAssignment.JOIN: continue
 					elif _i < 2:
-						_i += 1; v4ea[ei_cw] = vea;
+						v4ea[ei_cw] = vea; _i += 1;
 					if vea == FoldGraph.EdgeAssignment.BOUNDARY: ve4bc |= 1
 					elif vea == FoldGraph.EdgeAssignment.CUT: ve4bc |= 2
 					if ve4bc == 3: break

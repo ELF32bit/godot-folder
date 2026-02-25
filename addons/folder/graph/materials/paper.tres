@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://dxd3m7w22y5o5"]
 
-[ext_resource type="Shader" uid="uid://ptvs77wyjdjt" path="res://addons/fold/graph/shaders/wireframe.gdshader" id="1_vlcbn"]
+[ext_resource type="Shader" uid="uid://ptvs77wyjdjt" path="res://addons/folder/graph/shaders/wireframe.gdshader" id="1_vlcbn"]
 
 [resource]
 render_priority = 0
