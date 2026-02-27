@@ -21,3 +21,4 @@ https://github.com/amandaghassaei/OrigamiSimulator
 ## Current features
 * Triangulation of SVG crease patterns into meshes.
 * Software agnostic encoding of a colorful wireframes.
+* GPU accelerated origami simulation with a CPU fallback.

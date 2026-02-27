@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <style bx:fonts="Acme">@import url(https://fonts.googleapis.com/css2?family=Acme%3Aital%2Cwght%400%2C400&amp;display=swap);</style>
+    <mask id="mask-0">
+      <rect x="272.244" y="79.257" width="177.3" height="151.142" style="fill-rule: nonzero; fill: rgb(255, 255, 255); stroke: rgb(255, 255, 255);" rx="8.769" ry="8.16"/>
+    </mask>
+    <bx:export>
+      <bx:file format="png" width="4096" height="4096"/>
+    </bx:export>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1.097052, 0, -7.328416)">
+    <rect x="270.546" y="75.849" width="179.542" height="163.62" style="stroke: rgb(37, 128, 235); fill: rgb(37, 128, 235); fill-rule: nonzero; pointer-events: none;" rx="8.88" ry="8.88"/>
+    <g style="mask: url(&quot;#mask-0&quot;);" transform="matrix(1.012647, 0, 0, 1.088244, -5.141414, -10.401653)">
+      <polygon style="fill: rgb(255, 255, 255); filter: none;" points="405.786 76.129 409.284 110.733 452.978 108.712 406.285 77.37"/>
+      <polygon style="fill: rgb(57, 69, 145);" points="453.916 108.584 409.284 110.733 415.884 116.307"/>
+    </g>
+  </g>
+  <g style="" transform="matrix(0.900347, 0, 0, 0.900347, 24.622259, 18.396603)">
+    <polygon style="stroke: rgb(0, 0, 0); stroke-width: 1; fill: rgb(255, 255, 255);" points="310.408 85.109 375.25 147.8 375.398 85.01"/>
+    <polygon style="stroke: rgb(0, 0, 0); stroke-width: 1; fill: rgb(255, 255, 255);" points="375.244 147.803 310.288 216.161 308.395 149.185 340.743 114.46"/>
+    <polygon style="stroke: rgb(0, 0, 0); stroke-width: 1; fill: rgb(255, 255, 255);" points="342.678 182.156 376.483 214.431 443.784 214.566 375.242 147.8"/>
+    <polygon style="stroke-width: 1; fill: rgb(141, 148, 200);" points="333.108 123.318 374.539 147.817 340.884 114.955"/>
+    <polygon style="stroke-width: 1; fill: rgb(141, 148, 200);" points="375.256 148.511 351.546 189.939 343.383 182.134"/>
+  </g>
+  <text style="fill: rgb(255, 255, 255); font-family: Acme; font-size: 36px; letter-spacing: -1px; stroke: rgb(0, 0, 0); text-anchor: middle; text-transform: capitalize; white-space: pre;" x="363.312" y="245.352">FOLDER</text>
+</svg>
