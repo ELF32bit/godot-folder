@@ -1,22 +1,28 @@
-# FOLD plugin for Godot 4
-![Demonstration](screenshots/demonstration.webp)
+# Origami folding plugin for Godot 4
+![Demonstration](screenshots/demonstration.webp)<br>
+Folder plugin provides a way to work with FOLD (Flexible Origami List Datastructure).<br>
+Draw crease patterns and simulate them, freeze the intermediate results as key frames.<br>
+Export precomputed folding animation as an easy to parse series of meshes.<br>
 
+## Inspiration
 This codebase builds upon an existing work.<br>
 All example files are produced by the software below.<br>
 
 1. FOLD file format for origami models, crease patterns, etc.<br>
 https://github.com/edemaine/fold
 
-2. Rabbit Ear library for modeling origami.<br>
-https://github.com/rabbit-ear/rabbit-ear
-
-3. Realtime WebGL origami simulator.<br>
+2. Realtime WebGL origami simulator.<br>
 https://github.com/amandaghassaei/OrigamiSimulator
 
+3. Rabbit Ear library for modeling origami.<br>
+https://github.com/rabbit-ear/rabbit-ear
+
 ## Design goals
-* 3D editor with 2D crease pattern drawing and key framing.
-* Rigid origami solver for displaying a smooth folding process.
-* Web viewer for the precomputed animation and VFX export.
+* Create a practical tool for encoding digital origami instructions. 
+* Synchronized 3D editor with 2D crease pattern view and a timeline.
+* Attempt to solve Z-fighting of a flat folded paper with stencil decalling.
+* Rigid origami solver for displaying a smooth folding process of key frames.
+* Web viewer for the precomputed animation and a cross-software export.
 
 ## Current features
 * Triangulation of SVG crease patterns into meshes.

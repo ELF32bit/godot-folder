@@ -25,12 +25,12 @@ static func FV3_to_mesh(front_graph: FoldGraph, back_graph: FoldGraph) -> ArrayM
 	back_surface.set_smooth_group(-1)
 
 	for index in range(FVC_CCW.size()):
-		var fvc: Array = FVC_CW[index]
-		var bvc: Array = FVC_CCW[index]
-		var fc: Array = (FVP_CW[index] if has_colors else [])
-		var bc: Array = (FVP_CCW[index] if has_colors else [])
-		front_surface.add_triangle_fan(fvc, [], fc, [])
-		back_surface.add_triangle_fan(bvc, [], bc, [])
+		var fvc_cw: Array = FVC_CW[index]
+		var fvc_ccw: Array = FVC_CCW[index]
+		var fvp_cw: Array = (FVP_CW[index] if has_colors else [])
+		var fvp_ccw: Array = (FVP_CCW[index] if has_colors else [])
+		front_surface.add_triangle_fan(fvc_cw, [], fvp_cw, [])
+		back_surface.add_triangle_fan(fvc_ccw, [], fvp_ccw, [])
 
 	for surface in [front_surface, back_surface]:
 		surface.generate_normals()
