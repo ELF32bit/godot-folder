@@ -14,7 +14,7 @@ dest_files=["res://.godot/imported/randlettflappingbird.svg-447bfdacb39ee676a72b
 
 triangulate=true
 max_size=100.0
-quantization=0.001
+quantization=0.05
 merge_distance=0.5
 grid_step=1.0
 validate=true

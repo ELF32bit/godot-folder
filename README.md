@@ -1,5 +1,5 @@
 # FOLD plugin for Godot 4
-![image caption](screenshots/preview.png)
+![Demonstration](screenshots/demonstration.webp)
 
 This codebase builds upon an existing work.<br>
 All example files are produced by the software below.<br>
