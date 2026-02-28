@@ -36,7 +36,8 @@ func _build_crease_pattern() -> void:
 
 
 func _ready() -> void:
-	await get_tree().create_timer(5.0).timeout
+	$CreasePattern.mesh = null
+	$Simulation.mesh = null
 	_build_crease_pattern()
 	if Engine.is_editor_hint():
 		set_process(false)
@@ -50,9 +51,7 @@ func _process(_delta: float) -> void:
 		graph_simulation = FoldGraphSimulation3D.new(simulated_graph)
 		graph_simulation.fold_percent = 0.85
 		graph_simulation.begin()
-
-	for index in range(10):
-		graph_simulation.simulate()
+	graph_simulation.simulate()
 
 	var graph_flipped := simulated_graph.duplicate(true)
 	FoldGraphBuilder.Faces.FV_flip(graph_flipped)
