@@ -1,24 +1,25 @@
 class_name FoldGraphSimulation3D
 
 var graph: FoldGraph
+var fold_percent: float = 1.0
 var axial_stiffness: float = 20.0
 var fold_stiffness: float = 0.7
 var join_stiffness: float = 0.7
 var face_stiffness: float = 0.2
 var damping_ratio: float = 0.45
-var fold_percent: float = 1.0
+var delta_ratio: float = 0.9
 
+var _delta_time: float
 var _vertices_velocity: PackedVector3Array
 var _vertices_mass: PackedFloat32Array
 var _edges_length: PackedFloat32Array
 var _edges_triangles: Dictionary
 var _edges_fold_angle: PackedFloat32Array
+var _last_edges_fold_angle: PackedFloat32Array
 var _triangles_angles: Array[Dictionary]
 var _k_axial: PackedFloat32Array
 var _k_crease: PackedFloat32Array
 var _k_damping: PackedFloat32Array
-var _last_theta: PackedFloat32Array
-var _dt: float
 
 @warning_ignore("shadowed_variable")
 func _init(graph: FoldGraph) -> void:
@@ -44,24 +45,21 @@ func begin() -> void:
 		_edges_fold_angle[index] = deg_to_rad(graph.EFA[index])
 	_triangles_angles = _get_triangles_angles(graph)
 
-	_dt = 0.0
+	_delta_time = 0.0
 	_k_axial.resize(_edges_length.size())
 	for index in range(_edges_length.size()):
 		_k_axial[index] = axial_stiffness / _edges_length[index]
-		_dt = max(_dt, sqrt(_k_axial[index]))
-	_dt = 0.9 / (2.0 * PI * _dt)
+		_delta_time = maxf(_delta_time, sqrt(_k_axial[index]))
+	_delta_time = delta_ratio / (2.0 * PI * _delta_time)
 
 	_k_crease.resize(_edges_length.size())
 	for index in range(_edges_length.size()):
 		match graph.EA[index]:
-			FoldGraph.EdgeAssignment.MOUNTAIN:
-				_k_crease[index] = fold_stiffness * _edges_length[index]
-			FoldGraph.EdgeAssignment.VALLEY:
-				_k_crease[index] = fold_stiffness * _edges_length[index]
+			FoldGraph.EdgeAssignment.CUT: _k_crease[index] = 0.0
+			FoldGraph.EdgeAssignment.BOUNDARY: _k_crease[index] = 0.0
 			FoldGraph.EdgeAssignment.JOIN:
 				_k_crease[index] = face_stiffness * _edges_length[index]
-			_:
-				_k_crease[index] = 0.0
+			_: _k_crease[index] = fold_stiffness * _edges_length[index]
 
 	_k_damping.resize(graph.EV.size())
 	for index in range(graph.EV.size()):
@@ -70,8 +68,8 @@ func begin() -> void:
 		_k_damping[index] = sqrt(_k_axial[index] * _k_damping[index])
 		_k_damping[index] *= 2.0 * damping_ratio
 
-	_last_theta.resize(graph.EV.size())
-	_last_theta.fill(0.0)
+	_last_edges_fold_angle.resize(graph.EV.size())
+	_last_edges_fold_angle.fill(0.0)
 
 
 func simulate() -> void:
@@ -101,9 +99,7 @@ func simulate() -> void:
 		var f_axial := -_k_axial[index] * (length - length0) * axis
 		if absf(length - length0) < 0.0001: f_axial = Vector3.ZERO
 		vertices_force[u] -= f_axial; vertices_force[v] += f_axial;
-
 		if _edges_triangles[edge].size() < 2: continue
-		if not graph.EA[index] in "MVJ": continue
 
 		var triangles: Array = _edges_triangles[edge]
 		var f1: int = triangles[0][0]; var f2: int = triangles[1][0];
@@ -121,18 +117,15 @@ func simulate() -> void:
 		var uc2: float = cos(fa2[[v, w2]]) / sin(fa2[[v, w2]])
 		var vc1: float = cos(fa1[[u, w1]]) / sin(fa1[[u, w1]])
 		var vc2: float = cos(fa2[[u, w2]]) / sin(fa2[[u, w2]])
-		var c1 := max(uc1 + vc1, 0.0001)
-		var c2 := max(uc2 + vc2, 0.0001)
+		var c1 := maxf(uc1 + vc1, 0.0001)
+		var c2 := maxf(uc2 + vc2, 0.0001)
 
 		var a0 := _edges_fold_angle[index]
-		var _x := clampf(n1.dot(n2), -1.0, 1.0)
-		var _y := n1.cross(-axis).dot(n2)
-		var _a := atan2(_y, _x)
-		var _d := _a - _last_theta[index]
-		if _d < -5.0: _d += 2.0 * PI
-		elif _d > 5.0: _d -= 2.0 * PI
-		var a := _last_theta[index] + _d
-		_last_theta[index] = a
+		var a := atan2(n1.cross(-axis).dot(n2), clampf(n1.dot(n2), -1.0, 1.0))
+		var a_delta := a - _last_edges_fold_angle[index]
+		if a_delta < -5.0: a += 2.0 * PI
+		elif a_delta > 5.0: a -= 2.0 * PI
+		_last_edges_fold_angle[index] = a
 
 		var f_crease = -_k_crease[index] * (a - a0 * fold_percent)
 		if absf(a - a0 * fold_percent) < 0.0001: f_crease = 0.0
@@ -154,24 +147,24 @@ func simulate() -> void:
 			var vv: Vector3 = graph.VC[v]
 			var ww: Vector3 = graph.VC[w]
 
-			var _c1 := (uu - vv); var _c2 := (ww - vv);
-			var _cc1 := n * _c1 / _c1.length_squared()
-			var _cc2 := n * _c2 / _c2.length_squared()
-			if _c1.length() < 0.001: continue
-			if _c2.length() < 0.001: continue
+			var c1 := (uu - vv); var c2 := (ww - vv);
+			var cc1 := n * c1 / c1.length_squared()
+			var cc2 := n * c2 / c2.length_squared()
+			if c1.length() < 0.001: continue
+			if c2.length() < 0.001: continue
 
 			var a: float = triangles_angles[index][[u, w]]
 			var a0: float = _triangles_angles[index][[u, w]]
 			var f_face := -face_stiffness * (a - a0)
 			if absf(a - a0) < 0.0001: f_face = 0.0
-			vertices_force[u] += f_face * (_cc1)
-			vertices_force[v] += f_face * (-_cc1 + _cc2)
-			vertices_force[w] += f_face * (-_cc2)
+			vertices_force[u] += f_face * (cc1)
+			vertices_force[v] += f_face * (-cc1 + cc2)
+			vertices_force[w] += f_face * (-cc2)
 
 	for index in range(graph.VC.size()):
 		var acceleration := vertices_force[index] / _vertices_mass[index]
-		_vertices_velocity[index] += acceleration * _dt
-		graph.VC[index] += _vertices_velocity[index] * _dt
+		_vertices_velocity[index] += acceleration * _delta_time
+		graph.VC[index] += _vertices_velocity[index] * _delta_time
 
 	FoldGraphBuilder.Coordinates.VC3_center(graph)
 

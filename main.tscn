@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://s34lospgk2oe"]
 
 [ext_resource type="Script" uid="uid://bilh7maafsg3q" path="res://main.gd" id="1_h2yge"]
-[ext_resource type="Resource" uid="uid://d2vlqaygctewv" path="res://origami-simulator/Origami/randlettflappingbird.svg" id="2_h2yge"]
+[ext_resource type="Resource" uid="uid://c5jaag6eniym8" path="res://origami-simulator/PolygonUnfolding/cubeunwrapping.svg" id="2_h2yge"]
 
 [sub_resource type="Environment" id="Environment_h2yge"]
 ambient_light_source = 2
@@ -14,7 +14,7 @@ fold = ExtResource("2_h2yge")
 [node name="CreasePattern" type="MeshInstance3D" parent="." unique_id=1639507517]
 
 [node name="Simulation" type="MeshInstance3D" parent="." unique_id=1400065876]
-transform = Transform3D(0.9999992, 0, 0, 0, 0.9999993, 0, 0, 0, 1, 105, 0, 0)
+transform = Transform3D(0.99999917, 0, 0, 0, 0.9999992, 0, 0, 0, 0.99999994, 105, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1013499419]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 55, 0, 120)
