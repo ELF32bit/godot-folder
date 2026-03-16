@@ -252,11 +252,11 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 
 	# preparing to remove additional faces and create holes
 	var EV_map := graph.get_EV_map()
-	var J := FoldGraph.EdgeAssignment.JOIN
-	var B := FoldGraph.EdgeAssignment.BOUNDARY
-	var C := FoldGraph.EdgeAssignment.CUT
-	var BCJ := B + C + J
-	var BC := B + C
+	var _J := FoldGraph.EdgeAssignment.JOIN
+	var _B := FoldGraph.EdgeAssignment.BOUNDARY
+	var _C := FoldGraph.EdgeAssignment.CUT
+	var _BCJ := _B + _C + _J
+	var _BC := _B + _C
 
 	var g_sign: int = 0
 	var faces_queue: Array = []
@@ -279,19 +279,19 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 			var u: int = fv[i]
 			var v: int = fv[(i + 1) % d]
 			var ei = EV_map.get([u, v], null)
-			var ea: String = (graph.EA[ei] if ei != null else J)
+			var ea: String = (graph.EA[ei] if ei != null else _J)
 
 			# trying to grow faces area and signing nearby faces
 			var f: int = -1
 			for ff in EF_map[[u, v]]: if ff[0] != fi: f = ff[0];
-			if not ea in BC and (f >= 0 and faces_signs[f] < 0):
+			if not ea in _BC and (f >= 0 and faces_signs[f] < 0):
 				faces_signs[f] = g_sign; faces_queue.append(f);
 
 			# determining useful properties of the signed area
-			if not ea in BCJ: sign_has_crease[g_sign] = true
-			if f < 0 and ea in J: sign_has_open_boundary[g_sign] = true
-			if f < 0 and ea in BC: sign_has_boundary[g_sign] = true
-			elif ea in BC: sign_neighbours.get_or_add(g_sign, {})[f] = true
+			if not ea in _BCJ: sign_has_crease[g_sign] = true
+			if f < 0 and ea in _J: sign_has_open_boundary[g_sign] = true
+			if f < 0 and ea in _BC: sign_has_boundary[g_sign] = true
+			elif ea in _BC: sign_neighbours.get_or_add(g_sign, {})[f] = true
 
 		# incrementing the sign when exhausted faces area
 		if not faces_queue.size():

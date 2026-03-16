@@ -97,17 +97,15 @@ static func EVC2_intersect(graph: FoldGraph, grid_step: float, quantization: flo
 		var segments: Array = [[from, 0.0]]
 		for index in grid_intersection[ei]:
 			var ee: Array = EVC2[index]
-			var u: Vector2 = ee[0]; var v: Vector2 = ee[1];
-			var p = Geometry2D.segment_intersects_segment(from, to, u, v)
+			var p = Geometry2D.segment_intersects_segment(from, to, ee[0], ee[1])
 			if p != null:
 				if not from.is_equal_approx(p):
 					if not to.is_equal_approx(p):
 						segments.append([p, from.distance_squared_to(p)])
 						continue
 			if not is_quantized: continue
-			var ee_expanded: Array = EVC2_expanded[index]
-			u = ee_expanded[0]; v = ee_expanded[1];
-			p = Geometry2D.segment_intersects_segment(from, to, u, v)
+			var eee: Array = EVC2_expanded[index]
+			p = Geometry2D.segment_intersects_segment(from, to, eee[0], eee[1])
 			if p != null:
 				if not from.is_equal_approx(p):
 					if not to.is_equal_approx(p):

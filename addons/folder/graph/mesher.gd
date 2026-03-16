@@ -7,11 +7,11 @@ static func FV3_to_mesh(front_graph: FoldGraph, back_graph: FoldGraph) -> ArrayM
 	if not back_graph.is_VC23(): return null
 	var mesh := ArrayMesh.new()
 
-	var FVC_CW := back_graph.get_FVC()
-	var FVC_CCW := front_graph.get_FVC()
-	var FVP_CW := _encode_colors3(back_graph)
-	var FVP_CCW := _encode_colors3(front_graph)
-	var has_colors := bool(FVP_CCW.size() > 0)
+	var FVC_cw := back_graph.get_FVC()
+	var FVC_ccw := front_graph.get_FVC()
+	var FVP_cw := _encode_colors3(back_graph)
+	var FVP_ccw := _encode_colors3(front_graph)
+	var has_colors := bool(FVP_ccw.size() > 0)
 	# TODO: add support for metadata normals and UVs
 
 	var front_surface := SurfaceTool.new()
@@ -24,11 +24,11 @@ static func FV3_to_mesh(front_graph: FoldGraph, back_graph: FoldGraph) -> ArrayM
 	back_surface.set_material(BACK_MATERIAL)
 	back_surface.set_smooth_group(-1)
 
-	for index in range(FVC_CCW.size()):
-		var fvc_cw: Array = FVC_CW[index]
-		var fvc_ccw: Array = FVC_CCW[index]
-		var fvp_cw: Array = (FVP_CW[index] if has_colors else [])
-		var fvp_ccw: Array = (FVP_CCW[index] if has_colors else [])
+	for index in range(FVC_ccw.size()):
+		var fvc_cw: Array = FVC_cw[index]
+		var fvc_ccw: Array = FVC_ccw[index]
+		var fvp_cw: Array = (FVP_cw[index] if has_colors else [])
+		var fvp_ccw: Array = (FVP_ccw[index] if has_colors else [])
 		front_surface.add_triangle_fan(fvc_cw, [], fvp_cw, [])
 		back_surface.add_triangle_fan(fvc_ccw, [], fvp_ccw, [])
 
