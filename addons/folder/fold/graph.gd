@@ -60,8 +60,8 @@ func to_dictionary() -> Dictionary:
 
 static func from_dictionary(dictionary: Dictionary) -> FoldGraph:
 	var graph := FoldGraph.new()
-	const X := preload("validation.gd")
-	if not X.validate_graph_types(dictionary):
+	const _V := preload("validation.gd")
+	if not _V.validate_graph_types(dictionary):
 		return null
 
 	graph.VC = dictionary.get("vertices_coords", [])
@@ -106,87 +106,87 @@ func inherit_properties(graph: FoldGraph) -> void:
 
 
 func validate() -> String:
-	const X := preload("validation.gd")
+	const _V := preload("validation.gd")
 	var e: String = ""
 
 	var e_length := e.length()
-	if not X.validate_VC_sizes(self):
+	if not _V.validate_VC_sizes(self):
 		e += "ERROR: vertices_coords have unexpected sizes\n"
-	if not X.validate_EV_sizes(self):
+	if not _V.validate_EV_sizes(self):
 		e += "ERROR: edges_vertices have unexpected sizes\n"
-	if not X.validate_FV_sizes(self):
+	if not _V.validate_FV_sizes(self):
 		e += "ERROR: faces_vertices have unexpected sizes\n"
 	if e.length() != e_length: return "INVALID\n" + e
 
-	if not X.validate_EA_values(self):
+	if not _V.validate_EA_values(self):
 		e += "WARNING: edges_assignment has unexpected values\n"
-	if not X.validate_EL_values(self):
+	if not _V.validate_EL_values(self):
 		e += "WARNING: edges_length has unexpected values\n"
-	if not X.validate_orders(EO):
+	if not _V.validate_orders(EO):
 		e += "WARNING: edgeOrders have incorrect format\n"
-	if not X.validate_orders(FO):
+	if not _V.validate_orders(FO):
 		e += "WARNING: faceOrders have incorrect format\n"
 	if e.length() != e_length: return "INVALID\n" + e
 
 	e_length = e.length()
-	var e_V := X.validate_equal_sizes([VC, VV, VE, VF], 0)
-	var e_E := X.validate_equal_sizes([EV, EF, EA, EFA, EL], 4)
-	var e_F := X.validate_equal_sizes([FV, FE, FF], 10)
+	var e_V := _V.validate_equal_sizes([VC, VV, VE, VF], 0)
+	var e_E := _V.validate_equal_sizes([EV, EF, EA, EFA, EL], 4)
+	var e_F := _V.validate_equal_sizes([FV, FE, FF], 10)
 	for _e in (e_V + e_E + e_F):
 		e += "ERROR: %s and %s sizes are different\n" % [_e[0], _e[1]]
 	if e.length() != e_length: return "INVALID\n" + e
 
-	if not X.validate_EA_with_EFA(self):
+	if not _V.validate_EA_with_EFA(self):
 		e += "WARNING: edges_assignment and edges_foldAngle mismatching\n"
 
 	e_length = e.length()
-	if VC.size() and not X.validate_references(VV, VC):
+	if VC.size() and not _V.validate_references(VV, VC):
 		e += "ERROR: vertices_vertices references missing in vertices_coords\n"
-	if not X.validate_references(VE, EV):
+	if not _V.validate_references(VE, EV):
 		e += "ERROR: vertices_edges references missing in edges_vertices\n"
-	if not X.validate_references(VF, FV):
+	if not _V.validate_references(VF, FV):
 		e += "ERROR: vertices_faces references missing in faces_vertices\n"
-	if VC.size() and not X.validate_references(EV, VC):
+	if VC.size() and not _V.validate_references(EV, VC):
 		e += "ERROR: edges_vertices references missing in vertices_coords\n"
-	if not X.validate_references(EF, FV):
+	if not _V.validate_references(EF, FV):
 		e += "ERROR: edges_faces references missing in faces_vertices\n"
-	if not X.validate_references(EO, EV):
+	if not _V.validate_references(EO, EV):
 		e += "ERROR: edgeOrders references missing in edges_vertices\n"
-	if VC.size() and not X.validate_references(FV, VC):
+	if VC.size() and not _V.validate_references(FV, VC):
 		e += "ERROR: faces_vertices references missing in vertices_coords\n"
-	if not X.validate_references(FE, EV):
+	if not _V.validate_references(FE, EV):
 		e += "ERROR: faces_edges references missing in edges_vertices\n"
-	if not X.validate_references(FF, FV):
+	if not _V.validate_references(FF, FV):
 		e += "ERROR: faces_faces references missing in faces_vertices\n"
-	if not X.validate_references(FO, FV):
+	if not _V.validate_references(FO, FV):
 		e += "ERROR: faceOrders references missing in faces_vertices\n"
 	if e.length() != e_length: return "INVALID\n" + e
 
 	e_length = e.length()
-	if not X.validate_reflexive(VV, VV):
+	if not _V.validate_reflexive(VV, VV):
 		e += "ERROR: vertices_vertices and vertices_vertices mismatching\n"
-	if not X.validate_reflexive(VE, EV):
+	if not _V.validate_reflexive(VE, EV):
 		e += "ERROR: vertices_edges and edges_vertices mismatching\n"
-	if not X.validate_reflexive(VF, FV):
+	if not _V.validate_reflexive(VF, FV):
 		e += "ERROR: vertices_faces and faces_vertices mismatching\n"
-	if not X.validate_reflexive(EF, FE):
+	if not _V.validate_reflexive(EF, FE):
 		e += "ERROR: edges_faces and faces_edges mismatching\n"
-	if not X.validate_reflexive(FF, FF):
+	if not _V.validate_reflexive(FF, FF):
 		e += "ERROR: faces_faces and faces_faces mismatching\n"
 	if e.length() != e_length: return "INVALID\n" + e
 
 	e_length = e.length()
-	if not X.validate_VV_VE_winding(self):
+	if not _V.validate_VV_VE_winding(self):
 		e += "WARNING: vertices_vertices and vertices_edges mismatching winding\n"
-	if not X.validate_VV_VF_winding(self):
+	if not _V.validate_VV_VF_winding(self):
 		e += "WARNING: vertices_vertices and vertices_faces mismatching winding\n"
-	if not X.validate_VE_VF_winding(self):
+	if not _V.validate_VE_VF_winding(self):
 		e += "WARNING: vertices_edges and vertices_faces mismatching winding\n"
-	if not X.validate_FV_FE_winding(self):
+	if not _V.validate_FV_FE_winding(self):
 		e += "WARNING: faces_vertices and faces_edges mismatching winding\n"
-	if not X.validate_FV_FF_winding(self):
+	if not _V.validate_FV_FF_winding(self):
 		e += "WARNING: faces_vertices and faces_faces mismatching winding\n"
-	if not X.validate_FE_FF_winding(self):
+	if not _V.validate_FE_FF_winding(self):
 		e += "WARNING: faces_edges and faces_faces mismatching winding\n"
 	if e.length() != e_length: return "INVALID\n" + e
 

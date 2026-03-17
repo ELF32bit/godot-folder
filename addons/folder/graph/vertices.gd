@@ -5,7 +5,7 @@ static func VC_merge(graph: FoldGraph, distance: float) -> void:
 	var has_EFA := bool(graph.EFA.size() > 0)
 
 	var new_VC: Array = []
-	var buckets: Dictionary = {}
+	var VC_buckets: Dictionary = {}
 	var VC_remap: PackedInt64Array = []
 	var VC_degree: PackedInt32Array = []
 
@@ -14,12 +14,12 @@ static func VC_merge(graph: FoldGraph, distance: float) -> void:
 		var vc = graph.VC[index]
 		var vcs = vc.snappedf(distance) / distance
 		var vcb = (Vector2i(vcs) if is_VC2 else Vector3i(vcs))
-		if not buckets.has(vcb):
+		if not VC_buckets.has(vcb):
 			var new_index := new_VC.size()
-			buckets[vcb] = new_index
+			VC_buckets[vcb] = new_index
 			VC_remap[index] = new_index
 			new_VC.append(Vector2.ZERO if is_VC2 else Vector3.ZERO)
-		else: VC_remap[index] = buckets[vcb]
+		else: VC_remap[index] = VC_buckets[vcb]
 
 	VC_degree.resize(new_VC.size())
 	for index in range(graph.VC.size()):

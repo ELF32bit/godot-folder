@@ -234,18 +234,18 @@ static func validate_FE_FF_winding(graph: FoldGraph) -> bool:
 		var fe: Array = graph.FE[fi]
 		var ff: Array = graph.FF[fi]
 
-		var f_ef: Array = []
+		var fef: Array = []
 		for i in range(fe.size()):
 			var fei: int = fe[i]
-			var prev_size := f_ef.size()
+			var size := fef.size()
 			for ef_fei in graph.EF[fei]:
 				if ef_fei == fi: continue
-				f_ef.append(ef_fei)
-			if prev_size == f_ef.size():
-				f_ef.append(null)
+				fef.append(ef_fei)
+			if size == fef.size():
+				fef.append(null)
 
-		for i in range(maxi(ff.size(), f_ef.size())):
-			if __get(ff, i) != __get(f_ef, i):
+		for i in range(maxi(ff.size(), fef.size())):
+			if __get(ff, i) != __get(fef, i):
 				return false
 	return true
 

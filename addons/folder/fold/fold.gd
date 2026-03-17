@@ -40,8 +40,8 @@ func to_dictionary() -> Dictionary:
 
 static func from_dictionary(dictionary: Dictionary) -> Fold:
 	var fold := Fold.new()
-	const X := preload("validation.gd")
-	if not X.validate_file_types(dictionary):
+	const _V := preload("validation.gd")
+	if not _V.validate_file_types(dictionary):
 		return null
 
 	fold.version = dictionary.get("file_spec", 1.2)
@@ -118,13 +118,13 @@ func get_inherited_frames(always_new: bool = false) -> Array[FoldFrame]:
 
 
 func validate() -> String:
-	const X := preload("validation.gd")
+	const _V := preload("validation.gd")
 	var is_valid := true
 	var e: String = ""
 
 	# validating parents before trying to inherit frames
 	for frame_index in range(frames.size() + 1):
-		if not X.validate_frame_parents(self, frame_index):
+		if not _V.validate_frame_parents(self, frame_index):
 			e += "ERROR: frame %s has bad parents.\n" % frame_index
 	if e.length(): return "INVALID\n" + e
 
