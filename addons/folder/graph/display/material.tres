@@ -1,10 +1,10 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://dxd3m7w22y5o5"]
 
-[ext_resource type="Shader" uid="uid://ptvs77wyjdjt" path="res://addons/folder/graph/shaders/wireframe.gdshader" id="1_vlcbn"]
+[ext_resource type="Shader" uid="uid://ptvs77wyjdjt" path="res://addons/folder/graph/display/wireframe.gdshader" id="1_qg85i"]
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_vlcbn")
+shader = ExtResource("1_qg85i")
 shader_parameter/albedo_color = Color(1, 1, 1, 1)
 shader_parameter/alpha_scissor_threshold = 0.5
 shader_parameter/wireframe_width_min = 49.9999988824

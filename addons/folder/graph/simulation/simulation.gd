@@ -133,8 +133,8 @@ func begin() -> void:
 
 	# creating local rendering device
 	_rd = RenderingServer.create_local_rendering_device()
-	const simulation_shader: RDShaderFile = preload("shaders/simulation.glsl")
-	const integration_shader: RDShaderFile = preload("shaders/integration.glsl")
+	const simulation_shader: RDShaderFile = preload("simulation.glsl")
+	const integration_shader: RDShaderFile = preload("integration.glsl")
 	_simulation_shader = _rd.shader_create_from_spirv(simulation_shader.get_spirv())
 	_integration_shader = _rd.shader_create_from_spirv(integration_shader.get_spirv())
 
