@@ -1,5 +1,5 @@
-const FRONT_MATERIAL := preload("display/material.tres")
-const BACK_MATERIAL := preload("display/material.tres")
+const FRONT_MATERIAL := preload("material.tres")
+const BACK_MATERIAL := preload("material.tres")
 
 
 static func FV3_to_mesh(front_graph: FoldGraph, back_graph: FoldGraph) -> ArrayMesh:
