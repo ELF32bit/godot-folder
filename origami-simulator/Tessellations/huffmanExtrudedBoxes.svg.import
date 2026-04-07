@@ -3,12 +3,11 @@
 importer="fold.svg"
 type="Resource"
 uid="uid://cn5jkblm1hh5o"
-path="res://.godot/imported/huffmanExtrudedBoxes.svg-d7d5f21861f4d7fba61bfeddc23292cf.tres"
+valid=false
 
 [deps]
 
 source_file="res://origami-simulator/Tessellations/huffmanExtrudedBoxes.svg"
-dest_files=["res://.godot/imported/huffmanExtrudedBoxes.svg-d7d5f21861f4d7fba61bfeddc23292cf.tres"]
 
 [params]
 

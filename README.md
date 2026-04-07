@@ -21,10 +21,10 @@ https://github.com/rabbit-ear/rabbit-ear
 * Create a practical tool for encoding digital origami instructions. 
 * Synchronized 3D editor with 2D crease pattern view and a timeline.
 * Attempt to solve Z-fighting of a flat folded paper with stencil decalling.
-* Rigid origami solver for displaying a smooth folding process of key frames.
 * Web viewer for the precomputed animation and a cross-software export.
 
 ## Current features
+* FOLD specification (version 1.2) validation.
 * Triangulation of SVG crease patterns into meshes.
 * Software agnostic encoding of a colorful wireframes.
 * GPU accelerated origami simulation with a CPU fallback.

@@ -3,12 +3,11 @@
 importer="fold.svg"
 type="Resource"
 uid="uid://bexokl73jqstf"
-path="res://.godot/imported/byu solar driven.svg-881879d9aa1ea24793371b77f4f04ecc.tres"
+valid=false
 
 [deps]
 
 source_file="res://origami-simulator/needsCollisions/byu solar driven.svg"
-dest_files=["res://.godot/imported/byu solar driven.svg-881879d9aa1ea24793371b77f4f04ecc.tres"]
 
 [params]
 

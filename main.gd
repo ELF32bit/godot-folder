@@ -49,9 +49,9 @@ func _process(_delta: float) -> void:
 
 	if not graph_simulation:
 		graph_simulation = FoldGraphSimulation3D.new(simulated_graph)
-		graph_simulation.fold_percent = 1.0
+		graph_simulation.fold_percent = 0.85
 		graph_simulation.begin()
-	for index in range(100):
+	for index in range(10):
 		graph_simulation.simulate()
 
 	var graph_flipped := simulated_graph.duplicate(true)

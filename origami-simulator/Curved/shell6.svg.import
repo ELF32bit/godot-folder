@@ -3,12 +3,11 @@
 importer="fold.svg"
 type="Resource"
 uid="uid://4muwdf4at4mm"
-path="res://.godot/imported/shell6.svg-75558cd75d3e3eb91244a16ad9fe9df1.tres"
+valid=false
 
 [deps]
 
 source_file="res://origami-simulator/Curved/shell6.svg"
-dest_files=["res://.godot/imported/shell6.svg-75558cd75d3e3eb91244a16ad9fe9df1.tres"]
 
 [params]
 

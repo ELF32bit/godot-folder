@@ -3,12 +3,11 @@
 importer="fold.svg"
 type="Resource"
 uid="uid://biyfl3hyh7dxf"
-path="res://.godot/imported/CircularPleat-antiFacet.svg-be177da54e9ad37a393d7a90bfc9f218.tres"
+valid=false
 
 [deps]
 
 source_file="res://origami-simulator/Curved/CircularPleat-antiFacet.svg"
-dest_files=["res://.godot/imported/CircularPleat-antiFacet.svg-be177da54e9ad37a393d7a90bfc9f218.tres"]
 
 [params]
 

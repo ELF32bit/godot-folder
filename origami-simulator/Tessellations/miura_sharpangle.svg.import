@@ -3,12 +3,11 @@
 importer="fold.svg"
 type="Resource"
 uid="uid://b3nkcql0k2oq5"
-path="res://.godot/imported/miura_sharpangle.svg-d9d6b1e28d8b292aeba285e6db6cd897.tres"
+valid=false
 
 [deps]
 
 source_file="res://origami-simulator/Tessellations/miura_sharpangle.svg"
-dest_files=["res://.godot/imported/miura_sharpangle.svg-d9d6b1e28d8b292aeba285e6db6cd897.tres"]
 
 [params]
 

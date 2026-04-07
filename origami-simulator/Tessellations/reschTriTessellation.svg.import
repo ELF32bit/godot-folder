@@ -3,12 +3,11 @@
 importer="fold.svg"
 type="Resource"
 uid="uid://tqk533im1ktw"
-path="res://.godot/imported/reschTriTessellation.svg-9709d2728644d890b121acc0fd635edf.tres"
+valid=false
 
 [deps]
 
 source_file="res://origami-simulator/Tessellations/reschTriTessellation.svg"
-dest_files=["res://.godot/imported/reschTriTessellation.svg-9709d2728644d890b121acc0fd635edf.tres"]
 
 [params]
 

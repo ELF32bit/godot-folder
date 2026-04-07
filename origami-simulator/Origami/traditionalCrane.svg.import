@@ -3,12 +3,11 @@
 importer="fold.svg"
 type="Resource"
 uid="uid://dj6xsprpm3ax0"
-path="res://.godot/imported/traditionalCrane.svg-e72d6b3793e90e862887321a65f35e1d.tres"
+valid=false
 
 [deps]
 
 source_file="res://origami-simulator/Origami/traditionalCrane.svg"
-dest_files=["res://.godot/imported/traditionalCrane.svg-e72d6b3793e90e862887321a65f35e1d.tres"]
 
 [params]
 
