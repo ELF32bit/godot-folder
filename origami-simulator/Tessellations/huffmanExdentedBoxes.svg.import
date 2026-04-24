@@ -13,7 +13,7 @@ source_file="res://origami-simulator/Tessellations/huffmanExdentedBoxes.svg"
 
 triangulate=true
 max_size=100.0
-quantization=0.01
+quantization=0.001
 merge_distance=0.5
 grid_step=1.0
 validate=true

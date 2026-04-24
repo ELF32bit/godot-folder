@@ -267,7 +267,7 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 	var sign_has_crease: Dictionary = {}
 	var sign_has_open_boundary: Dictionary = {}
 	var sign_has_boundary: Dictionary = {}
-	var sign_neighbours: Dictionary = {}
+	var sign_neighbors: Dictionary = {}
 
 	if graph.FV.size() > 0:
 		faces_queue.append(0)
@@ -291,7 +291,7 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 			if not ea in _BCJ: sign_has_crease[g_sign] = true
 			if f < 0 and ea in _J: sign_has_open_boundary[g_sign] = true
 			if f < 0 and ea in _BC: sign_has_boundary[g_sign] = true
-			elif ea in _BC: sign_neighbours.get_or_add(g_sign, {})[f] = true
+			elif ea in _BC: sign_neighbors.get_or_add(g_sign, {})[f] = true
 
 		# incrementing the sign when exhausted faces area
 		if not faces_queue.size():
@@ -302,11 +302,11 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 			faces_queue.append(index)
 
 	# trying to remove faces areas that have open boundary
-	for sign in sign_neighbours:
-		for neighbour in sign_neighbours[sign]:
-			var neighbour_sign: int = faces_signs[neighbour]
-			if sign_has_open_boundary.get(neighbour_sign, false):
-				sign_neighbours[sign] = null
+	for sign in sign_neighbors:
+		for neighbor in sign_neighbors[sign]:
+			var neighbor_sign: int = faces_signs[neighbor]
+			if sign_has_open_boundary.get(neighbor_sign, false):
+				sign_neighbors[sign] = null
 				break
 
 	# removing additional faces and creating holes
@@ -321,7 +321,7 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 		if sign_has_boundary.get(sign, false):
 			new_FV.append(graph.FV[index])
 			continue
-		if sign_neighbours[sign] == null:
+		if sign_neighbors[sign] == null:
 			new_FV.append(graph.FV[index])
 	graph.FV = new_FV
 

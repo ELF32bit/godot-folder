@@ -158,13 +158,13 @@ static func _parse_path(attributes: Dictionary) -> Array:
 	var d = __parse_d(attributes.get("d", ""))
 	if d == null: return []
 	var commands: PackedStringArray = d[0]
-	var numbers: Array[PackedFloat64Array] = d[1]
+	var numbers: Array = d[1]
 
 	var edges: Array = []
 	var last_z_index: int = 0
 	var position := Vector2.ZERO
 	for index in range(commands.size()):
-		var p := numbers[index]
+		var p: Array = numbers[index]
 		match commands[index]:
 			"M":
 				position = Vector2(p[0], p[1])
@@ -319,13 +319,14 @@ static func __parse_color_rgb(string: String) -> Variant:
 			return null
 		numbers[index] = n
 
-	return Color.from_rgba8(numbers[0], numbers[1], numbers[2], 255)
+	return Color8(numbers[0], numbers[1], numbers[2], 255)
 
 
 static func __parse_numbers(string: String) -> Variant:
 	var data := String(string).strip_edges()
 	var numbers: PackedFloat64Array = []
-	data = data.replace_chars("\r\n\t,", " ".unicode_at(0))
+	for character in "\r\n\t,":
+		data = data.replace(character, " ")
 	data = data.replace("e+", "/!e!/").replace("e-", "/!ee!/")
 	data = data.replace("E+", "/!E!/").replace("E-", "/!EE!/")
 	data = data.replace("-", " -").replace("+", " +") # separating numbers
@@ -397,7 +398,8 @@ static func __parse_d(string: String) -> Variant:
 		elif not data[index] in "0.123456789Ee+- \r\n\t,":
 			return null
 
-	data = data.replace_chars("MLHVCSQTAZmlhvcsqtaz", "|".unicode_at(0))
+	for character in "MLHVCSQTAZmlhvcsqtaz":
+		data = data.replace(character, "|")
 	var split := data.split("|", true)
 	if split.size():
 		if split[0] != "": return null
@@ -405,8 +407,8 @@ static func __parse_d(string: String) -> Variant:
 	if commands.size() != split.size():
 		return null
 
+	var numbers: Array = []
 	var all_commands: PackedStringArray = []
-	var numbers: Array[PackedFloat64Array] = []
 	for index in range(commands.size()):
 		var c = __parse_numbers(split[index])
 		if c == null: return null
