@@ -1,4 +1,5 @@
 class_name FoldGraphSimulation3D
+## Works, but also not very stable...
 
 const EPSILON: float = 0.0001
 
@@ -30,8 +31,8 @@ func _init(graph: FoldGraph) -> void:
 
 func begin() -> void:
 	if not graph.is_VC3(): return
-	if not graph.EA.size(): return
-	if not graph.EFA.size():
+	if graph.EA.is_empty(): return
+	if graph.EFA.is_empty():
 		FoldGraphBuilder.Edges.EFA_from_EA(graph)
 	FoldGraphBuilder.Edges.EL_from_EVC(graph)
 

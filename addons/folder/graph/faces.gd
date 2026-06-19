@@ -196,7 +196,7 @@ static func FF_from_FV(graph: FoldGraph) -> void:
 
 
 static func FV_triangulate(graph: FoldGraph) -> void:
-	if not graph.FV.size(): return
+	if graph.FV.is_empty(): return
 	var is_VC23 := graph.is_VC23()
 	var is_VC2 := graph.is_VC2()
 

@@ -13,7 +13,7 @@ static func EFA_from_EA(graph: FoldGraph) -> void:
 		var ea: String = graph.EA[ei]
 		match ea:
 			FoldGraph.EdgeAssignment.MOUNTAIN: graph.EFA[ei] = -180.0
-			FoldGraph.EdgeAssignment.VALLEY: graph.EFA[ei] = -180.0
+			FoldGraph.EdgeAssignment.VALLEY: graph.EFA[ei] = +180.0
 			_: graph.EFA[ei] = 0.0
 
 
@@ -31,7 +31,7 @@ static func EA_from_EFA(graph: FoldGraph) -> void:
 
 
 static func EV_grid_intersect(graph: FoldGraph, grid_step: float) -> Array:
-	const _Utilities := preload("utilities.gd")
+	const UTILITIES := preload("utilities.gd")
 	if not graph.is_VC23(): return []
 	if not grid_step > 0.0: return []
 	var is_VC2 := graph.is_VC2()
@@ -40,8 +40,8 @@ static func EV_grid_intersect(graph: FoldGraph, grid_step: float) -> Array:
 	var grid: Dictionary = {}
 	for ei in range(EVC.size()):
 		var evc: Array = EVC[ei]; var cells: Array = [];
-		if is_VC2: cells = _Utilities.segment2_to_grid(evc[0], evc[1], grid_step)
-		else: cells = _Utilities.segment3_to_grid(evc[0], evc[1], grid_step)
+		if is_VC2: cells = UTILITIES.segment2_to_grid(evc[0], evc[1], grid_step)
+		else: cells = UTILITIES.segment3_to_grid(evc[0], evc[1], grid_step)
 		for cell in cells:
 			grid.get_or_add(cell, []).append(ei)
 
@@ -66,13 +66,13 @@ static func EV_grid_intersect(graph: FoldGraph, grid_step: float) -> Array:
 
 static func EVC2_intersect(graph: FoldGraph, grid_step: float, quantization: float = 0.0) -> void:
 	if not graph.is_VC2(): return
-	if not graph.EV.size(): return
+	if graph.EV.is_empty(): return
 	if not grid_step > 0.0: return
 	if not quantization >= 0.0: return
 	var has_EA := bool(graph.EA.size() > 0)
 	var has_EFA := bool(graph.EFA.size() > 0)
 	var is_quantized := bool(quantization != 0.0)
-	const _Q := sqrt(2.0) / 2.0 + 0.000001
+	const _Q_ := sqrt(2.0) / 2.0 + 0.000001
 	var EVC2 := graph.get_EVC()
 
 	var new_VC: Array = []
@@ -85,7 +85,7 @@ static func EVC2_intersect(graph: FoldGraph, grid_step: float, quantization: flo
 		EVC2_expanded = EVC2.duplicate(true)
 		for evc in EVC2_expanded:
 			var direction: Vector2 = (evc[1] - evc[0]).normalized()
-			var expansion := direction * quantization * _Q
+			var expansion := direction * quantization * _Q_
 			evc[0] -= expansion; evc[1] += expansion;
 
 	var grid_intersection := EV_grid_intersect(graph, grid_step)

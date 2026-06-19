@@ -1,9 +1,17 @@
 class_name FoldObjParser
+## Extending FOLD specification to support mesh arrays
+## vertices_color -> VP (RGBA 32 bit html code)
+## normals_coords -> NC
+## uvs_coords -> TC
+## faces_normals -> FN
+## faces_uvs -> FT
+## faces_material -> FM
+## faces_smoothGroup -> FSG
 
 
 static func parse(path: String) -> Fold:
 	var obj_data := _parse_obj(path)
-	if not obj_data.size(): return null
+	if obj_data.is_empty(): return null
 
 	var fold := Fold.new()
 	fold.title = obj_data["file_name"]

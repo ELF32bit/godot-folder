@@ -95,7 +95,10 @@ func _import(source_file: String, save_path: String, options: Dictionary, platfo
 		FoldGraphBuilder.Vertices.VC_merge(graph, options["merge_distance"])
 		FoldGraphBuilder.Coordinates.VC2_snap(graph, options["quantization"])
 		var result = FoldGraphBuilder.Vertices.VC2_triangulate(graph, options["grid_step"])
-		if result == false: return ERR_PARSE_ERROR
+		if result == false:
+			push_warning("Failed to triangulate %s" % [source_file.get_file()])
+			return ERR_PARSE_ERROR
+
 		FoldGraphBuilder.Faces.FV_to_E(graph)
 		FoldGraphBuilder.Faces.FV_to_EF(graph)
 		FoldGraphBuilder.Faces.FV_to_VV(graph)

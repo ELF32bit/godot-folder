@@ -55,7 +55,7 @@ func _init() -> void:
 
 
 func to_dictionary() -> Dictionary:
-	var dictionary := {}
+	var dictionary: Dictionary = {}
 	if len(author): dictionary["frame_author"] = author
 	if len(title): dictionary["frame_title"] = title
 	if len(description): dictionary["frame_description"] = description
@@ -71,8 +71,8 @@ func to_dictionary() -> Dictionary:
 
 static func from_dictionary(dictionary: Dictionary) -> FoldFrame:
 	var frame := FoldFrame.new()
-	const _V := preload("validation.gd")
-	if not _V.validate_frame_types(dictionary):
+	const VALIDATION := preload("validation.gd")
+	if not VALIDATION.validate_frame_types(dictionary):
 		return null
 
 	frame.author = dictionary.get("frame_author", "")
@@ -86,10 +86,10 @@ static func from_dictionary(dictionary: Dictionary) -> FoldFrame:
 	frame.inherit = dictionary.get("frame_inherit", false)
 
 	# handling frame custom data
-	var skip_keys := {}
-	skip_keys.merge(_V.FILE_KEYS)
-	skip_keys.merge(_V.FRAME_KEYS)
-	skip_keys.merge(_V.GRAPH_KEYS)
+	var skip_keys: Dictionary = {}
+	skip_keys.merge(VALIDATION.FILE_KEYS)
+	skip_keys.merge(VALIDATION.FRAME_KEYS)
+	skip_keys.merge(VALIDATION.GRAPH_KEYS)
 	for key in dictionary:
 		if not key in skip_keys:
 			frame.metadata[key] = dictionary[key]
@@ -113,8 +113,8 @@ func inherit_properties(frame: FoldFrame) -> void:
 
 
 func validate() -> String:
-	const _V := preload("validation.gd")
-	var e := graph.validate()
-	if not _V._validate_frame_metadata(self):
-		e += "WARNING: frame metadata is invalid\n"
-	return e
+	var errors := graph.validate()
+	const VALIDATION := preload("validation.gd")
+	if not VALIDATION._validate_frame_metadata(self):
+		errors += "WARNING: frame metadata is invalid\n"
+	return errors

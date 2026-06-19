@@ -1,5 +1,6 @@
 @tool
 extends Node3D
+## TESTING: Click on buttons to see something
 
 @export var fold: Resource = null
 @export var crease_pattern := false:

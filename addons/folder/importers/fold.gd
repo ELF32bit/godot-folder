@@ -63,8 +63,7 @@ func _get_priority() -> float:
 
 func _import(source_file: String, save_path: String, options: Dictionary, platform_variants: Array[String], gen_files: Array[String]) -> Error:
 	var fold := Fold.from_json_file(source_file)
-	if not fold:
-		return ERR_PARSE_ERROR
+	if not fold: return ERR_PARSE_ERROR
 
 	if options.get("validate", true):
 		if not validate(fold, source_file):

@@ -19,12 +19,12 @@ class Class:
 
 
 func _init() -> void:
-	version = 1.2
 	key_frame = FoldFrame.new()
+	version = 1.2
 
 
 func to_dictionary() -> Dictionary:
-	var dictionary := {}
+	var dictionary: Dictionary = {}
 	dictionary["file_spec"] = version
 	if len(creator): dictionary["file_creator"] = creator
 	if len(author): dictionary["file_author"] = author
@@ -40,8 +40,8 @@ func to_dictionary() -> Dictionary:
 
 static func from_dictionary(dictionary: Dictionary) -> Fold:
 	var fold := Fold.new()
-	const _V := preload("validation.gd")
-	if not _V.validate_file_types(dictionary):
+	const VALIDATION := preload("validation.gd")
+	if not VALIDATION.validate_file_types(dictionary):
 		return null
 
 	fold.version = dictionary.get("file_spec", 1.2)
@@ -51,6 +51,7 @@ static func from_dictionary(dictionary: Dictionary) -> Fold:
 	fold.description = dictionary.get("file_description", "")
 	fold.classes = dictionary.get("file_classes", [])
 	fold.key_frame = FoldFrame.from_dictionary(dictionary)
+	if fold.key_frame == null: return null
 	for file_frame in dictionary.get("file_frames", []):
 		var frame := FoldFrame.from_dictionary(file_frame)
 		if frame == null: return null
@@ -100,8 +101,7 @@ func get_inherited_frame(frame_index: int, always_new: bool = false) -> FoldFram
 		inherited_frame.inherit_properties(frame_parent)
 		if frame_parent.inherit:
 			frame_parent = get_frame(frame_parent.parent)
-		else:
-			break
+		else: break
 
 	return inherited_frame
 
@@ -118,15 +118,15 @@ func get_inherited_frames(always_new: bool = false) -> Array[FoldFrame]:
 
 
 func validate() -> String:
-	const _V := preload("validation.gd")
+	const VALIDATION := preload("validation.gd")
+	var errors: String = ""
 	var is_valid := true
-	var e: String = ""
 
 	# validating parents before trying to inherit frames
 	for frame_index in range(frames.size() + 1):
-		if not _V.validate_frame_parents(self, frame_index):
-			e += "ERROR: frame %s has bad parents.\n" % frame_index
-	if e.length(): return "INVALID\n" + e
+		if not VALIDATION.validate_frame_parents(self, frame_index):
+			errors += "ERROR: frame %s has bad parents\n" % frame_index
+	if errors.length(): return "INVALID\n" + errors
 
 	# validating inherited frames
 	var inherited_frames := get_inherited_frames(false)
@@ -140,7 +140,7 @@ func validate() -> String:
 			frame_info = frame_info.trim_prefix("INVALID\n")
 			is_valid = false
 		if frame_info.length():
-			e += "FRAME: %s\n" % frame_index
-			e += frame_info
+			errors += "FRAME: %s\n" % frame_index
+			errors += frame_info
 
-	return ("VALID\n" if is_valid else "INVALID\n") + e
+	return ("VALID\n" if is_valid else "INVALID\n") + errors

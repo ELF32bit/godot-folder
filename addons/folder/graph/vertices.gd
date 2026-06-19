@@ -59,12 +59,12 @@ static func VC_merge(graph: FoldGraph, distance: float) -> void:
 
 
 static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
-	const _Utilities := preload("utilities.gd")
+	const UTILITIES := preload("utilities.gd")
 	if not graph.is_VC2(): return false
 
 	# delaunay triangulating vertices coordinates
 	var triangles := Geometry2D.triangulate_delaunay(graph.VC)
-	if not triangles.size(): return false
+	if triangles.is_empty(): return false
 
 	# creating graph faces from triangles
 	graph.FV.resize(triangles.size() / 3)
@@ -97,7 +97,7 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 			EF_map.get_or_add([u, v], {})[[fi, w]] = true
 			EF_map.get_or_add([v, u], {})[[fi, w]] = true
 			var uu: Vector2 = graph.VC[u]; var vv: Vector2 = graph.VC[v];
-			for cell in _Utilities.segment2_to_grid(uu, vv, grid_step):
+			for cell in UTILITIES.segment2_to_grid(uu, vv, grid_step):
 				grid.get_or_add(cell, {})[[u, v]] = true
 				grid.get_or_add(cell, {})[[v, u]] = true
 
@@ -113,7 +113,7 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 
 		# finding nearby edges for the constrained edge
 		var grid_edges: Dictionary = {}
-		for cell in _Utilities.segment2_to_grid(from, to, grid_step):
+		for cell in UTILITIES.segment2_to_grid(from, to, grid_step):
 			for edge in grid.get(cell, []):
 				var u: int = edge[0]; var v: int = edge[1];
 				grid_edges[[u, v]] = true
@@ -174,10 +174,10 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 			EF_map.get_or_add([w1, v], {})[[f2, w2]] = true
 			EF_map.get_or_add([w2, u], {})[[f1, w1]] = true
 			EF_map.get_or_add([w2, v], {})[[f2, w1]] = true
-			for cell in _Utilities.segment2_to_grid(uu, vv, grid_step):
+			for cell in UTILITIES.segment2_to_grid(uu, vv, grid_step):
 				grid.get_or_add(cell, {}).erase([u, v])
 				grid.get_or_add(cell, {}).erase([v, u])
-			for cell in _Utilities.segment2_to_grid(ww1, ww2, grid_step):
+			for cell in UTILITIES.segment2_to_grid(ww1, ww2, grid_step):
 				grid.get_or_add(cell, {})[[w1, w2]] = true
 				grid.get_or_add(cell, {})[[w2, w1]] = true
 			graph.FV[f1] = [w1, u, w2]
@@ -237,10 +237,10 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 			EF_map.get_or_add([w1, v], {})[[f2, w2]] = true
 			EF_map.get_or_add([w2, u], {})[[f1, w1]] = true
 			EF_map.get_or_add([w2, v], {})[[f2, w1]] = true
-			for cell in _Utilities.segment2_to_grid(uu, vv, grid_step):
+			for cell in UTILITIES.segment2_to_grid(uu, vv, grid_step):
 				grid.get_or_add(cell, {}).erase([u, v])
 				grid.get_or_add(cell, {}).erase([v, u])
-			for cell in _Utilities.segment2_to_grid(ww1, ww2, grid_step):
+			for cell in UTILITIES.segment2_to_grid(ww1, ww2, grid_step):
 				grid.get_or_add(cell, {})[[w1, w2]] = true
 				grid.get_or_add(cell, {})[[w2, w1]] = true
 			graph.FV[f1] = [w1, u, w2]
@@ -252,11 +252,11 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 
 	# preparing to remove additional faces and create holes
 	var EV_map := graph.get_EV_map()
-	var _J := FoldGraph.EdgeAssignment.JOIN
-	var _B := FoldGraph.EdgeAssignment.BOUNDARY
-	var _C := FoldGraph.EdgeAssignment.CUT
-	var _BCJ := _B + _C + _J
-	var _BC := _B + _C
+	var _J_ := FoldGraph.EdgeAssignment.JOIN
+	var _B_ := FoldGraph.EdgeAssignment.BOUNDARY
+	var _C_ := FoldGraph.EdgeAssignment.CUT
+	var _BCJ_ := _B_ + _C_ + _J_
+	var _BC_ := _B_ + _C_
 
 	var g_sign: int = 0
 	var faces_queue: Array = []
@@ -279,19 +279,19 @@ static func VC2_triangulate(graph: FoldGraph, grid_step: float) -> bool:
 			var u: int = fv[i]
 			var v: int = fv[(i + 1) % d]
 			var ei = EV_map.get([u, v], null)
-			var ea: String = (graph.EA[ei] if ei != null else _J)
+			var ea: String = (graph.EA[ei] if ei != null else _J_)
 
 			# trying to grow faces area and signing nearby faces
 			var f: int = -1
-			for ff in EF_map[[u, v]]: if ff[0] != fi: f = ff[0];
-			if not ea in _BC and (f >= 0 and faces_signs[f] < 0):
+			for ff in EF_map.get([u, v], []): if ff[0] != fi: f = ff[0];
+			if not ea in _BC_ and (f >= 0 and faces_signs[f] < 0):
 				faces_signs[f] = g_sign; faces_queue.append(f);
 
 			# determining useful properties of the signed area
-			if not ea in _BCJ: sign_has_crease[g_sign] = true
-			if f < 0 and ea in _J: sign_has_open_boundary[g_sign] = true
-			if f < 0 and ea in _BC: sign_has_boundary[g_sign] = true
-			elif ea in _BC: sign_neighbors.get_or_add(g_sign, {})[f] = true
+			if not ea in _BCJ_: sign_has_crease[g_sign] = true
+			if f < 0 and ea in _J_: sign_has_open_boundary[g_sign] = true
+			if f < 0 and ea in _BC_: sign_has_boundary[g_sign] = true
+			elif ea in _BC_: sign_neighbors.get_or_add(g_sign, {})[f] = true
 
 		# incrementing the sign when exhausted faces area
 		if not faces_queue.size():

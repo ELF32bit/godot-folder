@@ -1,4 +1,4 @@
-const FILE_KEYS := {
+const FILE_KEYS: Dictionary = {
 	"file_spec": 1.2,
 	"file_creator": "",
 	"file_author": "",
@@ -8,7 +8,7 @@ const FILE_KEYS := {
 	"file_frames": [],
 }
 
-const FRAME_KEYS := {
+const FRAME_KEYS: Dictionary = {
 	"frame_author": "",
 	"frame_title": "",
 	"frame_description": "",
@@ -19,7 +19,7 @@ const FRAME_KEYS := {
 	"frame_inherit": false,
 }
 
-const GRAPH_KEYS := {
+const GRAPH_KEYS: Dictionary = {
 	"vertices_coords": [],
 	"vertices_vertices": [],
 	"vertices_edges": [],
@@ -39,15 +39,14 @@ const GRAPH_KEYS := {
 	"edges_lengths": [],
 }
 
-
-const _METADATA_KEYS := {
-	"vertices_color": [],
-	"normals_coords": [],
-	"uvs_coords": [],
-	"faces_normals": [],
-	"faces_uvs": [],
-	"faces_material": [],
-	"faces_smoothGroup": [],
+const _METADATA_KEYS: Dictionary = {
+	"vertices_color": [], # VP
+	"normals_coords": [], # NC
+	"uvs_coords": [], # TC
+	"faces_normals": [], # FN
+	"faces_uvs": [], # FT
+	"faces_material": [], # FM
+	"faces_smoothGroup": [], # FSG
 }
 
 

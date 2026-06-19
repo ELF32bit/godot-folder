@@ -1,3 +1,5 @@
+# Variation of Bresenham's line algorithm fully covering the line
+# Graph edges are rasterized on a pixel grid for a faster intersections
 static func segment2_to_grid(from: Vector2, to: Vector2, grid_step: float) -> Array[Vector2i]:
 	var grid_cells: Array[Vector2i] = []
 	from = from / grid_step; to = to / grid_step;

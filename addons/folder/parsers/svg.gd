@@ -1,9 +1,12 @@
 class_name FoldSvgParser
+## This parser does not yet support full SVG spec
+## TODO: Replace with NanoSVG and also use GNU-GTS for CDT
+## Follow with Vector3.cubic_interpolate (De Casteljau algorithm)
 
 
 static func parse(path: String) -> Fold:
 	var svg_data := _parse_svg(path)
-	if not svg_data.size(): return null
+	if svg_data.is_empty(): return null
 
 	var fold := Fold.new()
 	fold.title = path.get_file().get_basename()

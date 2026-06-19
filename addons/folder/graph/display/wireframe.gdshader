@@ -163,10 +163,10 @@ void fragment() {
 	scale = mix(scale, vec3(wireframe_scale), blend);
 
 	/* preparing wireframe edges assignments color and scale tables */
-	vec4 EA_COLOR_TABLE[8] = {vec4(1.0, 0.0, 1.0, 1.0),
-		J_color, U_color, F_color, V_color, M_color, B_color, C_color};
-	float EA_SCALE_TABLE[8] = {1.0,
-		J_scale, U_scale, F_scale, V_scale, M_scale, B_scale, C_scale};
+	vec4 EA_COLOR_TABLE[8] = { vec4(1.0, 0.0, 1.0, 1.0),
+		J_color, U_color, F_color, V_color, M_color, B_color, C_color };
+	float EA_SCALE_TABLE[8] = { 1.0,
+		J_scale, U_scale, F_scale, V_scale, M_scale, B_scale, C_scale };
 
 	/* obtaining wireframe edges colors */
 	vec4 r = EA_COLOR_TABLE[ea.r];

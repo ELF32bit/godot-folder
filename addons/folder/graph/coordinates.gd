@@ -1,61 +1,3 @@
-static func _mesh_VC3_to_VC(graph: FoldGraph) -> void:
-	var metadata := graph.frame_metadata
-	var VP: Array = metadata.get("vertices_color", [])
-	var NC: Array = metadata.get("normals_coords", [])
-	var TC: Array = metadata.get("uvs_coords", [])
-
-	var new_VP: Array = []
-	new_VP.resize(VP.size())
-	for index in range(VP.size()):
-		var vp4: Color = VP[index]
-		new_VP[index] = "#" + vp4.to_html(true).to_upper()
-
-	var new_NC: Array = []
-	new_NC.resize(NC.size())
-	for index in range(NC.size()):
-		var nc3: Vector3 = NC[index]
-		new_NC[index] = [nc3.x, nc3.y, nc3.z]
-
-	var new_TC: Array = []
-	new_TC.resize(TC.size())
-	for index in range(TC.size()):
-		var tc2: Vector2 = TC[index]
-		new_TC[index] = [tc2.x, tc2.y]
-
-	if metadata.has("vertices_color"): metadata["vertices_color"] = new_VP
-	if metadata.has("normals_coords"): metadata["normals_coords"] = new_NC
-	if metadata.has("uvs_coords"): metadata["uvs_coords"] = new_TC
-
-
-static func _mesh_VC_to_VC3(graph: FoldGraph) -> void:
-	var metadata := graph.frame_metadata
-	var VP: Array = metadata.get("vertices_color", [])
-	var NC: Array = metadata.get("normals_coords", [])
-	var TC: Array = metadata.get("uvs_coords", [])
-
-	var new_VP: Array = []
-	new_VP.resize(VP.size())
-	for index in range(VP.size()):
-		var vp: String = VP[index]
-		new_VP[index] = Color.html(vp)
-
-	var new_NC: Array = []
-	new_NC.resize(NC.size())
-	for index in range(NC.size()):
-		var nc: Array = NC[index]
-		new_NC[index] = Vector3(nc[0], nc[1], nc[2])
-
-	var new_TC: Array = []
-	new_TC.resize(TC.size())
-	for index in range(TC.size()):
-		var tc: Array = TC[index]
-		new_TC[index] = Vector2(tc[0], tc[1])
-
-	if metadata.has("vertices_color"): metadata["vertices_color"] = new_VP
-	if metadata.has("normals_coords"): metadata["normals_coords"] = new_NC
-	if metadata.has("uvs_coords"): metadata["uvs_coords"] = new_TC
-
-
 static func VC_to_VC2(graph: FoldGraph) -> void:
 	var new_VC: Array = []
 	new_VC.resize(graph.VC.size())
@@ -137,7 +79,7 @@ static func VC3_transform(graph: FoldGraph, transform: Transform3D) -> void:
 	graph.VC = new_VC
 
 
-static func VC2_center(graph: FoldGraph, max_size: float = 0.0) -> void:
+static func VC2_center(graph: FoldGraph) -> void:
 	var center := graph.get_rect2().get_center()
 	var transform := Transform2D.IDENTITY.translated(-center)
 	VC2_transform(graph, transform)
@@ -192,3 +134,61 @@ static func VC3_snap(graph: FoldGraph, step: float) -> void:
 		var vc3: Vector3 = graph.VC[index]
 		new_VC[index] = vc3.snappedf(step)
 	graph.VC = new_VC
+
+
+static func _mesh_VC3_to_VC(graph: FoldGraph) -> void:
+	var metadata := graph.frame_metadata
+	var VP: Array = metadata.get("vertices_color", [])
+	var NC: Array = metadata.get("normals_coords", [])
+	var TC: Array = metadata.get("uvs_coords", [])
+
+	var new_VP: Array = []
+	new_VP.resize(VP.size())
+	for index in range(VP.size()):
+		var vp4: Color = VP[index]
+		new_VP[index] = "#" + vp4.to_html(true).to_upper()
+
+	var new_NC: Array = []
+	new_NC.resize(NC.size())
+	for index in range(NC.size()):
+		var nc3: Vector3 = NC[index]
+		new_NC[index] = [nc3.x, nc3.y, nc3.z]
+
+	var new_TC: Array = []
+	new_TC.resize(TC.size())
+	for index in range(TC.size()):
+		var tc2: Vector2 = TC[index]
+		new_TC[index] = [tc2.x, tc2.y]
+
+	if metadata.has("vertices_color"): metadata["vertices_color"] = new_VP
+	if metadata.has("normals_coords"): metadata["normals_coords"] = new_NC
+	if metadata.has("uvs_coords"): metadata["uvs_coords"] = new_TC
+
+
+static func _mesh_VC_to_VC3(graph: FoldGraph) -> void:
+	var metadata := graph.frame_metadata
+	var VP: Array = metadata.get("vertices_color", [])
+	var NC: Array = metadata.get("normals_coords", [])
+	var TC: Array = metadata.get("uvs_coords", [])
+
+	var new_VP: Array = []
+	new_VP.resize(VP.size())
+	for index in range(VP.size()):
+		var vp: String = VP[index]
+		new_VP[index] = Color.html(vp)
+
+	var new_NC: Array = []
+	new_NC.resize(NC.size())
+	for index in range(NC.size()):
+		var nc: Array = NC[index]
+		new_NC[index] = Vector3(nc[0], nc[1], nc[2])
+
+	var new_TC: Array = []
+	new_TC.resize(TC.size())
+	for index in range(TC.size()):
+		var tc: Array = TC[index]
+		new_TC[index] = Vector2(tc[0], tc[1])
+
+	if metadata.has("vertices_color"): metadata["vertices_color"] = new_VP
+	if metadata.has("normals_coords"): metadata["normals_coords"] = new_NC
+	if metadata.has("uvs_coords"): metadata["uvs_coords"] = new_TC

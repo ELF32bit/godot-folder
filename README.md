@@ -9,7 +9,7 @@ This codebase builds upon an existing work.<br>
 All example files are produced by the software below.<br>
 
 1. FOLD file format for origami models, crease patterns, etc.<br>
-https://github.com/edemaine/fold
+https://github.com/edemaine/fold/blob/main/doc/spec.md
 
 2. Realtime WebGL origami simulator.<br>
 https://github.com/amandaghassaei/OrigamiSimulator
@@ -20,7 +20,7 @@ https://github.com/rabbit-ear/rabbit-ear
 ## Design goals
 * Create a practical tool for encoding digital origami instructions. 
 * Synchronized 3D editor with 2D crease pattern view and a timeline.
-* Attempt to solve Z-fighting of a flat folded paper with stencil decalling.
+* Attempt to solve Z-fighting of a flat folded paper with [stencil decaling](https://www.opengl.org/archives/resources/code/samples/advanced/advanced97/notes/node198.html).
 * Web viewer for the precomputed animation and a cross-software export.
 
 ## Current features

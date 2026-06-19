@@ -1,6 +1,9 @@
 #class_name FoldGraphSimulation3D
+## GPU simulation is currently not designed correctly
+## Simulation shader needs to be broken up into more steps
 
 var graph: FoldGraph
+var fold_percent: float = 1.0
 var axial_stiffness: float = 20.0
 var fold_stiffness: float = 0.7
 var join_stiffness: float = 0.7
@@ -32,7 +35,7 @@ func _init(graph: FoldGraph) -> void:
 
 func begin() -> void:
 	if not graph.is_VC3(): return
-	if not graph.EV.size(): return
+	if graph.EV.is_empty(): return
 
 	# preparing to find vertices vertices
 	var vvi: Array = []
@@ -151,7 +154,7 @@ func _begin_uniform(storage_buffer: RID, binding: int) -> RDUniform:
 	return uniform
 
 
-func simulate(delta: float) -> void:
+func simulate() -> void:
 	if not _rd: return
 	_simulation_pipeline = _rd.compute_pipeline_create(_simulation_shader)
 	_integration_pipeline = _rd.compute_pipeline_create(_integration_shader)
@@ -216,12 +219,17 @@ func simulate(delta: float) -> void:
 	_fvv = _rd.buffer_get_data(fvv_buffer).to_float32_array()
 
 	var aabb := AABB()
+	var aabb_is_empty := true
 	for face_index in range(graph.FV.size()):
 		var face: Array = graph.FV[face_index]
 		for index in range(face.size()):
 			var ii: int = face[index]
 			var i := face_index * 12 + index * 4
-			aabb = aabb.expand(Vector3(_fv[i], _fv[i + 1], _fv[i + 2]))
+			var v := Vector3(_fv[i], _fv[i + 1], _fv[i + 2])
+			if aabb_is_empty:
+				aabb_is_empty = false
+				aabb = AABB(v, Vector3.ZERO)
+			else: aabb = aabb.expand(v)
 	_center = aabb.get_center()
 
 	for face_index in range(graph.FV.size()):
@@ -229,7 +237,8 @@ func simulate(delta: float) -> void:
 		for index in range(face.size()):
 			var ii: int = face[index]
 			var i := face_index * 12 + index * 4
-			graph.VC[ii] = Vector3(_fv[i], _fv[i + 1], _fv[i + 2]) - _center
+			var v := Vector3(_fv[i], _fv[i + 1], _fv[i + 2])
+			graph.VC[ii] = v - _center
 			_fv[i] -= _center.x
 			_fv[i + 1] -= _center.y
 			_fv[i + 2] -= _center.z
