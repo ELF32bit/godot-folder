@@ -354,7 +354,8 @@ static func VE_from_VV(graph: FoldGraph) -> bool:
 	graph.VE = new_VE
 	return true
 
-
+# TODO: This algorithm is fundamentally incorrect
+# Faces need to be reconstructed by traversing directed VV edges
 static func VF_from_VV(graph: FoldGraph) -> void:
 	var FV_map: Dictionary = {}
 	for fi in range(graph.FV.size()):

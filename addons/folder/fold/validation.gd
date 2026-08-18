@@ -246,6 +246,8 @@ static func validate_FE_FF_winding(graph: FoldGraph) -> bool:
 			if size == fef.size():
 				fef.append(null)
 
+		# TODO: Only works for manifolds (2 faces around an edge)
+		# Faces edges faces pattern must be present in FF|FF array
 		for i in range(maxi(ff.size(), fef.size())):
 			if __get(ff, i) != __get(fef, i):
 				return false
