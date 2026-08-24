@@ -41,6 +41,7 @@ const vec3 BC_TABLE[4] = {
 const float EPSILON = 0.001;
 const float VBC_TABLE[4] = { 0.0, 1.0, -1.0, -1.0 };
 
+/* NOTE: the table uses 19 bits, blending more than 4 edges is possible */
 const vec4 V4EAC_TABLE[70] = {
 	vec4(0, 0, 0, 0), vec4(0, 0, 0, 1), vec4(0, 0, 0, 2), vec4(0, 0, 0, 3),
 	vec4(0, 0, 0, 4), vec4(0, 0, 1, 0), vec4(0, 0, 1, 1), vec4(0, 0, 1, 2),
@@ -155,6 +156,7 @@ void fragment() {
 	if (albedo_texture_color.a < alpha_scissor_threshold) { discard; }
 	ALBEDO = albedo_texture_color.rgb * albedo_color;
 
+	/* NOTE: use absolute width if exponential blending feels weird */
 	/* blending between absolute and relative wireframe width */
 	vec3 ibc = vec3(1.0) - bc.rgb;
 	float c = max(max(bc.r, bc.g), bc.b);
