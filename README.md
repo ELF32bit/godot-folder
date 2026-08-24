@@ -4,6 +4,8 @@ Folder plugin provides a way to work with FOLD (Flexible Origami List Datastruct
 Draw crease patterns and simulate them, freeze the intermediate results as key frames.<br>
 Export precomputed folding animation as an easy to parse series of meshes.<br>
 
+> ⚠️ This project has moved to the [new repository](https://github.com/ELF32bit/paper-folder).
+
 ## Inspiration
 This codebase builds upon an existing work.<br>
 All example files are produced by the software below.<br>
@@ -18,7 +20,7 @@ https://github.com/amandaghassaei/OrigamiSimulator
 https://github.com/rabbit-ear/rabbit-ear
 
 ## Design goals
-* Create a practical tool for encoding digital origami instructions. 
+* Create a practical tool for encoding digital origami instructions.
 * Synchronized 3D editor with 2D crease pattern view and a timeline.
 * Attempt to solve Z-fighting of a flat folded paper with [stencil decaling](https://www.opengl.org/archives/resources/code/samples/advanced/advanced97/notes/node198.html).
 * Web viewer for the precomputed animation and a cross-software export.
